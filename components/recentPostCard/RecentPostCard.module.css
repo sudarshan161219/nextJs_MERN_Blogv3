@@ -1,0 +1,42 @@
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.postInfo {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1rem 0;
+}
+
+.date {
+  color: #6941c6;
+  font-size: 14px;
+  font-weight: 600px;
+}
+
+.postTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--textColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postDesc {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 155%;
+  color: var(--softTextColor);
+}
+
+.icon {
+  color: var(--softTextColor);
+  font-size: 1rem;
+}

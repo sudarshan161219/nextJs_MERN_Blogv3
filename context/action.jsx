@@ -1,0 +1,2 @@
+export const TOGGLE_MOBILE_MENU = 'TOGGLE_MOBILE_MENU'
+export const TOGGLE_THEME = 'TOGGLE_THEME'

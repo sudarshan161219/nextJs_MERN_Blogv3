@@ -1,0 +1,29 @@
+.container {
+  width: 38px;
+  height: 20px;
+  border-radius: 12px;
+  /* background-color: #f7f7f7; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: space-between;
+  outline: 1px solid #bebdbd;
+  transition: ease-in-out 0.3s;
+
+}
+
+.circle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  /* background-color: #212121; */
+  transition: ease-in-out 0.3s;
+}
+
+.icons {
+  transition: ease-in-out 0.3s;
+}
