@@ -3,29 +3,28 @@ import { Inter } from "next/font/google";
 import React, { useReducer, createContext, useContext, useEffect } from "react";
 import reducer from "./reducer";
 
-import { TOGGLE_MOBILE_MENU, TOGGLE_THEME } from "./action"
+import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER } from "./action"
 
 
 let theme
 let themeState
 let parsedData
 
-const getLS = () => {
+const ISSERVER = typeof window === "undefined";
+if (!ISSERVER) {
     theme = localStorage.getItem("theme")
     themeState = localStorage.getItem("toggleState")
     parsedData = JSON.parse(themeState)
 }
 
-getLS()
 
 
 const initialState = {
     toggleMobileMenu: false,
+    isServer: true,
     toggleTheme: parsedData && parsedData,
     theme: theme && theme,
 };
-
-
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,11 +34,7 @@ const ContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
 
-    useEffect(() => {
-        if (state.toggleTheme) {
-            document.body.className = state.theme;
-        }
-    }, [state.toggleTheme, state.theme]);
+
 
     const toggleMenu = () => {
         dispatch({ type: TOGGLE_MOBILE_MENU })
@@ -66,12 +61,18 @@ const ContextProvider = ({ children }) => {
         themeFn()
     }
 
-
-
-    const getLS = () => {
-        g = localStorage.getItem("trt");
+    const isServerFn = () => {
+        dispatch({ type: IS_SERVER })
     }
 
+    useEffect(() => {
+        isServerFn()
+        document.body.className = state.theme === null ? "ligth" : state.theme;
+
+        if (state.toggleTheme) {
+            document.body.className = state.theme
+        }
+    }, [state.toggleTheme, state.theme]);
 
     return (
         <Context.Provider value={{ ...state, toggleMenu, toggleThemefn }} >

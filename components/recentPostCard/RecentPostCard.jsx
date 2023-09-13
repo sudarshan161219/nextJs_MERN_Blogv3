@@ -1,12 +1,12 @@
+"use client"
 import React from 'react'
 import styles from "./RecentPostCard.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
 import { LuExternalLink } from "react-icons/lu"
-
+import { useAppContext } from '@/context/Context'
 const RecentPostCard = ({ post }) => {
-
-
+    const { isServer } = useAppContext()
     const bgcolorsArr = [
         '1, 106, 112',
         '199, 0, 57',
@@ -37,9 +37,15 @@ const RecentPostCard = ({ post }) => {
 
                     <ul className={styles.tags}>
                         {shuffledBg.map((bg, idx) => (
-                                <li  style={{ backgroundColor: `rgb(${bg}, 0.1)`, color: `rgb(${bg})` }} className={styles.tag} key={ idx}>
-                                    {post.tags[idx]}
-                                </li>
+                            <li
+                                style={{
+                                    backgroundColor:
+                                        `${!isServer && `rgb(${bg}, 0.1)`}`
+                                    , color: `${!isServer && `rgb(${bg})`}`
+                                }}
+                                className={styles.tag} key={idx}>
+                                {post.tags[idx]}
+                            </li>
                         ))}
 
                     </ul>

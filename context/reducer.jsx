@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, TOGGLE_THEME } from "./action"
+import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER } from "./action"
 
 
 import { initialState } from "./Context";
@@ -12,12 +12,20 @@ const reducer = (state, action) => {
     }
 
     if (action.type === TOGGLE_THEME) {
-
-        const { toggleTheme} = state
+        const { toggleTheme } = state
         return {
             ...state,
             toggleTheme: !state.toggleTheme,
             theme: !toggleTheme ? "dark" : "light"
+        }
+    }
+
+
+    if (action.type === IS_SERVER) {
+        const ISSERVER = typeof window === "undefined";
+        return {
+            ...state,
+            isServer: !ISSERVER ? false : true
         }
     }
 
