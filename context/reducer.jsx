@@ -13,7 +13,7 @@ const reducer = (state, action) => {
 
     if (action.type === TOGGLE_THEME) {
 
-        const { toggleTheme, theme } = state
+        const { toggleTheme} = state
         return {
             ...state,
             toggleTheme: !state.toggleTheme,

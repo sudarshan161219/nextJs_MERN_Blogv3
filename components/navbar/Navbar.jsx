@@ -21,9 +21,12 @@ const Navbar = () => {
         <li className={styles.link}> <Link href="/">Contact</Link>  </li>
         <li className={styles.link}>profile</li>
         <li onClick={toggleMenu} className={styles.link}>
-          <span className={toggleMobileMenu ? styles.xline : styles.line}></span>
-          <span className={toggleMobileMenu ? styles.xline : styles.line}></span>
-          <span className={toggleMobileMenu ? styles.xline : styles.line}></span>
+          <span
+            className={toggleMobileMenu ? styles.xline : styles.line}></span>
+          <span
+            className={toggleMobileMenu ? styles.xline : styles.line}></span>
+          <span
+            className={toggleMobileMenu ? styles.xline : styles.line}></span>
         </li>
       </ul>
 

@@ -6,14 +6,22 @@ import reducer from "./reducer";
 import { TOGGLE_MOBILE_MENU, TOGGLE_THEME } from "./action"
 
 
-const theme = localStorage.getItem("theme")
-const themeState = localStorage.getItem("toggleState")
+let theme
+let themeState
+let parsedData
 
-const parse = JSON.parse(themeState)
+const getLS = () => {
+    theme = localStorage.getItem("theme")
+    themeState = localStorage.getItem("toggleState")
+    parsedData = JSON.parse(themeState)
+}
+
+getLS()
+
 
 const initialState = {
     toggleMobileMenu: false,
-    toggleTheme: parse && parse,
+    toggleTheme: parsedData && parsedData,
     theme: theme && theme,
 };
 
@@ -39,7 +47,7 @@ const ContextProvider = ({ children }) => {
 
     const themeFn = () => {
         if (!state.toggleTheme) {
-            
+
             document.body.className = 'dark';
             localStorage.setItem("theme", "dark");
             localStorage.setItem("toggleState", true);
@@ -56,6 +64,12 @@ const ContextProvider = ({ children }) => {
     const toggleThemefn = () => {
         dispatch({ type: TOGGLE_THEME })
         themeFn()
+    }
+
+
+
+    const getLS = () => {
+        g = localStorage.getItem("trt");
     }
 
 

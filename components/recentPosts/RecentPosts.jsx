@@ -8,9 +8,13 @@ const RecentPosts = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Recent Blog Posts</h1>
-            {data.map((item, idx) => (
-                <RecentPostCard key={idx} post={item} />
-            ))}
+
+            <div className={styles.cards}>
+                {data.map((item, idx) => (
+                    <RecentPostCard key={idx} post={item} />
+                ))}
+            </div>
+
         </div>
     )
 }

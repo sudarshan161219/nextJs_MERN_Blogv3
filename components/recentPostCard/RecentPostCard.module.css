@@ -40,3 +40,23 @@
   color: var(--softTextColor);
   font-size: 1rem;
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.tag {
+  padding: 0.3rem;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+@media screen and (min-width: 760px) {
+.container:first-child{
+  grid-column: 3 / 1;
+}
+}

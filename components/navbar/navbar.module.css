@@ -68,3 +68,11 @@
   }
 }
 
+
+@media screen and (min-width: 1000px) {
+  .container{
+    width: 900px;
+    margin:0 auto;
+  }
+}
+
