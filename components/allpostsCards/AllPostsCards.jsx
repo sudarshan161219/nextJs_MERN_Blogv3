@@ -1,13 +1,13 @@
 "use client"
 import React from 'react'
-import styles from "./RecentPostCard.module.css"
+import styles from "./allPostsCards.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
 import { LuExternalLink } from "react-icons/lu"
 import { useAppContext } from '@/context/Context'
 
 
-const RecentPostCard = ({ post }) => {
+const AllPostsCards = ({ post }) => {
     const { isServer } = useAppContext()
     const bgcolorsArr = [
         '1, 106, 112',
@@ -57,4 +57,4 @@ const RecentPostCard = ({ post }) => {
     )
 }
 
-export default RecentPostCard
+export default AllPostsCards
