@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  background-color: var(--bg);
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  transition: ease-in-out 0.3s;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--textColor) 1px solid;
+
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.link {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--textColor);
+}
+

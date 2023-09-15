@@ -155,7 +155,7 @@ a {
   --textColor: #ddd;
   --softBg: #0e0f13;
   --softTextColor: #c0c5d0;
-  --iconTransform:23px;
+  --iconTransform: 23px;
   transition: ease-in-out 0.3s;
 }
 
@@ -173,7 +173,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-  padding: 0.9rem;
+  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--bg);
 }
