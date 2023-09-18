@@ -1,0 +1,22 @@
+.container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.paginationText {
+  color: var(--textColor);
+  font-size: 1.3rem;
+}
+
+.paginationIcons {
+  color: var(--textColor);
+  font-size: 2rem;
+}

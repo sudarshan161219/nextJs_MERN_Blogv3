@@ -34,15 +34,15 @@ const Navbar = () => {
   return (
     <nav
       className={
-        `${scrollPosition > 100 ? ` ${styles.stickyNav} ${styles.container} ${inter.className}` : `${styles.container} ${inter.className}`}`
+        `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
       <h1 className={styles.textLogo}>SH || BLOG</h1>
       <ul className={styles.links}>
         <li className={styles.link}><ThemeChanger /></li>
-        <li className={styles.link}> <Link href="/">Home</Link>  </li>
-        <li className={styles.link}> <Link href="/">About</Link>  </li>
-        <li className={styles.link}> <Link href="/">Contact</Link>  </li>
-        <li className={styles.link}>profile</li>
+        <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
+        <li className={styles.link}> <Link className={styles.liLink} href="/">About</Link>  </li>
+        <li className={styles.link}> <Link className={styles.liLink} href="/">Contact</Link>  </li>
+        <li className={styles.link}> <Link className={styles.liLink} href="/">profile</Link></li>
         <li onClick={toggleMenu} className={styles.link}>
           <span
             className={toggleMobileMenu ? styles.xline : styles.line}></span>

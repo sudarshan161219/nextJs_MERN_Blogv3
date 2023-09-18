@@ -1,21 +1,20 @@
 import React from 'react'
-import styles from "./allPosts.module.css"
-import AllPostsCards from '../allpostsCards/AllPostsCards'
-import data from "../../src/app/data/allPostData.json"
+import styles from "./Page.module.css"
+import { AllPostsCards } from '@/components/export'
+import data from "../../data/allPostData.json"
 
+const Page = () => {
 
-const Allposts = () => {
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>All Blog Posts</h1>
+            <h1 className={styles.Headtitle}>Category Name</h1>
             <div className={styles.cards}>
                 {data.map((item, idx) => (
                     <AllPostsCards key={idx} post={item} />
                 ))}
             </div>
-
         </div>
     )
 }
 
-export default Allposts
+export default Page

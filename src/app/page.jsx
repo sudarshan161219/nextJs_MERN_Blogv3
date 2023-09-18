@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./page.module.css"
-import { HomeTitle, RecentPosts, CategoriesTabs, Allposts } from '@/components/export'
+import { HomeTitle, RecentPosts, CategoriesTabs, Allposts, Pagination } from '@/components/export'
 
 const App = () => {
   return (
@@ -8,7 +8,8 @@ const App = () => {
       <HomeTitle />
       <RecentPosts />
       <CategoriesTabs />
-      < Allposts />
+      <Allposts />
+      <Pagination />
     </div>
   )
 }
