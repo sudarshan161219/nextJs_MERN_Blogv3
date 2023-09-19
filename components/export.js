@@ -7,6 +7,7 @@ import Allposts from "./allPosts/Allposts";
 import MobileNav from "./mobileNav/MobileNav";
 import Pagination from "./pagination/Pagination";
 import AllPostsCards from "./allpostsCards/AllPostsCards";
+import SinglePost from "./singlePost/SinglePost";
 export {
   Navbar,
   Footer,
@@ -16,5 +17,6 @@ export {
   Allposts,
   MobileNav,
   Pagination,
-  AllPostsCards
+  AllPostsCards,
+  SinglePost
 };
