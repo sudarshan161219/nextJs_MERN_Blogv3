@@ -11,7 +11,7 @@ const MobileNav = () => {
                 <li > <Link className={styles.link} href="/">Home</Link>  </li>
                 <li > <Link className={styles.link} href="/">About</Link>  </li>
                 <li > <Link className={styles.link} href="/">Contact</Link>  </li>
-                <li > <Link className={styles.link} href="/"> profile</Link> </li>
+                <li > <Link className={styles.link} href="/register"> profile</Link> </li>
             </ul>
         </div>
     )

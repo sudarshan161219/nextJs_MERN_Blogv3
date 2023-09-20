@@ -4,6 +4,12 @@
   gap: 2rem;
 }
 
+.Postcontainer {
+  padding: 0.9rem;
+  display: grid;
+  gap: 2rem;
+}
+
 .infoContainer {
   display: grid;
   gap: 1.2rem;
@@ -89,6 +95,7 @@
   color: var(--textColor);
   font-size: 1.2rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .likeCount,
@@ -117,4 +124,39 @@
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+.textContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .imgContainer {
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .imgContainer {
+    height: 550px;
+  }
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .postInfo {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Postcontainer {
+    width: 900px;
+    margin: auto;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
 }

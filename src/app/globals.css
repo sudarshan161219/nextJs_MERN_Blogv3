@@ -147,6 +147,8 @@ a {
   --softBg: #f0f0f0;
   --softTextColor: #626262;
   --iconTransform: 0px;
+  --btnBgHover:#272829;
+  --btnTextHover:#F7F5F2;
   transition: ease-in-out 0.3s;
 }
 
@@ -156,6 +158,8 @@ a {
   --softBg: #0e0f13;
   --softTextColor: #c0c5d0;
   --iconTransform: 23px;
+  --btnBgHover:#F7F5F2;
+  --btnTextHover:#272829;
   transition: ease-in-out 0.3s;
 }
 

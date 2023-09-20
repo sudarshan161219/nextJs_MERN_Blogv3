@@ -26,3 +26,8 @@
   color: var(--textColor);
 }
 
+@media screen and (min-width:1000px) {
+  .container{
+    display: none;
+  }
+}
