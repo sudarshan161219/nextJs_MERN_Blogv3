@@ -1,0 +1,22 @@
+.title {
+  font-size: 1.3rem;
+  color: var(--textColor);
+  font-weight: 500;
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
+}
+
+.cards {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 650px) {
+    .cards{
+        gap: 0.9rem;
+        grid-template-columns: repeat(auto-fit, minMax(min(100%, 250px), 1fr) );
+    }
+  }

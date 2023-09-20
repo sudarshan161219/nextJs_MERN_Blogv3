@@ -43,6 +43,7 @@
 .authorImage {
   width: 40px;
   height: 40px;
+  object-fit: cover;
   border-radius: 100%;
   outline: 1px solid var(--softTextColor);
 }
@@ -62,15 +63,58 @@
   line-height: 150%;
 }
 
-.tagsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 11px;
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
 }
 
 .tag {
-    padding: 0.3rem;
-    border-radius: 7px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
+  padding: 0.3rem;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.likeDislikeSavePostContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.likeIcon,
+.dislikeIcon,
+.commentIcon,
+.saveIcon {
+  color: var(--textColor);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.likeCount,
+.dislikeCount,
+.commentCount {
+  color: var(--textColor);
+  font-size: 1rem;
+}
+
+.likeIcon:hover,
+.dislikeIcon:hover,
+.commentIcon:hover,
+.saveIcon:hover {
+  color: var(--softTextColor);
+}
+
+.likeDislikeContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.likeContainer,
+.dislikeContainer,
+.commentContainer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}

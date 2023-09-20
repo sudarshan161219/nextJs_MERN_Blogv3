@@ -8,6 +8,7 @@ import MobileNav from "./mobileNav/MobileNav";
 import Pagination from "./pagination/Pagination";
 import AllPostsCards from "./allpostsCards/AllPostsCards";
 import SinglePost from "./singlePost/SinglePost";
+import RecommentArticles from "./recommendedArticles/RecommentArticles";
 export {
   Navbar,
   Footer,
@@ -18,5 +19,6 @@ export {
   MobileNav,
   Pagination,
   AllPostsCards,
-  SinglePost
+  SinglePost,
+  RecommentArticles 
 };
