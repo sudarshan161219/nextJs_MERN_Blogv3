@@ -1,0 +1,140 @@
+.container {
+  padding: 10px;
+}
+
+.imgContainer {
+  display: none;
+}
+
+.title {
+  color: var(--textColor);
+  font-size: 2.5rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* gap: 2rem; */
+  width: 100%;
+}
+
+.authGoogle_faceBook {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+
+.span {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: var(--softTextColor);
+}
+
+.socialBtn {
+  border: none;
+  padding: 10px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+  }
+  
+  .input {
+    font-size: 16px;
+    padding: 10px 0px 10px 5px;
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
+    color: var(--textColor);
+  }
+  .input:focus {
+    outline: none;
+  }
+  
+  /* LABEL ======================================= */
+  .label {
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+  }
+  
+  /* active state */
+  .input:focus ~ .label,
+  .input:valid ~ .label {
+    top: -5px;
+    font-size: 12px;
+    color: var(--softTextColor);
+  }
+  
+  /* BOTTOM BARS ================================= */
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  .bar:before,
+  .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: var(-bg);
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+  }
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
+  
+  /* active state */
+  .input:focus ~ .bar:before,
+  .input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+@media screen and (min-width: 500px) {
+  .authGoogle_faceBook {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .socialBtn {
+    width: max-content;
+  }
+}
