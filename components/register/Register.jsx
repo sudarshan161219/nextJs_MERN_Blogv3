@@ -8,6 +8,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 
 const Register = () => {
     const [show, setShow] = useState(false)
+    const [isMember, setIsMember] = useState(false)
 
     const handleShowPassword = () => {
         setShow(!show)
@@ -22,22 +23,28 @@ const Register = () => {
         console.log(data);
     };
 
-    return (
-        <div className={styles.container}>
 
+    const handleIsMember = () => {
+        setIsMember(!isMember)
+    }
+
+    return (
+
+        <div className={styles.container}>
             <div className={styles.imgContainer} >
                 <Image src="/loginPage.jpg" alt="signin/signup" width="64" height="64" />
             </div>
             <div className={styles.formContainer} >
-                <h1 className={styles.title}>Create Account</h1>
+                <h1 className={styles.title}> {isMember ? "Welcome Back!" : "Create Account"}</h1>
                 <div className={styles.authGoogle_faceBook} >
                     <button className={styles.socialBtn}>
                         <FcGoogle className={styles.socialIcon} />
-                        Sign up with Google
+                        {`Sign ${isMember ? "in" : "up"} with Google`}
+
                     </button>
                     <button className={styles.socialBtn}>
                         <BsFacebook className={`${styles.socialIcon}  ${styles.socialFacebookIcon}`} />
-                        Sign up with Facebook
+                        {`Sign ${isMember ? "in" : "up"} with Facebook`}
                     </button>
                 </div>
 
@@ -46,11 +53,11 @@ const Register = () => {
 
                 <form onSubmit={handleSubmit} className={styles.form}>
 
-                    <div className={styles.group}>
+                    {isMember ? null : <div className={styles.group}>
                         <input name='name' className={styles.input} type="text" required />
                         <span className={styles.bar}></span>
                         <label className={styles.label}>Name</label>
-                    </div>
+                    </div>}
 
 
                     <div className={styles.group}>
@@ -69,8 +76,11 @@ const Register = () => {
                             <AiOutlineEye onClick={handleShowPassword} className={styles.pIcon} />
                         }
                     </div>
-                    <button className={styles.button}>Create Account</button>
+                    <button className={styles.button}>{isMember ? "Login" : "Create Account"}</button>
                 </form>
+                <p className={styles.desc}>
+                    {`${isMember ? "Don't" : "Already"} have a account?`} <span
+                        onClick={handleIsMember} className={styles.descSpan}> {isMember ? "Sign Up" : "Log In"}  </span> </p>
             </div>
 
         </div>

@@ -1,5 +1,6 @@
 .container {
-    padding: 10px;
+    padding: 15px;
+    margin-top: 2rem;
   }
   
   .imgContainer {
@@ -36,6 +37,7 @@
     font-size: 2.1rem;
     font-weight: 400;
     color: var(--softTextColor);
+    opacity: 0.8;
   }
   
   .socialBtn {
@@ -156,6 +158,20 @@
           background-color: var(  --registerBtnBg);
           color: var(--textColor);
     }
+
+    .desc{
+        color: var(--softTextColor);
+    }
+
+    .descSpan{
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .descSpan:hover{
+        text-decoration: underline;
+        transition: ease-in-out 0.3s;
+    }
   
   @media screen and (min-width: 500px) {
     .authGoogle_faceBook {
@@ -166,6 +182,10 @@
   
     .socialBtn {
       width: max-content;
+      gap: 0.7rem;
+    }
+    .socialIcon{
+        font-size: 1.1rem;
     }
   }
   
