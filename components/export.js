@@ -9,6 +9,8 @@ import Pagination from "./pagination/Pagination";
 import AllPostsCards from "./allpostsCards/AllPostsCards";
 import SinglePost from "./singlePost/SinglePost";
 import RecommentArticles from "./recommendedArticles/RecommentArticles";
+import Register from "./register/Register";
+
 export {
   Navbar,
   Footer,
@@ -20,5 +22,6 @@ export {
   Pagination,
   AllPostsCards,
   SinglePost,
-  RecommentArticles 
+  RecommentArticles ,
+  Register
 };
