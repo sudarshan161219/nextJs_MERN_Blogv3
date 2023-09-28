@@ -1,17 +1,19 @@
-import React from 'react'
+"use client"
 import Link from 'next/link'
 import styles from "./mobile.module.css"
-
+import { useAppContext } from "@/context/Context"
 
 
 const MobileNav = () => {
+    const { toggleMenu } = useAppContext()
+
     return (
         <div className={styles.container}>
             <ul className={styles.links}>
-                <li > <Link className={styles.link} href="/">Home</Link>  </li>
-                <li > <Link className={styles.link} href="/">About</Link>  </li>
-                <li > <Link className={styles.link} href="/">Contact</Link>  </li>
-                <li > <Link className={styles.link} href="/register"> profile</Link> </li>
+                <li onClick={toggleMenu}> <Link className={styles.link} href="/">Home</Link>  </li>
+                <li onClick={toggleMenu}> <Link className={styles.link} href="/">About</Link>  </li>
+                <li onClick={toggleMenu}> <Link className={styles.link} href="/">Contact</Link>  </li>
+                <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> profile</Link> </li>
             </ul>
         </div>
     )
