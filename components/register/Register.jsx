@@ -29,6 +29,8 @@ const Register = () => {
     }
 
     return (
+<div className={styles.main}>
+
 
         <div className={styles.container}>
             <div className={styles.imgContainer} >
@@ -37,12 +39,12 @@ const Register = () => {
             <div className={styles.formContainer} >
                 <h1 className={styles.title}> {isMember ? "Welcome Back!" : "Create Account"}</h1>
                 <div className={styles.authGoogle_faceBook} >
-                    <button className={styles.socialBtn}>
+                    <button className={`${styles.btn} ${styles.socialBtn}`}>
                         <FcGoogle className={styles.socialIcon} />
                         {`Sign ${isMember ? "in" : "up"} with Google`}
 
                     </button>
-                    <button className={styles.socialBtn}>
+                    <button className={`${styles.btn} ${styles.socialBtn}`}>
                         <BsFacebook className={`${styles.socialIcon}  ${styles.socialFacebookIcon}`} />
                         {`Sign ${isMember ? "in" : "up"} with Facebook`}
                     </button>
@@ -76,13 +78,14 @@ const Register = () => {
                             <AiOutlineEye onClick={handleShowPassword} className={styles.pIcon} />
                         }
                     </div>
-                    <button className={styles.button}>{isMember ? "Login" : "Create Account"}</button>
+                    <button className={`${styles.btn} ${styles.button}`}>{isMember ? "Login" : "Create Account"}</button>
                 </form>
                 <p className={styles.desc}>
                     {`${isMember ? "Don't" : "Already"} have a account?`} <span
                         onClick={handleIsMember} className={styles.descSpan}> {isMember ? "Sign Up" : "Log In"}  </span> </p>
             </div>
 
+        </div>
         </div>
     )
 }
