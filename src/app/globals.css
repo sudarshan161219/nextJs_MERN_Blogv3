@@ -146,6 +146,7 @@ a {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
+  --registerBtnBg:#cbccce;
   --iconTransform: 0px;
   --btnBgHover:#272829;
   --btnTextHover:#F7F5F2;
@@ -157,6 +158,7 @@ a {
   --textColor: #ddd;
   --softBg: #0e0f13;
   --softTextColor: #c0c5d0;
+  --registerBtnBg:#272829;
   --iconTransform: 23px;
   --btnBgHover:#F7F5F2;
   --btnTextHover:#272829;

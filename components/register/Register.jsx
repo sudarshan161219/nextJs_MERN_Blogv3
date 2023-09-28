@@ -13,6 +13,15 @@ const Register = () => {
         setShow(!show)
     }
 
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData);
+        console.log(data);
+    };
+
     return (
         <div className={styles.container}>
 
@@ -27,7 +36,7 @@ const Register = () => {
                         Sign up with Google
                     </button>
                     <button className={styles.socialBtn}>
-                        <BsFacebook className={styles.socialIcon} />
+                        <BsFacebook className={`${styles.socialIcon}  ${styles.socialFacebookIcon}`} />
                         Sign up with Facebook
                     </button>
                 </div>
@@ -35,24 +44,24 @@ const Register = () => {
 
                 <span className={styles.span}>- OR - </span>
 
-                <form className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form}>
 
                     <div className={styles.group}>
-                        <input className={styles.input} type="text" required />
+                        <input name='name' className={styles.input} type="text" required />
                         <span className={styles.bar}></span>
                         <label className={styles.label}>Name</label>
                     </div>
 
 
                     <div className={styles.group}>
-                        <input className={styles.input} type="email" required />
+                        <input name='email' className={styles.input} type="text" required />
                         <span className={styles.bar}></span>
                         <label className={styles.label}>Email Address</label>
                     </div>
 
 
                     <div className={`${styles.group} ${styles.passwordContainer}`}>
-                        <input className={styles.input} type={show ? "text" : "password"} required />
+                        <input name='password' className={styles.input} type={show ? "text" : "password"} required />
                         <span className={styles.bar}></span>
                         <label className={styles.label}>Password</label>
 
@@ -60,7 +69,7 @@ const Register = () => {
                             <AiOutlineEye onClick={handleShowPassword} className={styles.pIcon} />
                         }
                     </div>
-
+                    <button className={styles.button}>Create Account</button>
                 </form>
             </div>
 

@@ -15,14 +15,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
+    gap: 2.5rem;
   }
   
   .form {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* gap: 2rem; */
     width: 100%;
   }
   
@@ -52,8 +50,12 @@
     width: 100%;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    background-color: var(  --registerBtnBg);
+    color: var(--textColor);
   }
-  
+  .socialFacebookIcon{
+    color: #4267B2;
+  }
   
   .group {
       position: relative;
@@ -139,6 +141,20 @@
       color: var(--textColor);
       font-size: 1.3rem;
       cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .button{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        font-size: 17px;
+        cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+          background-color: var(  --registerBtnBg);
+          color: var(--textColor);
     }
   
   @media screen and (min-width: 500px) {
