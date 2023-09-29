@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+// import { headers } from "next/headers";
 import { Inter } from "next/font/google";
 import { Navbar, Footer } from "@/components/export";
 import { ContextProvider } from "@/context/Context";
@@ -12,17 +12,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const headersList = headers();
-  const activePath = headersList.get("x-invoke-path");
-  let path = activePath === "/register";
+  // const headersList = headers();
+  // const activePath = headersList.get("x-invoke-path");
+  // let path = activePath === "/register";
 
   return (
     <html lang="en">
       <body>
         <ContextProvider>
-          {!path && <Navbar />}
+          {/* {!path && <Navbar />} */}
+          <Navbar />
           <main className={inter.className}>{children}</main>
-          {!path && <Footer />}
+          {/* {!path && <Footer />} */}
+          <Footer />
         </ContextProvider>
       </body>
     </html>

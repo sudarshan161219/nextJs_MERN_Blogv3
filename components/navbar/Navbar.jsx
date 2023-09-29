@@ -1,6 +1,8 @@
 "use client"
 import styles from "./navbar.module.css"
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import ThemeChanger from '@/components/themeChanger/ThemeChanger'
 import { useAppContext } from "@/context/Context"
 import { Inter } from "next/font/google";
@@ -12,6 +14,9 @@ const inter = Inter({ subsets: ["latin"] });
 const Navbar = () => {
   const { toggleMobileMenu, toggleMenu } = useAppContext()
   const [scrollPosition, setScrollPosition] = useState(0);
+  const pathname = usePathname()
+
+  const pathRegister = pathname === "/register"
 
   const handleScroll = () => {
     const position = window.scrollY
@@ -30,6 +35,11 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [toggleMobileMenu]);
+
+
+  if(pathRegister) {
+    return null
+  }
 
   return (
     <nav
