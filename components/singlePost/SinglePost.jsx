@@ -89,8 +89,9 @@ const SinglePost = () => {
 
                 </div>
             </div>
-
-            <RecommentArticles />
+            <div className={styles.RecommentArticles} >
+                <RecommentArticles />
+            </div>
         </div>
     )
 }
