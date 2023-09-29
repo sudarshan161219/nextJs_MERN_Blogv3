@@ -46,7 +46,7 @@ const Navbar = () => {
       className={
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
-      <h1 className={styles.textLogo}>SH || BLOG</h1>
+      <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
       <ul className={styles.links}>
         <li className={styles.link}><ThemeChanger /></li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
@@ -62,7 +62,7 @@ const Navbar = () => {
             className={toggleMobileMenu ? styles.xline : styles.line}></span>
         </li>
       </ul>
-      {toggleMobileMenu && <MobileNav />}
+    <MobileNav />
     </nav>
   )
 }

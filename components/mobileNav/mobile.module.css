@@ -11,13 +11,19 @@
   align-items: center;
   justify-content: center;
   border-top: var(--textColor) 1px solid;
-
+  transform: translateY(700px);
+  opacity: 0;
+  transition: ease-in-out 0.4s;
 }
-
+.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
 .links {
   display: flex;
   flex-direction: column;
   gap: 80px;
+  align-items: center;
 }
 
 .link {

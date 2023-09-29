@@ -5,10 +5,10 @@ import { useAppContext } from "@/context/Context"
 
 
 const MobileNav = () => {
-    const { toggleMenu } = useAppContext()
+    const { toggleMenu , toggleMobileMenu } = useAppContext()
 
     return (
-        <div className={styles.container}>
+        <div className={ toggleMobileMenu ? `${styles.show} ${styles.container}` : `${styles.container}` }>
             <ul className={styles.links}>
                 <li onClick={toggleMenu}> <Link className={styles.link} href="/">Home</Link>  </li>
                 <li onClick={toggleMenu}> <Link className={styles.link} href="/">About</Link>  </li>
