@@ -3,7 +3,7 @@ import styles from "./singlePost.module.css"
 import Image from 'next/image'
 import { AiOutlinePause, AiOutlineLike, AiOutlineDislike, AiOutlineComment } from "react-icons/ai"
 import { BsBookmark } from "react-icons/bs"
-import { RecommentArticles } from '../export'
+import { RecommentArticles, Comments } from '../export'
 
 const SinglePost = () => {
 
@@ -89,9 +89,15 @@ const SinglePost = () => {
 
                 </div>
             </div>
+
+            <div className={styles.commentsContainer} >
+                <Comments />
+            </div>
+
             <div className={styles.RecommentArticles} >
                 <RecommentArticles />
             </div>
+
         </div>
     )
 }

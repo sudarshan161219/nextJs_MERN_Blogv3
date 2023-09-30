@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./singlePost.module.css"
-import { SinglePost } from '@/components/export'
+import { SinglePost, Comments } from '@/components/export'
 
 
 const singlepage = () => {

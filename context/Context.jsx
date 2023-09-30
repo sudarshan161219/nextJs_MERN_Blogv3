@@ -22,8 +22,8 @@ if (!ISSERVER) {
 const initialState = {
     toggleMobileMenu: false,
     isServer: true,
-    toggleTheme: parsedData && parsedData,
-    theme: theme && theme,
+    toggleTheme: parsedData ? parsedData : false,
+    theme: theme ? theme : "light",
 };
 
 
@@ -34,6 +34,17 @@ const ContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
 
+    const intialLoad = () => {
+        if (state.toggleTheme) {
+            document.body.className = 'dark';
+            localStorage.setItem("theme", "dark");
+            localStorage.setItem("toggleState", true);
+        } else {
+            localStorage.setItem("theme", "light");
+            localStorage.setItem("toggleState", false);
+            document.body.className = 'light';
+        }
+    }
 
 
     const toggleMenu = () => {
@@ -42,13 +53,10 @@ const ContextProvider = ({ children }) => {
 
     const themeFn = () => {
         if (!state.toggleTheme) {
-
             document.body.className = 'dark';
             localStorage.setItem("theme", "dark");
             localStorage.setItem("toggleState", true);
-        }
-
-        if (state.toggleTheme) {
+        } else {
             localStorage.setItem("theme", "light");
             localStorage.setItem("toggleState", false);
             document.body.className = 'light';
@@ -56,10 +64,13 @@ const ContextProvider = ({ children }) => {
     }
 
 
+
     const toggleThemefn = () => {
         dispatch({ type: TOGGLE_THEME })
         themeFn()
     }
+
+
 
     const isServerFn = () => {
         dispatch({ type: IS_SERVER })
@@ -67,6 +78,7 @@ const ContextProvider = ({ children }) => {
 
     useEffect(() => {
         isServerFn()
+        intialLoad()
         document.body.className = state.theme === null ? "ligth" : state.theme;
 
         if (state.toggleTheme) {
