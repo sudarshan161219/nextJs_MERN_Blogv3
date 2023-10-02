@@ -27,15 +27,18 @@ const Comments = ({ togglecomments, toggleCommentsFn }) => {
     ]
 
     return (
+        // <div className={togglecomments ? `${styles.show}  ${styles.container}` : `${styles.container}`}>
         <div className={styles.container}>
-
             <div className={styles.titleIcon} >
-                <h1 className={styles.title} > Comments</h1>
+                <h1 className={styles.title} > Comments (15k)</h1>
                 <AiOutlineCloseCircle onClick={toggleCommentsFn} className={styles.icon} />
             </div>
 
             <div className={styles.inputContainer} >
                 <textarea className={styles.input} placeholder="write your comment"></textarea>
+                <div className={styles.btnContainer} >
+                    <button className={styles.button}>Post</button>
+                </div>
             </div>
 
             <div className={styles.commentsContainer} >

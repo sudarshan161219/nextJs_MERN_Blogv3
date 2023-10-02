@@ -1,4 +1,5 @@
 "use client"
+import { useEffect } from "react"
 import styles from "./singlePost.module.css"
 import Image from 'next/image'
 import { AiOutlinePause, AiOutlineLike, AiOutlineDislike, AiOutlineComment } from "react-icons/ai"
@@ -24,6 +25,15 @@ const SinglePost = () => {
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
+
+
+    useEffect(() => {
+        if (togglecommentsSection) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [togglecommentsSection]);
 
 
     return (
