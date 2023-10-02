@@ -4,14 +4,15 @@
   gap: 2rem;
 }
 
-.RecommentArticles{
+.RecommentArticles {
   padding: 0.9rem;
 }
 
 .Postcontainer {
-  padding: 0.9rem;
+  padding: 0.9rem 0.9rem 2rem 0.9rem;
   display: grid;
   gap: 2rem;
+  border-bottom: var(--softTextColor) 1px solid;
 }
 
 .infoContainer {
@@ -135,6 +136,11 @@
   gap: 1rem;
 }
 
+.commentsContainer {
+  padding: 0.9rem 0.9rem 2rem 0.9rem;
+  border-bottom: var(--softTextColor) 1px solid;
+}
+
 @media screen and (min-width: 700px) {
   .imgContainer {
     height: 350px;
@@ -155,7 +161,7 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .Postcontainer {
+  .Postcontainer, .commentsContainer {
     width: 900px;
     margin: auto;
   }

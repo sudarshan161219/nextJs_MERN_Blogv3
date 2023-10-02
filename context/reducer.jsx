@@ -1,4 +1,9 @@
-import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER } from "./action"
+import {
+    TOGGLE_MOBILE_MENU,
+    TOGGLE_THEME,
+    IS_SERVER,
+    TOGGLE_COMMENT_SECTION
+} from "./action"
 
 
 import { initialState } from "./Context";
@@ -17,6 +22,14 @@ const reducer = (state, action) => {
             ...state,
             toggleTheme: !state.toggleTheme,
             theme: !toggleTheme ? "dark" : "light"
+        }
+    }
+
+
+    if (action.type === TOGGLE_COMMENT_SECTION) {
+        return {
+            ...state,
+            togglecommentsSection: !state.togglecommentsSection,
         }
     }
 

@@ -1,11 +1,15 @@
-import React from 'react'
+"use client"
 import styles from "./singlePost.module.css"
 import Image from 'next/image'
 import { AiOutlinePause, AiOutlineLike, AiOutlineDislike, AiOutlineComment } from "react-icons/ai"
 import { BsBookmark } from "react-icons/bs"
 import { RecommentArticles, Comments } from '../export'
+import { useAppContext } from '@/context/Context'
+
 
 const SinglePost = () => {
+
+    const { toggleCommentsSectionFn, togglecommentsSection } = useAppContext()
 
     const bgcolorsArr = [
         '1, 106, 112',
@@ -54,7 +58,7 @@ const SinglePost = () => {
                             <span className={styles.dislikeCount}>25k</span>
                         </div>
 
-                        <div className={styles.commentContainer}>
+                        <div onClick={toggleCommentsSectionFn} className={styles.commentContainer}>
                             <AiOutlineComment className={styles.commentIcon} />
                             <span className={styles.commentCount}>15k</span>
                         </div>
@@ -91,7 +95,7 @@ const SinglePost = () => {
             </div>
 
             <div className={styles.commentsContainer} >
-                <Comments />
+                <Comments togglecomments={togglecommentsSection} toggleCommentsFn={toggleCommentsSectionFn} />
             </div>
 
             <div className={styles.RecommentArticles} >

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import React, { useReducer, createContext, useContext, useEffect } from "react";
 import reducer from "./reducer";
 
-import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER } from "./action"
+import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER, TOGGLE_COMMENT_SECTION } from "./action"
 
 
 let theme
@@ -21,6 +21,7 @@ if (!ISSERVER) {
 
 const initialState = {
     toggleMobileMenu: false,
+    togglecommentsSection: false,
     isServer: true,
     toggleTheme: parsedData ? parsedData : false,
     theme: theme ? theme : "light",
@@ -84,10 +85,15 @@ const ContextProvider = ({ children }) => {
         if (state.toggleTheme) {
             document.body.className = state.theme
         }
-    }, [state.toggleTheme, state.theme]);
+    }, [state.theme, state.toggleTheme]);
+
+
+    const toggleCommentsSectionFn = () => {
+        dispatch({ type: TOGGLE_COMMENT_SECTION })
+    }
 
     return (
-        <Context.Provider value={{ ...state, toggleMenu, toggleThemefn }} >
+        <Context.Provider value={{ ...state, toggleMenu, toggleThemefn, toggleCommentsSectionFn }} >
             {children}
         </Context.Provider>
     )

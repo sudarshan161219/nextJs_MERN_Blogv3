@@ -1,8 +1,8 @@
 import styles from './comments.module.css'
 import Comment from './comment/Comment'
+import { AiOutlineCloseCircle } from "react-icons/ai"
 
-
-const Comments = () => {
+const Comments = ({ togglecomments, toggleCommentsFn }) => {
     let comments = [
         {
             name: "Brahma",
@@ -28,7 +28,12 @@ const Comments = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title} > Comments</h1>
+
+            <div className={styles.titleIcon} >
+                <h1 className={styles.title} > Comments</h1>
+                <AiOutlineCloseCircle onClick={toggleCommentsFn} className={styles.icon} />
+            </div>
+
             <div className={styles.inputContainer} >
                 <textarea className={styles.input} placeholder="write your comment"></textarea>
             </div>
