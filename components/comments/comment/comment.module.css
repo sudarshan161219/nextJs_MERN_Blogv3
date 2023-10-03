@@ -1,11 +1,12 @@
 .container {
-padding: 10px;
+  padding: 10px;
 }
 
 .imgTextContainer {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  position: relative;
 }
 
 .img {
@@ -30,22 +31,52 @@ padding: 10px;
   gap: 5px;
 }
 
-.Count{
-    font-size: 0.9rem;
-    color: var(--softTextColor);
+.Count {
+  font-size: 0.9rem;
+  color: var(--softTextColor);
 }
 
-.ldContainer{
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.ldContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.comment{
-    line-height: 150%;
-    color: var(--textColor);
+.comment {
+  line-height: 150%;
+  color: var(--textColor);
 }
 
-.LdIcon{
-    color: var(--softTextColor);
+.LdIcon {
+  color: var(--softTextColor);
+}
+
+.replyContainer {
+  margin-top: 2rem;
+}
+
+.line {
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background-color: var(--softTextColor);
+  top: 43px;
+  left: 20px;
+}
+
+.replies {
+  position: relative;
+}
+
+.lines {
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background-color: var(--softTextColor);
+  top: 43px;
+  left: 20px;
+}
+
+.replies.lines:last-child {
+  display: none;
 }

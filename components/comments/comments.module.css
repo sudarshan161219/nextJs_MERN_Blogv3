@@ -1,14 +1,14 @@
 .container {
   position: fixed;
-  height: 100vh;
+  height: 70vh;
   width: 100%;
-  top: 135px;
+  bottom: -5px;
   left: 0;
   background-color: var(--bg);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   border-top: 1px solid var(--softTextColor);
-  overflow: auto;
+  overflow: scroll;
   /* transform: translateY(1000px);
   transition: ease-in-out 0.8s; */
 }
@@ -19,7 +19,7 @@
 }
 
 .container::-webkit-scrollbar {
-  width: 0.4em;
+  width: 0.2em;
 }
 
 .container::-webkit-scrollbar-track {
@@ -38,9 +38,11 @@
   padding: 10px;
   position: sticky;
   height: 50px;
+  top: 0;
   left: 0;
   right: 0;
   background-color: var(--softBg);
+  z-index: 10;
 }
 
 .title {
@@ -99,7 +101,7 @@
 }
 
 .commentsContainer {
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: grid;
   gap: 20px;
 }

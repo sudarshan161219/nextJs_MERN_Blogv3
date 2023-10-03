@@ -1,0 +1,73 @@
+.container {
+  /* border-left: 1px solid var(--softTextColor);b */
+}
+
+.container {
+  padding: 10px;
+}
+
+.imgTextContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.img {
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.name,
+.date {
+  color: var(--textColor);
+  font-size: 0.9rem;
+}
+
+.dateNameContainer,
+.likeDislikeContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.textContainer {
+  display: grid;
+  gap: 5px;
+}
+
+.Count {
+  font-size: 0.9rem;
+  color: var(--softTextColor);
+}
+
+.ldContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.comment {
+  line-height: 150%;
+  color: var(--textColor);
+}
+
+.LdIcon {
+  color: var(--softTextColor);
+}
+
+.replyContainer {
+  margin-top: 2rem;
+}
+
+.line {
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background-color: var(--softTextColor);
+  top: 43px;
+  left: 20px;
+}
+
+.line:last-child{
+    display: none;
+}

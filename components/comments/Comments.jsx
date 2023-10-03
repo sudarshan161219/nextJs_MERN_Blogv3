@@ -18,6 +18,7 @@ const Comments = ({ togglecomments, toggleCommentsFn }) => {
                     img: "https://images.unsplash.com/photo-1516331138075-f3adc1e149cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1508&q=80",
                     date: "00.00.0000",
                     commentId:1,
+                    
                 },
                 {
                     id:2,
