@@ -1,3 +1,51 @@
-.container{
-    
+.container {
+padding: 10px;
+}
+
+.imgTextContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.img {
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.name,
+.date {
+  color: var(--textColor);
+  font-size: 0.9rem;
+}
+
+.dateNameContainer,
+.likeDislikeContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.textContainer {
+  display: grid;
+  gap: 5px;
+}
+
+.Count{
+    font-size: 0.9rem;
+    color: var(--softTextColor);
+}
+
+.ldContainer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comment{
+    line-height: 150%;
+    color: var(--textColor);
+}
+
+.LdIcon{
+    color: var(--softTextColor);
 }
