@@ -1,3 +1,5 @@
+"use client"
+import { useState } from 'react'
 import Image from 'next/image'
 import styles from './comment.module.css'
 import { AiOutlineLike, AiOutlineDislike, } from "react-icons/ai"
@@ -5,16 +7,18 @@ import { BsReply } from "react-icons/bs"
 import CommentReply from '../commentsReply/CommentReply'
 
 const Comment = ({ Ucomment }) => {
-
+    const [text, setText] = useState("")
+    const [reply, setReply] = useState(false)
     const { name, comment, img, date, replies } = Ucomment
 
-    let last
-    let lastElement = replies[replies.length - 1];
-    replies.map(item => last = item.id)
-    let bool = lastElement.id === last
 
-    console.log(bool);
+    const handleClick = () => {
+        setReply(!reply)
+    }
 
+    const handleinput = (e) => {
+        setText(e.target.value)
+    }
     return (
         <div className={styles.container}>
             <div className={styles.imgTextContainer} >
@@ -38,7 +42,7 @@ const Comment = ({ Ucomment }) => {
                             <span className={styles.Count}>25k</span>
                         </div>
 
-                        <div className={styles.ldContainer}>
+                        <div onClick={handleClick} className={styles.ldContainer}>
                             <BsReply className={styles.LdIcon} />
                             <span className={styles.Count}>reply</span>
                         </div>
@@ -46,16 +50,25 @@ const Comment = ({ Ucomment }) => {
                     </div>
                 </div>
             </div>
+
+
             <div className={styles.replyContainer}>
+                {reply &&
+                    <div className={styles.inputContainer} >
+                        <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
+                        <div className={styles.btnContainer} >
+                            <button className={styles.button}>reply</button>
+                        </div>
+                    </div>}
                 {replies && replies.length > 1 && replies.map((item) => (
                     <div className={styles.replies} key={item.id}>
-                        <CommentReply bool={bool} replies={item} />
-                        <span className={styles.lines}></span>
+                        <CommentReply replies={item} />
                     </div>
                 ))}
             </div>
 
         </div>
+
     )
 }
 
