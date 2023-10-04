@@ -147,6 +147,7 @@ a {
   --softBg: #f0f0f0;
   --softTextColor: #626262;
   --registerBtnBg:#cbccce;
+  --commentShowReplyText: #362FD9;
   --iconTransform: 0px;
   --btnBgHover:#272829;
   --btnTextHover:#F7F5F2;
@@ -159,6 +160,7 @@ a {
   --softBg: #0e0f13;
   --softTextColor: #c0c5d0;
   --registerBtnBg:#272829;
+  --commentShowReplyText: #6178f3 ;
   --iconTransform: 23px;
   --btnBgHover:#F7F5F2;
   --btnTextHover:#272829;

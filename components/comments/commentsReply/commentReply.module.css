@@ -59,12 +59,40 @@
   margin-top: 2rem;
 }
 
-.line {
-  position: absolute;
-  width: 1px;
-  height: 60px;
-  background-color: var(--softTextColor);
-  top: 43px;
-  left: 20px;
+.inputContainer {
+  margin-top: 1rem;
 }
 
+.input {
+  border: none;
+  outline: 1px solid var(--softTextColor);
+  height: 5rem;
+  padding: 7px;
+  width: -webkit-fill-available;
+  border-radius: 5px;
+  font-family: inherit;
+  color: var(--textColor);
+  font-size: 1rem;
+  background-color: var(--softBg);
+  resize: none;
+}
+
+.btnContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.button {
+  padding: 5px 10px;
+  width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #eee;
+  background-color: #2b7a0b;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}

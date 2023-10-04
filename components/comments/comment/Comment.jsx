@@ -9,11 +9,16 @@ import CommentReply from '../commentsReply/CommentReply'
 const Comment = ({ Ucomment }) => {
     const [text, setText] = useState("")
     const [reply, setReply] = useState(false)
+    const [showReply, setShowReply] = useState(false)
     const { name, comment, img, date, replies } = Ucomment
 
 
     const handleClick = () => {
         setReply(!reply)
+    }
+
+    const handleReplies = () => {
+        setShowReply(!showReply)
     }
 
     const handleinput = (e) => {
@@ -23,7 +28,7 @@ const Comment = ({ Ucomment }) => {
         <div className={styles.container}>
             <div className={styles.imgTextContainer} >
                 <Image className={styles.img} src={img} width={40} height={40} alt={name} />
-                {replies.length > 1 && <span className={styles.line} ></span>}
+                {showReply && <span className={styles.line} ></span>}
 
                 <div className={styles.textContainer}>
                     <div className={styles.dateNameContainer}>
@@ -42,7 +47,7 @@ const Comment = ({ Ucomment }) => {
                             <span className={styles.Count}>25k</span>
                         </div>
 
-                        <div onClick={handleClick} className={styles.ldContainer}>
+                        <div onClick={handleClick} className={`${styles.ldContainer}  ${styles.replyBtn}`}>
                             <BsReply className={styles.LdIcon} />
                             <span className={styles.Count}>reply</span>
                         </div>
@@ -52,20 +57,28 @@ const Comment = ({ Ucomment }) => {
             </div>
 
 
-            <div className={styles.replyContainer}>
-                {reply &&
-                    <div className={styles.inputContainer} >
-                        <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
-                        <div className={styles.btnContainer} >
-                            <button className={styles.button}>reply</button>
+                <div className={styles.replyContainer}>
+                    {reply &&
+                        <div className={styles.inputContainer} >
+                            <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
+                            <div className={styles.btnContainer} >
+                                <button className={styles.button}>reply</button>
+                            </div>
+                        </div>}
+                    {
+                        showReply && <div>
+                            {replies && replies.length > 1 && replies.map((item) => (
+                                <div className={styles.replies} key={item.id}>
+                                    <CommentReply replies={item} />
+                                </div>
+                            ))}
                         </div>
-                    </div>}
-                {replies && replies.length > 1 && replies.map((item) => (
-                    <div className={styles.replies} key={item.id}>
-                        <CommentReply replies={item} />
-                    </div>
-                ))}
-            </div>
+                    }
+                </div>
+
+            {replies.length > 1 && <div onClick={handleReplies} className={styles.tagrepliesContainer}>
+                {showReply ? <span className={styles.span}>{`${replies.length > 1 ? "hide replies" : "hide reply"} `}</span> : <span className={styles.span}>{`show ${replies.length > 1 ? "replies" : "reply"} (${replies.length})  `}</span>}
+            </div>}
 
         </div>
 

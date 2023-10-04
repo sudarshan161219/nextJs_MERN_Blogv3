@@ -40,6 +40,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .comment {
@@ -81,7 +83,7 @@
   left: 20px;
 }
 
-.inputContainer{
+.inputContainer {
   margin-left: 1rem;
 }
 
@@ -118,3 +120,17 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
+
+.span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--commentShowReplyText);
+}
+
+.tagrepliesContainer{
+  margin-top: 0.5rem;
+  margin-left: 4.5rem;
+}
+

@@ -9,8 +9,8 @@
   border-top-left-radius: 8px;
   border-top: 1px solid var(--softTextColor);
   overflow: scroll;
-  /* transform: translateY(1000px);
-  transition: ease-in-out 0.8s; */
+  transform: translateY(1000px);
+  transition: ease-in-out 0.8s;
 }
 
 .show {
