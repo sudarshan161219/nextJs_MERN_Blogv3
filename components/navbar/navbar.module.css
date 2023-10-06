@@ -22,7 +22,8 @@
 .link:nth-child(2),
 .link:nth-child(3),
 .link:nth-child(4),
-.link:nth-child(5) {
+.link:nth-child(5),
+.link:nth-child(6) {
   display: none;
 }
 
@@ -32,7 +33,7 @@
   font-weight: 400;
 }
 
-.link:nth-child(6) {
+.link:nth-child(7) {
   display: grid;
   gap: 4px;
   cursor: pointer;
@@ -93,10 +94,9 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.linkBtn:hover > .liLoginLink{
-color: var(--btnTextHover);
-} 
-
+.linkBtn:hover > .liLoginLink {
+  color: var(--btnTextHover);
+}
 
 .linkBtn:hover {
   background-color: var(--btnBgHover);
@@ -121,11 +121,12 @@ color: var(--btnTextHover);
   .link:nth-child(2),
   .link:nth-child(3),
   .link:nth-child(4),
-  .link:nth-child(5) {
+  .link:nth-child(5),
+  .link:nth-child(6) {
     display: block;
   }
 
-  .link:nth-child(6) {
+  .link:nth-child(7) {
     display: none;
   }
 }

@@ -52,6 +52,7 @@ const Navbar = () => {
         <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">About</Link>  </li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">Contact</Link>  </li>
+        <li className={styles.link}> <Link className={styles.liLink} href="/write">Write</Link>  </li>
         <li className={`${styles.link} ${styles.linkBtn}`}> <Link className={styles.liLoginLink} href="/register">Login</Link></li>
         <li onClick={toggleMenu} className={styles.link}>
           <span
