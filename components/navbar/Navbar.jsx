@@ -8,11 +8,12 @@ import { useAppContext } from "@/context/Context"
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
+import Image from "next/image"
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
-  const { toggleMobileMenu, toggleMenu } = useAppContext()
+  const { toggleMobileMenu, toggleMenu, toggleTheme } = useAppContext()
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathname = usePathname()
 
@@ -37,7 +38,7 @@ const Navbar = () => {
   }, [toggleMobileMenu]);
 
 
-  if(pathRegister) {
+  if (pathRegister) {
     return null
   }
 
@@ -46,7 +47,14 @@ const Navbar = () => {
       className={
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
-      <Link href={"/"} className={styles.textLogo}>CDev || BLOG</Link>
+      {/* <Link href={"/"} className={styles.textLogo}>CDev || BLOG</Link> */}
+      <Link href={"/"} className={styles.textLogo}>
+        {toggleTheme ?
+          <Image src={"/logo2D.png"} width={60} height={40} alt="cwebdev" />
+          :
+          <Image src={"/logo2l.png"} width={60} height={40} alt="cwebdev" />
+        }
+      </Link>
       <ul className={styles.links}>
         <li className={styles.link}><ThemeChanger /></li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
@@ -63,7 +71,7 @@ const Navbar = () => {
             className={toggleMobileMenu ? styles.xline : styles.line}></span>
         </li>
       </ul>
-    <MobileNav />
+      <MobileNav />
     </nav>
   )
 }
