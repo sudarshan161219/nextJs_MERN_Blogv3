@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <div className={`${styles.container} ${inter.className}`}>
-      <h5 className={styles.footerTitle}>Copyright {currentYear} - Sudarshan</h5>
+      <h5 className={styles.footerTitle}>Copyright {currentYear} - Chandra Prakash</h5>
     </div>
   )
 }
