@@ -47,14 +47,7 @@ const Navbar = () => {
       className={
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
-      {/* <Link href={"/"} className={styles.textLogo}>CDev || BLOG</Link> */}
-      <Link href={"/"} className={styles.textLogo}>
-        {toggleTheme ?
-          <Image src={"/logo2D.png"} width={60} height={40} alt="cwebdev" />
-          :
-          <Image src={"/logo2l.png"} width={60} height={40} alt="cwebdev" />
-        }
-      </Link>
+      <Link href={"/"} className={styles.textLogo}>shwebdev || BLOG</Link>
       <ul className={styles.links}>
         <li className={styles.link}><ThemeChanger /></li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
