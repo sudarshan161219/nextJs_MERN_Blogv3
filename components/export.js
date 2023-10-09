@@ -11,6 +11,7 @@ import SinglePost from "./singlePost/SinglePost";
 import RecommentArticles from "./recommendedArticles/RecommentArticles";
 import Register from "./register/Register";
 import Comments from "./comments/Comments";
+import Tiptap from "./tiptap/Tiptap";
 
 export {
   Navbar,
@@ -23,7 +24,8 @@ export {
   Pagination,
   AllPostsCards,
   SinglePost,
-  RecommentArticles ,
+  RecommentArticles,
   Register,
-  Comments
+  Comments,
+  Tiptap,
 };

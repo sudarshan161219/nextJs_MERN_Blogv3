@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@progress/kendo-react-editor": "^5.19.0",
     "@react-icons/all-files": "^4.1.0",
+    "@tiptap/extension-blockquote": "^2.1.11",
+    "@tiptap/extension-document": "^2.1.11",
+    "@tiptap/extension-paragraph": "^2.1.11",
+    "@tiptap/extension-text": "^2.1.11",
+    "@tiptap/pm": "^2.1.11",
+    "@tiptap/react": "^2.1.11",
+    "@tiptap/starter-kit": "^2.1.11",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",

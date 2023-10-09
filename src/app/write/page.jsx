@@ -1,12 +1,11 @@
-'use client'
-import { useState } from 'react'
 import styles from "./write.module.css"
+import { Tiptap } from "@/components/export"
 
 
 const page = () => {
     return (
         <div className={styles.container}>
-           
+            <Tiptap />
         </div>
     )
 }

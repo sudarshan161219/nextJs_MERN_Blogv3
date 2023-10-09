@@ -47,7 +47,7 @@ const Navbar = () => {
       className={
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
-      <Link href={"/"} className={styles.textLogo}>SH|| BLOG</Link>
+      <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
       <ul className={styles.links}>
         <li className={styles.link}><ThemeChanger /></li>
         <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>

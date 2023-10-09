@@ -146,11 +146,12 @@ a {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
-  --registerBtnBg:#cbccce;
-  --commentShowReplyText: #362FD9;
+  --registerBtnBg: #cbccce;
+  --commentShowReplyText: #362fd9;
   --iconTransform: 0px;
-  --btnBgHover:#272829;
-  --btnTextHover:#F7F5F2;
+  --btnBgHover: #272829;
+  --btnTextHover: #f7f5f2;
+  --blockQuote: black;
   transition: ease-in-out 0.3s;
 }
 
@@ -159,11 +160,12 @@ a {
   --textColor: #ddd;
   --softBg: #0e0f13;
   --softTextColor: #c0c5d0;
-  --registerBtnBg:#272829;
-  --commentShowReplyText: #6178f3 ;
+  --registerBtnBg: #272829;
+  --commentShowReplyText: #6178f3;
   --iconTransform: 23px;
-  --btnBgHover:#F7F5F2;
-  --btnTextHover:#272829;
+  --btnBgHover: #f7f5f2;
+  --btnTextHover: #272829;
+  --blockQuote: #f7f5f2;
   transition: ease-in-out 0.3s;
 }
 
@@ -189,6 +191,16 @@ body {
   min-height: 100vh;
 }
 
-main{
-    flex: 1;
+main {
+  flex: 1;
+}
+
+.tiptap.ProseMirror:focus-visible {
+  outline: none;
+  border: none;
+}
+
+blockquote {
+  border-left: 3px solid var(--blockQuote);
+  padding-left: 1rem;
 }
