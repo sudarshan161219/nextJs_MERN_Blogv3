@@ -1,29 +1,35 @@
 'use client'
-import { useState } from 'react'
-import { useEditor, EditorContent } from '@tiptap/react'
-import Blockquote from '@tiptap/extension-blockquote'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
-
-
 import styles from "./tiptap.module.css"
+import { TiptapBtn } from "@/components/export"
+import { useEditor, EditorContent } from '@tiptap/react'
+
+import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
-    const [text, setText] = useState()
+
     const editor = useEditor({
         extensions: [
             Document,
-            Paragraph,
+            Paragraph.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-paragraph',
+                },
+            }),
             Text,
             Blockquote,
+            Bold.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-strong',
+                },
+            }),
+            BulletList,
+            ListItem
         ],
         content: `
 
         `,
     })
 
-    console.log(html);
 
     const handlePost = () => {
 
@@ -36,15 +42,11 @@ const Tiptap = () => {
     }
 
 
-
     return (
         <>
-            <button
-                onClick={() => editor.chain().focus().toggleBlockquote().run()}
-                className={editor.isActive('blockquote') ? 'is-active' : ''}
-            >
-                toggleBlockquote
-            </button>
+
+            <TiptapBtn editor={editor} />
+
             <EditorContent editor={editor} />
 
             <button className={styles.post} onClick={handlePost}>post</button>

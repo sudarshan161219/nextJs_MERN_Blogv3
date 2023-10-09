@@ -204,3 +204,22 @@ blockquote {
   border-left: 3px solid var(--blockQuote);
   padding-left: 1rem;
 }
+
+.my-custom-paragraph {
+  color: var(--textColor);
+}
+
+/* .tiptap.ProseMirror > h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p > strong {
+  font-weight: bold;
+} */
+
+.my-custom-strong {
+  color: var(--textColor);
+  font-weight: bold;
+}

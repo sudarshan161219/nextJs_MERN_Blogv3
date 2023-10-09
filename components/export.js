@@ -11,7 +11,9 @@ import SinglePost from "./singlePost/SinglePost";
 import RecommentArticles from "./recommendedArticles/RecommentArticles";
 import Register from "./register/Register";
 import Comments from "./comments/Comments";
-import Tiptap from "./tiptap/Tiptap";
+import Tiptap from "./tiptap/Tiptap"
+import TiptapBtn from "./tiptapBtn/TiptapBtn";
+
 
 export {
   Navbar,
@@ -28,4 +30,5 @@ export {
   Register,
   Comments,
   Tiptap,
+TiptapBtn
 };
