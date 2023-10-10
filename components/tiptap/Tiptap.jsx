@@ -2,8 +2,7 @@
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
-
-import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem } from "@/tiptaptool/tiptap"
+import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
 
@@ -22,8 +21,26 @@ const Tiptap = () => {
                     class: 'my-custom-strong',
                 },
             }),
-            BulletList,
-            ListItem
+            BulletList.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-bulletList',
+                },
+            }), ,
+            ListItem.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-listItem',
+                },
+            }),
+            Code.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-code',
+                },
+            }),
+            CodeBlock.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-codeblock',
+                },
+            })
         ],
         content: `
 
