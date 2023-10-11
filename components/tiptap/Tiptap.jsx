@@ -2,7 +2,7 @@
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
-import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock } from "@/tiptaptool/tiptap"
+import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
 
@@ -16,6 +16,11 @@ const Tiptap = () => {
             }),
             Text,
             Blockquote,
+            TextStyle,
+            Dropcursor,
+            FontFamily,
+            HardBreak,
+            Highlight.configure({ multicolor: true }),
             Bold.configure({
                 HTMLAttributes: {
                     class: 'my-custom-strong',
@@ -40,6 +45,15 @@ const Tiptap = () => {
                 HTMLAttributes: {
                     class: 'my-custom-codeblock',
                 },
+            }),
+            CodeBlockLowlight.configure({
+                lowlight,
+                HTMLAttributes: {
+                    class: 'my-custom-codeblocklowlight',
+                },
+            }),
+            Color.configure({
+                types: ['textStyle'],
             })
         ],
         content: `
