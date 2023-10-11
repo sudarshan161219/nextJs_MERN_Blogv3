@@ -1,11 +1,12 @@
 'use client'
+import { useState } from "react"
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
 import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
-
+    const [editorContent, setEditorContent] = useState("");
     const editor = useEditor({
         extensions: [
             Document,
@@ -59,6 +60,9 @@ const Tiptap = () => {
         content: `
 
         `,
+        onUpdate({ editor }) {
+            setEditorContent(editor.getHTML());
+          },
     })
 
 

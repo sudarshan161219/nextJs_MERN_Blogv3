@@ -198,7 +198,15 @@ body {
 main {
   flex: 1;
 }
+.tiptap.ProseMirror {
+  height: 5in;
+  overflow: auto;
+}
 
+
+.tiptap.ProseMirror::-webkit-scrollbar {
+  width: 0.4em;
+}
 .tiptap.ProseMirror:focus-visible {
   outline: none;
   border: none;
@@ -261,8 +269,6 @@ p > strong {
   padding: 0;
 }
 
-
-
 /* /$ my-custom-codeblocklowlight */
 
 .my-custom-codeblocklowlight {
@@ -273,61 +279,60 @@ p > strong {
   padding: 0.75rem 1rem;
 }
 .my-custom-codeblocklowlight code {
-    background: none;
-    color: inherit;
-    font-size: 0.8rem;
-    padding: 0;
-  }
+  background: none;
+  color: inherit;
+  font-size: 0.8rem;
+  padding: 0;
+}
 
-  .my-custom-codeblocklowlight .hljs-comment,
-  .my-custom-codeblocklowlight .hljs-quote {
-    color: #616161;
-  }
+.my-custom-codeblocklowlight .hljs-comment,
+.my-custom-codeblocklowlight .hljs-quote {
+  color: #616161;
+}
 
- .my-custom-codeblocklowlight .hljs-variable,
- .my-custom-codeblocklowlight .hljs-template-variable,
- .my-custom-codeblocklowlight .hljs-attribute,
- .my-custom-codeblocklowlight .hljs-tag,
- .my-custom-codeblocklowlight .hljs-name,
- .my-custom-codeblocklowlight .hljs-regexp,
- .my-custom-codeblocklowlight .hljs-link,
- .my-custom-codeblocklowlight .hljs-name,
- .my-custom-codeblocklowlight .hljs-selector-id,
- .my-custom-codeblocklowlight .hljs-selector-class {
-    color: #f98181;
-  }
+.my-custom-codeblocklowlight .hljs-variable,
+.my-custom-codeblocklowlight .hljs-template-variable,
+.my-custom-codeblocklowlight .hljs-attribute,
+.my-custom-codeblocklowlight .hljs-tag,
+.my-custom-codeblocklowlight .hljs-name,
+.my-custom-codeblocklowlight .hljs-regexp,
+.my-custom-codeblocklowlight .hljs-link,
+.my-custom-codeblocklowlight .hljs-name,
+.my-custom-codeblocklowlight .hljs-selector-id,
+.my-custom-codeblocklowlight .hljs-selector-class {
+  color: #f98181;
+}
 
- .my-custom-codeblocklowlight .hljs-number,
- .my-custom-codeblocklowlight .hljs-meta,
- .my-custom-codeblocklowlight .hljs-built_in,
- .my-custom-codeblocklowlight .hljs-builtin-name,
- .my-custom-codeblocklowlight .hljs-literal,
- .my-custom-codeblocklowlight .hljs-type,
- .my-custom-codeblocklowlight .hljs-params {
-    color: #fbbc88;
-  }
+.my-custom-codeblocklowlight .hljs-number,
+.my-custom-codeblocklowlight .hljs-meta,
+.my-custom-codeblocklowlight .hljs-built_in,
+.my-custom-codeblocklowlight .hljs-builtin-name,
+.my-custom-codeblocklowlight .hljs-literal,
+.my-custom-codeblocklowlight .hljs-type,
+.my-custom-codeblocklowlight .hljs-params {
+  color: #fbbc88;
+}
 
-  .my-custom-codeblocklowlight .hljs-string,
-  .my-custom-codeblocklowlight .hljs-symbol,
-  .my-custom-codeblocklowlight .hljs-bullet {
-    color: #b9f18d;
-  }
+.my-custom-codeblocklowlight .hljs-string,
+.my-custom-codeblocklowlight .hljs-symbol,
+.my-custom-codeblocklowlight .hljs-bullet {
+  color: #b9f18d;
+}
 
-  .my-custom-codeblocklowlight.hljs-title,
-  .my-custom-codeblocklowlight.hljs-section {
-    color: #faf594;
-  }
+.my-custom-codeblocklowlight.hljs-title,
+.my-custom-codeblocklowlight.hljs-section {
+  color: #faf594;
+}
 
- .my-custom-codeblocklowlight .hljs-keyword,
- .my-custom-codeblocklowlight .hljs-selector-tag {
-    color: #70cff8;
-  }
+.my-custom-codeblocklowlight .hljs-keyword,
+.my-custom-codeblocklowlight .hljs-selector-tag {
+  color: #70cff8;
+}
 
- .my-custom-codeblocklowlight .hljs-emphasis {
-    font-style: italic;
-  }
+.my-custom-codeblocklowlight .hljs-emphasis {
+  font-style: italic;
+}
 
- .my-custom-codeblocklowlight .hljs-strong {
-    font-weight: 700;
-  }
-
+.my-custom-codeblocklowlight .hljs-strong {
+  font-weight: 700;
+}

@@ -69,41 +69,56 @@ const TiptapBtn = ({ editor }) => {
                 className={`${editor.isActive('blockquote') ? `${styles.isactive}` : `${styles.btn}`}`}
             >
                 <BsQuote className={styles.icons} />
+                <span className={styles.tooltipText}>Block Quote</span>
+
             </button>
             <button
                 onClick={() => editor.chain().focus().toggleBold().run()}
                 className={`${editor.isActive('bold') ? `${styles.isactive} ` : `${styles.btn}`}`}
             >
                 <BsTypeBold className={styles.icons} />
+                <span className={styles.tooltipText}>Bold</span>
+
             </button>
             <button
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={`${editor.isActive('bulletList') ? `${styles.isactive}` : `${styles.btn}`}`}
             >
                 < BsListUl className={styles.icons} />
+                <span className={styles.tooltipText}>Bullet List</span>
             </button>
             <button
                 onClick={() => editor.chain().focus().toggleCode().run()}
                 className={`${editor.isActive('code') ? `${styles.isactive}` : `${styles.btn}`}`}
             >
                 <BsCodeSlash className={styles.icons} />
+                <span className={styles.tooltipText}>Code Slash</span>
             </button >
             <button
                 onClick={() => editor.chain().focus().toggleCodeBlock().run()}
                 className={`${editor.isActive('codeBlock') ? `${styles.isactive}` : `${styles.btn}`}`}
             >
                 < BsCodeSquare className={styles.icons} />
+                <span className={styles.tooltipText}>Code Block</span>
+
             </button>
 
-            <input
-                type="color"
-                onInput={event => editor.chain().focus().setColor(event.target.value).run()}
-                value={editor.getAttributes('textStyle').color}
-                data-testid="setColor"
-            />
+            <div className={styles.span}>
+                <input
+                    type="color"
+                    onInput={event => editor.chain().focus().setColor(event.target.value).run()}
+                    value={editor.getAttributes('textStyle').color}
+                    data-testid="setColor"
+                />
+                  <span className={styles.tooltipText}>Text Color</span>
+            </div>
+
 
             <div className={styles.select} >
-                <span onClick={handleFToggle} className={styles.span}><BsFonts /></span>
+                <span onClick={handleFToggle} className={styles.span}>
+                    <BsFonts className={styles.icons} />
+                    <span className={styles.tooltipText}>Font Family</span>
+                </span>
                 <ul className={`${state.toggleFont ? `${styles.isulactive} ${styles.ul}` : `${styles.ul}`}`}>
 
                     {fontFamily.map((item, idx) => (
@@ -126,7 +141,10 @@ const TiptapBtn = ({ editor }) => {
 
 
             <div className={styles.select}  >
-                <span onClick={handleHToggle} className={styles.span}><AiOutlineHighlight /></span>
+                <span onClick={handleHToggle} className={styles.span}>
+                    <AiOutlineHighlight className={styles.icons} />
+                    <span className={styles.tooltipText}>Highlight</span>
+                </span>
                 <ul className={`${state.toggleHighlight ? `${styles.isulactive} ${styles.ul}` : `${styles.ul}`}`}>
 
 
