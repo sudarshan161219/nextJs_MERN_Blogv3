@@ -1,4 +1,5 @@
 
+import Heading from '@tiptap/extension-heading'
 import Blockquote from "@tiptap/extension-blockquote";
 import Document from "@tiptap/extension-document";
 import Paragraph from "@tiptap/extension-paragraph";
@@ -19,6 +20,7 @@ import Highlight from "@tiptap/extension-highlight";
 const lowlight = createLowlight(common);
 
 export {
+  Heading,
   Blockquote,
   Document,
   Paragraph,

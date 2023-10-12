@@ -203,7 +203,6 @@ main {
   overflow: auto;
 }
 
-
 .tiptap.ProseMirror::-webkit-scrollbar {
   width: 0.4em;
 }
@@ -216,20 +215,13 @@ blockquote {
   border-left: 3px solid var(--blockQuote);
   padding-left: 1rem;
 }
-
+.my-custom-heading {
+  color: var(--textColor);
+}
 .my-custom-paragraph {
   color: var(--textColor);
 }
 
-/* .tiptap.ProseMirror > h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p > strong {
-  font-weight: bold;
-} */
 
 .my-custom-strong {
   color: var(--textColor);

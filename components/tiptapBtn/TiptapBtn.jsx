@@ -9,7 +9,7 @@ import {
     BsCodeSquare,
     BsFonts
 } from "react-icons/bs"
-import { AiOutlineHighlight } from "react-icons/ai"
+import { AiOutlineHighlight, AiOutlineFontColors } from "react-icons/ai"
 import { markHighlight, fontFamily } from "@/data/data"
 
 
@@ -103,14 +103,30 @@ const TiptapBtn = ({ editor }) => {
 
             </button>
 
-            <div className={styles.span}>
+
+
+
+            <div className={styles.colorContainer}>
+
+
                 <input
+                    className={styles.input}
                     type="color"
+                    id="color"
                     onInput={event => editor.chain().focus().setColor(event.target.value).run()}
                     value={editor.getAttributes('textStyle').color}
                     data-testid="setColor"
                 />
-                  <span className={styles.tooltipText}>Text Color</span>
+                <label className={styles.span} htmlFor="color">
+                    <AiOutlineFontColors className={styles.icons} />
+                    <span className={styles.tooltipText}>Text Color</span>
+                </label>
+                <button
+                    onClick={() => editor.chain().focus().unsetColor().run()}
+                    data-testid="unsetColor"
+                >
+                    unsetColor
+                </button>
             </div>
 
 

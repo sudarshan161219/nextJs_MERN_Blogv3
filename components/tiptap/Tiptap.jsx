@@ -3,13 +3,19 @@ import { useState } from "react"
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
-import { Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight } from "@/tiptaptool/tiptap"
+import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
     const editor = useEditor({
         extensions: [
             Document,
+            Heading.configure({
+                levels: [1, 2, 3, 4, 5, 6],
+                HTMLAttributes: {
+                    class: 'my-custom-heading',
+                },
+            }),
             Paragraph.configure({
                 HTMLAttributes: {
                     class: 'my-custom-paragraph',
@@ -42,11 +48,11 @@ const Tiptap = () => {
                     class: 'my-custom-code',
                 },
             }),
-            CodeBlock.configure({
-                HTMLAttributes: {
-                    class: 'my-custom-codeblock',
-                },
-            }),
+            // CodeBlock.configure({
+            //     HTMLAttributes: {
+            //         class: 'my-custom-codeblock',
+            //     },
+            // }),
             CodeBlockLowlight.configure({
                 lowlight,
                 HTMLAttributes: {
@@ -62,7 +68,7 @@ const Tiptap = () => {
         `,
         onUpdate({ editor }) {
             setEditorContent(editor.getHTML());
-          },
+        },
     })
 
 
