@@ -235,6 +235,17 @@ blockquote {
   font-size: 1.3rem;
 }
 
+.tiptap.ProseMirror img {
+  width: 100%;
+}
+.my-custom-bulletList{
+  padding: 0 1rem;
+  list-style-type: disc;
+}
+.my-custom-orderedList {
+  padding: 0 1rem;
+  list-style-type: style;
+}
 .my-custom-heading {
   color: var(--textColor);
 }
@@ -247,11 +258,11 @@ blockquote {
   font-weight: bold;
 }
 
-.my-custom-bulletList,
+/* .my-custom-bulletList,
 .my-custom-listItem {
   list-style: auto;
   padding: 0 1rem;
-}
+} */
 
 .my-custom-listItem::marker {
   display: none;
@@ -346,4 +357,10 @@ blockquote {
 
 .my-custom-codeblocklowlight .hljs-strong {
   font-weight: 700;
+}
+
+@media screen and (min-width: 700px) {
+  .tiptap.ProseMirror img {
+    width: 500px;
+  }
 }

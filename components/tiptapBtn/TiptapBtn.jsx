@@ -1,17 +1,19 @@
 "use client"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import styles from "./tiptapbtn.module.css"
 import {
     BsQuote,
     BsTypeBold,
     BsListUl,
+    BsListOl,
     BsCodeSlash,
     BsCodeSquare,
-    BsFonts
+    BsFonts,
+    BsImage
 } from "react-icons/bs"
 import { BiHeading } from 'react-icons/bi'
 import { AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai"
-import { FaHeading } from "react-icons/fa"
+import { GoHorizontalRule } from "react-icons/go"
 import { markHighlight, fontFamily, headings } from "@/data/data"
 
 
@@ -73,6 +75,15 @@ const TiptapBtn = ({ editor }) => {
         ))
     }
 
+
+    const addImage = useCallback(() => {
+        const url = window.prompt('URL')
+
+        if (url) {
+            editor.chain().focus().setImage({ src: url }).run()
+        }
+    }, [editor])
+
     return (
         <div className={styles.container}>
 
@@ -109,6 +120,8 @@ const TiptapBtn = ({ editor }) => {
                 <span className={styles.tooltipText}>Bold</span>
 
             </button>
+
+
             <button
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={`${editor.isActive('bulletList') ? `${styles.isactive}` : `${styles.btn}`}`}
@@ -116,6 +129,17 @@ const TiptapBtn = ({ editor }) => {
                 < BsListUl className={styles.icons} />
                 <span className={styles.tooltipText}>Bullet List</span>
             </button>
+            <button
+                onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                className={`${editor.isActive('orderedList') ? `${styles.isactive}` : `${styles.btn}`}`}
+            >
+                <BsListOl className={styles.icons} />
+
+                <span className={styles.tooltipText}>Ordered List</span>
+
+            </button>
+
+
             <button
                 onClick={() => editor.chain().focus().toggleCode().run()}
                 className={`${editor.isActive('code') ? `${styles.isactive}` : `${styles.btn}`}`}
@@ -131,7 +155,6 @@ const TiptapBtn = ({ editor }) => {
                 <span className={styles.tooltipText}>Code Block</span>
 
             </button>
-
             <button
                 onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}
                 className={styles.btn}
@@ -146,10 +169,16 @@ const TiptapBtn = ({ editor }) => {
             >
                 <AiOutlineRedo className={styles.icons} />
                 <span className={styles.tooltipText}> redo</span>
-
-
             </button>
 
+            <button className={styles.btn} onClick={() => editor.chain().focus().setHorizontalRule().run()}>
+                <GoHorizontalRule className={styles.icons} />
+                <span className={styles.tooltipText}>Horizontal Rule</span>
+            </button>
+            <button className={styles.btn} onClick={addImage}>
+                <BsImage className={styles.icons} />
+                <span className={styles.tooltipText}>Set Image</span>
+            </button>
 
             <div className={styles.colorContainer}>
                 <input
