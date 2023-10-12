@@ -3,7 +3,7 @@ import { useState } from "react"
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
-import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight } from "@/tiptaptool/tiptap"
+import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
@@ -27,6 +27,7 @@ const Tiptap = () => {
             Dropcursor,
             FontFamily,
             HardBreak,
+            History,
             Highlight.configure({ multicolor: true }),
             Bold.configure({
                 HTMLAttributes: {
@@ -48,11 +49,6 @@ const Tiptap = () => {
                     class: 'my-custom-code',
                 },
             }),
-            // CodeBlock.configure({
-            //     HTMLAttributes: {
-            //         class: 'my-custom-codeblock',
-            //     },
-            // }),
             CodeBlockLowlight.configure({
                 lowlight,
                 HTMLAttributes: {

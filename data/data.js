@@ -13,4 +13,13 @@ const fontFamily = [
   { name: "cursive", fontFamily: "cursive" },
 ];
 
-export { markHighlight, fontFamily };
+const headings = [
+  { name: "H1", level: 1 },
+  { name: "H2", level: 2 },
+  { name: "H3", level: 3 },
+  { name: "H4", level: 4 },
+  { name: "H5", level: 5 },
+  { name: "H6", level: 6 },
+];
+
+export { markHighlight, fontFamily, headings };

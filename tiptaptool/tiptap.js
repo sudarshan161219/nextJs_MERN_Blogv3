@@ -17,6 +17,7 @@ import Dropcursor from "@tiptap/extension-dropcursor";
 import FontFamily from "@tiptap/extension-font-family";
 import HardBreak from "@tiptap/extension-hard-break";
 import Highlight from "@tiptap/extension-highlight";
+import History from '@tiptap/extension-history'
 const lowlight = createLowlight(common);
 
 export {
@@ -38,4 +39,5 @@ export {
   FontFamily,
   HardBreak,
   Highlight,
+  History
 };

@@ -215,13 +215,32 @@ blockquote {
   border-left: 3px solid var(--blockQuote);
   padding-left: 1rem;
 }
+
+.tiptap.ProseMirror h1 {
+  font-size: 2.5rem;
+}
+.tiptap.ProseMirror h2 {
+  font-size: 2.2rem;
+}
+.tiptap.ProseMirror h3 {
+  font-size: 2.1rem;
+}
+.tiptap.ProseMirror h4 {
+  font-size: 2rem;
+}
+.tiptap.ProseMirror h5 {
+  font-size: 1.5rem;
+}
+.tiptap.ProseMirror h6 {
+  font-size: 1.3rem;
+}
+
 .my-custom-heading {
   color: var(--textColor);
 }
 .my-custom-paragraph {
   color: var(--textColor);
 }
-
 
 .my-custom-strong {
   color: var(--textColor);

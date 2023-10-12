@@ -9,13 +9,16 @@ import {
     BsCodeSquare,
     BsFonts
 } from "react-icons/bs"
-import { AiOutlineHighlight, AiOutlineFontColors } from "react-icons/ai"
-import { markHighlight, fontFamily } from "@/data/data"
+import { BiHeading } from 'react-icons/bi'
+import { AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai"
+import { FaHeading } from "react-icons/fa"
+import { markHighlight, fontFamily, headings } from "@/data/data"
 
 
 const initialState = {
     toggleFont: false,
     toggleHighlight: false,
+    toggleHeading: false,
 
 }
 const TiptapBtn = ({ editor }) => {
@@ -42,7 +45,6 @@ const TiptapBtn = ({ editor }) => {
         }
     }
 
-
     const handleHToggle = () => {
         setstate(prevState => (
             {
@@ -62,8 +64,35 @@ const TiptapBtn = ({ editor }) => {
     }
 
 
+    const handleHeadingToggle = () => {
+        setstate(prevState => (
+            {
+                ...prevState,
+                toggleHeading: !prevState.toggleHeading
+            }
+        ))
+    }
+
     return (
         <div className={styles.container}>
+
+            <div className={styles.select}>
+                <span onClick={handleHeadingToggle} className={styles.span}>
+                    <BiHeading className={styles.icons} />
+                    <span className={styles.tooltipText}>Heading
+                    </span>
+                </span>
+                <ul className={`${state.toggleHeading ? `${styles.isulactive} ${styles.ul}` : `${styles.ul}`}`} >
+                    {headings.map((item, idx) => (
+                        <li className={styles.li}
+                            onClick={
+                                () => { editor.chain().focus().toggleHeading({ level: item.level }).run(); handleHeadingToggle() }
+                            } key={idx}>{item.name}</li>
+                    ))}
+                </ul>
+            </div>
+
+
             <button
                 onClick={() => editor.chain().focus().toggleBlockquote().run()}
                 className={`${editor.isActive('blockquote') ? `${styles.isactive}` : `${styles.btn}`}`}
@@ -103,12 +132,26 @@ const TiptapBtn = ({ editor }) => {
 
             </button>
 
+            <button
+                onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}
+                className={styles.btn}
+            >
+                <AiOutlineUndo className={styles.icons} />
+                <span className={styles.tooltipText}>undo</span>
 
+            </button>
+            <button
+                onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}
+                className={styles.btn}
+            >
+                <AiOutlineRedo className={styles.icons} />
+                <span className={styles.tooltipText}> redo</span>
+
+
+            </button>
 
 
             <div className={styles.colorContainer}>
-
-
                 <input
                     className={styles.input}
                     type="color"
@@ -140,7 +183,7 @@ const TiptapBtn = ({ editor }) => {
                     {fontFamily.map((item, idx) => (
                         <li
                             key={idx}
-                            onClick={() => editor.chain().focus().setFontFamily(item.fontFamily).run()}
+                            onClick={() => { editor.chain().focus().setFontFamily(item.fontFamily).run(); handleFToggle() }}
                             className={styles.li}
                         >{item.name}</li>
                     ))}
@@ -166,13 +209,13 @@ const TiptapBtn = ({ editor }) => {
 
 
                     <li
-                        onClick={() => editor.chain().focus().toggleHighlight().run()}
+                        onClick={() => { editor.chain().focus().toggleHighlight().run(); handleHToggle() }}
                         className={styles.li}
                     >toggleHighlight</li>
                     {markHighlight.map((item, idx) => (
                         <li
                             key={idx}
-                            onClick={() => editor.chain().focus().toggleHighlight({ color: item.color }).run()}
+                            onClick={() => { editor.chain().focus().toggleHighlight({ color: item.color }).run(); handleHToggle() }}
                             className={`${state.toggleHighlight ? `${styles.isliactive} ${styles.li}` : `${styles.li}`}`}
                         > {item.name} </li>
                     ))}
