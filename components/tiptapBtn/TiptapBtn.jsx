@@ -9,7 +9,8 @@ import {
     BsCodeSlash,
     BsCodeSquare,
     BsFonts,
-    BsImage
+    BsImage,
+    BsTypeItalic
 } from "react-icons/bs"
 import { BiHeading } from 'react-icons/bi'
 import { AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai"
@@ -175,6 +176,16 @@ const TiptapBtn = ({ editor }) => {
                 <GoHorizontalRule className={styles.icons} />
                 <span className={styles.tooltipText}>Horizontal Rule</span>
             </button>
+
+            <button
+                onClick={() => editor.chain().focus().toggleItalic().run()}
+                className={styles.btn}
+            >
+                <span className={styles.tooltipText}> Italic</span>
+                < BsTypeItalic className={styles.icons} />
+            </button>
+
+
             <button className={styles.btn} onClick={addImage}>
                 <BsImage className={styles.icons} />
                 <span className={styles.tooltipText}>Set Image</span>

@@ -20,6 +20,7 @@ import Highlight from "@tiptap/extension-highlight";
 import History from "@tiptap/extension-history";
 import HorizontalRule from "@tiptap/extension-horizontal-rule";
 import Image from "@tiptap/extension-image";
+import Italic from '@tiptap/extension-italic'
 
 const lowlight = createLowlight(common);
 
@@ -45,5 +46,6 @@ export {
   History,
   HorizontalRule,
   Image,
-  OrderedList
+  OrderedList,
+  Italic
 };

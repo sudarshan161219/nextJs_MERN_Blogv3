@@ -238,6 +238,11 @@ blockquote {
 .tiptap.ProseMirror img {
   width: 100%;
 }
+
+.tiptap.ProseMirror em{
+  font-style: italic
+}
+
 .my-custom-bulletList{
   padding: 0 1rem;
   list-style-type: disc;
