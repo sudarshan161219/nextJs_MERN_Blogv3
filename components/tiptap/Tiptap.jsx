@@ -3,7 +3,7 @@ import { useState } from "react"
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
-import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic } from "@/tiptaptool/tiptap"
+import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic, Link, Strike, Subscript, Underline, TextAlign } from "@/tiptaptool/tiptap"
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
@@ -31,6 +31,19 @@ const Tiptap = () => {
             HorizontalRule,
             Image,
             Italic,
+            Strike,
+            Underline,
+            TextAlign.configure({
+                types: ['heading', 'paragraph'],
+            }),
+            Subscript.configure({
+                HTMLAttributes: {
+                    class: 'my-custom-subscript',
+                },
+            }),
+            Link.configure({
+                openOnClick: false,
+            }),
             Highlight.configure({ multicolor: true }),
             Bold.configure({
                 HTMLAttributes: {

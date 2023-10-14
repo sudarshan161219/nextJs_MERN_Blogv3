@@ -10,10 +10,16 @@ import {
     BsCodeSquare,
     BsFonts,
     BsImage,
-    BsTypeItalic
+    BsTypeItalic,
+    BsTypeStrikethrough,
+    BsSubscript,
+    BsTypeUnderline
 } from "react-icons/bs"
-import { BiHeading } from 'react-icons/bi'
-import { AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo } from "react-icons/ai"
+import { BiHeading, BiLink, BiUnlink } from 'react-icons/bi'
+import {
+    AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo, AiOutlineAlignCenter, AiOutlineAlignLeft,
+    AiOutlineAlignRight
+} from "react-icons/ai"
 import { GoHorizontalRule } from "react-icons/go"
 import { markHighlight, fontFamily, headings } from "@/data/data"
 
@@ -76,6 +82,27 @@ const TiptapBtn = ({ editor }) => {
         ))
     }
 
+    const setLink = useCallback(() => {
+        const previousUrl = editor.getAttributes('link').href
+        const url = window.prompt('URL', previousUrl)
+
+        // cancelled
+        if (url === null) {
+            return
+        }
+
+        // empty
+        if (url === '') {
+            editor.chain().focus().extendMarkRange('link').unsetLink()
+                .run()
+
+            return
+        }
+
+        // update link
+        editor.chain().focus().extendMarkRange('link').setLink({ href: url })
+            .run()
+    }, [editor])
 
     const addImage = useCallback(() => {
         const url = window.prompt('URL')
@@ -189,6 +216,73 @@ const TiptapBtn = ({ editor }) => {
             <button className={styles.btn} onClick={addImage}>
                 <BsImage className={styles.icons} />
                 <span className={styles.tooltipText}>Set Image</span>
+            </button>
+
+
+            <button onClick={setLink} className={styles.btn}>
+                <BiLink className={styles.icons} />
+                <span className={styles.tooltipText}>Link</span>
+            </button>
+            <button
+                className={styles.btn}
+                onClick={() => editor.chain().focus().unsetLink().run()}
+                disabled={!editor.isActive('link')}
+            >
+                <BiUnlink className={styles.icons} />
+                <span className={styles.tooltipText}>Unlink</span>
+            </button>
+
+            <button
+                onClick={() => editor.chain().focus().toggleStrike().run()}
+                className={styles.btn}
+            >
+                <BsTypeStrikethrough className={styles.icons} />
+                <span className={styles.tooltipText}>Strike</span>
+            </button>
+
+
+            <button
+                onClick={() => editor.chain().focus().toggleSubscript().run()}
+                className={styles.btn}
+            >
+                < BsSubscript className={styles.icons} />
+                <span className={styles.tooltipText}>Subscript</span>
+
+            </button>
+
+
+            <button
+                onClick={() => editor.chain().focus().toggleUnderline().run()}
+                className={styles.btn}
+            >
+                <BsTypeUnderline className={styles.icons} />
+                <span className={styles.tooltipText}>Underline</span>
+            </button>
+
+
+            <button
+                onClick={() => editor.chain().focus().setTextAlign('left').run()}
+                className={styles.btn}
+            >
+                <AiOutlineAlignLeft className={styles.icons} />
+                <span className={styles.tooltipText}>Align Left</span>
+
+            </button>
+            <button
+                onClick={() => editor.chain().focus().setTextAlign('center').run()}
+                className={styles.btn}
+            >
+                <AiOutlineAlignCenter className={styles.icons} />
+                <span className={styles.tooltipText}>Align Center</span>
+
+            </button>
+            <button
+                onClick={() => editor.chain().focus().setTextAlign('right').run()}
+                className={styles.btn}
+            >
+                <AiOutlineAlignRight className={styles.icons} />
+                <span className={styles.tooltipText}>Align Right</span>
+
             </button>
 
             <div className={styles.colorContainer}>

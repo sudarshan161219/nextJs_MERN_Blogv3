@@ -243,6 +243,10 @@ blockquote {
   font-style: italic
 }
 
+.my-custom-subscript{
+  vertical-align: sub
+}
+
 .my-custom-bulletList{
   padding: 0 1rem;
   list-style-type: disc;
