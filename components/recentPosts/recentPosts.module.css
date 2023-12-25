@@ -10,7 +10,7 @@
   font-weight: 500;
 }
 
-.cards {
+/* .cards {
   display: grid;
   gap: 2rem;
 }
@@ -26,6 +26,6 @@
     grid-template-columns: 2fr, 2fr;
     gap: 1rem;
   }
-}
+} */
 
 

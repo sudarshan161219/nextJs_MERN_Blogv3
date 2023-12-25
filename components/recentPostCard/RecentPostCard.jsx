@@ -28,7 +28,8 @@ const RecentPostCard = ({ post }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.content}>
+
+            <div className="rounded-lg">
                 <div className={styles.imgContainer} >
                     <Image className={styles.img} src={post.image} alt='image' fill />
                 </div>
@@ -53,6 +54,9 @@ const RecentPostCard = ({ post }) => {
                     </ul>
                 </div>
             </div>
+
+
+
         </div>
     )
 }
