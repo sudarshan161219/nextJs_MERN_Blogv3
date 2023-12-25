@@ -7,14 +7,21 @@ import { useAppContext } from "@/context/Context"
 const MobileNav = () => {
     const { toggleMenu, toggleMobileMenu } = useAppContext()
 
+
+    const navLinks = [
+        { name: 'Home', to: '/' },
+        { name: 'About', to: 'about' },
+        { name: 'Contact', to: 'contact' },
+        { name: 'Write', to: 'write' },
+    ]
+
     return (
         <div className={toggleMobileMenu ? `${styles.show} ${styles.container}` : `${styles.container}`}>
             <ul className={styles.links}>
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/">Home</Link>  </li>
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/">About</Link>  </li>
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/">Contact</Link>  </li>
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/write">Write</Link>  </li>
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> profile</Link> </li>
+                {navLinks.map((item, idx) => (
+                    <li key={idx} onClick={toggleMenu}> <Link className={styles.link} href={item.to}>{item.name}</Link>  </li>
+                ))}
+                <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> Login</Link> </li>
             </ul>
         </div>
     )

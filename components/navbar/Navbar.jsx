@@ -9,6 +9,8 @@ import { Inter } from "next/font/google";
 import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
 import Image from "next/image"
+import { FaRegUser } from "react-icons/fa6";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +26,12 @@ const Navbar = () => {
     setScrollPosition(position)
   }
 
+  const navLinks = [
+    { name: 'Home', to: '/' },
+    { name: 'About', to: 'about' },
+    { name: 'Contact', to: 'contact' },
+    { name: 'Write', to: 'write' },
+  ]
 
   useEffect(() => {
     if (toggleMobileMenu) {
@@ -49,12 +57,19 @@ const Navbar = () => {
       }>
       <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
       <ul className={styles.links}>
+
         <li className={styles.link}><ThemeChanger /></li>
-        <li className={styles.link}> <Link className={styles.liLink} href="/">Home</Link>  </li>
-        <li className={styles.link}> <Link className={styles.liLink} href="/">About</Link>  </li>
-        <li className={styles.link}> <Link className={styles.liLink} href="/">Contact</Link>  </li>
-        <li className={styles.link}> <Link className={styles.liLink} href="/write">Write</Link>  </li>
-        <li className={`${styles.link} ${styles.linkBtn}`}> <Link className={styles.liLoginLink} href="/register">Login</Link></li>
+
+        <li ><FaRegUser className={styles.userIcon} /></li>
+
+        {navLinks.map((item, idx) => (
+          <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
+
+        ))}
+        
+        <li className={`${styles.link} ${styles.linkBtn} ${styles.desLink}`}>
+           <Link className={styles.liLoginLink} href="/register">Login</Link>
+           </li>
         <li onClick={toggleMenu} className={styles.link}>
           <span
             className={toggleMobileMenu ? styles.xline : styles.line}></span>

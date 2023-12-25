@@ -1,0 +1,123 @@
+.container {
+  position: fixed;
+  height: 100svh;
+  background: rgb(97 97 97 / 28%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20.2px);
+  -webkit-backdrop-filter: blur(6.2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-radius: 10px;
+  padding: 12px;
+  background-color: var(--bg);
+  box-shadow: var(--inputBoxShadow1) 0px 1px 3px 0px,
+    var(--inputBoxShadow2) 0px 0px 0px 1px;
+  height: 100svh;
+  /* overflow: hidden; */
+  overflow-y: scroll;
+}
+
+.closeIcon {
+  color: var(--textColor);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.heading {
+  color: var(--textColor);
+  font-size: 32px;
+  line-height: 150%;
+}
+
+.para {
+  color: var(--softTextColor);
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.input {
+  width: 100%;
+  background-color: var(--bg);
+  color: var(--textColor);
+  box-shadow: var(--inputBoxShadow1) 0px 1px 3px 0px,
+    var(--inputBoxShadow2) 0px 0px 0px 1px;
+  padding: 13px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.eyeIcon {
+  color: var(--textColor);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.liLoginLink {
+  color: var(--softTextColor);
+}
+
+.liLoginLink:hover {
+  color: var(--textColor);
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 0.8rem;
+  font-family: inherit;
+  background-color: var(--bg);
+  color: var(--textColor);
+  box-shadow: var(--inputBoxShadow1) 0px 1px 3px 0px,
+    var(--inputBoxShadow2) 0px 0px 0px 1px;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: var(--textColor);
+  color: var(--bg);
+  transition: 0.3s all;
+}
+
+.p {
+  color: var(--softTextColor);
+}
+
+.span {
+  text-decoration: underline;
+  color: var(--textColor);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 500px) {
+  .modal {
+    width: 450px;
+    height: 600px;
+    padding: 1.2rem;
+  }
+
+  .modal::-webkit-scrollbar {
+    width: 0.4em;
+  }
+
+  .modal::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+}

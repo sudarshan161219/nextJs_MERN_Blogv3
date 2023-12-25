@@ -153,8 +153,13 @@ a {
   --blockQuote: black;
   --codeBg: #0d0d0d;
   --codeColor: #f5f5f5;
+  --inputBoxShadow1:#00000059;
+  --inputBoxShadow2:#1b1f232c;
   transition: ease-in-out 0.3s;
 }
+
+
+
 
 .dark {
   --bg: #0a0b0c;
@@ -169,6 +174,8 @@ a {
   --blockQuote: #f7f5f2;
   --codeBg: #f5f5f5;
   --codeColor: #272829;
+  --inputBoxShadow1:#ffffff05;
+  --inputBoxShadow2:#ffffff26;
   transition: ease-in-out 0.3s;
 }
 
