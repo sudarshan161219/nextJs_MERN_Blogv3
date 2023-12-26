@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import { useState } from 'react'
 import { Inter } from "next/font/google";
 import styles from "./auth.module.css"
 import { MdClose } from "react-icons/md";
@@ -7,8 +8,13 @@ import Link from 'next/link'
 
 const inter = Inter({ subsets: ["latin"] });
 const Auth = () => {
+    const [isMember, setIsMember] = useState(false)
 
-    const isMember = true
+
+    const handleAuth = () => {
+        setIsMember(!isMember)
+    }
+
 
     return (
         <div className={`${styles.container} ${inter.className}`}>
@@ -26,21 +32,23 @@ const Auth = () => {
                 <div className='flex flex-col gap-4 '>
 
                     <form className={`${styles.form} grid gap-5 `}>
-                        <input className={styles.input} placeholder='Name' type="text" name='name' />
+                        {isMember ? null : <input className={styles.input} placeholder='Name' type="text" name='name' />}
                         <input className={styles.input} placeholder='Email' type='email' name='email' />
                         <div className='flex items-center relative w-full'>
                             <input className={styles.input} placeholder='Password' type="password" name='password' />
                             < FaRegEye className={styles.eyeIcon} />
                         </div>
-                        <div className='flex items-center relative w-full'>
+
+                        {isMember ? null : <div className='flex items-center relative w-full'>
                             <input className={styles.input} placeholder='Confirm Password' type="password" />
                             < FaRegEye className={styles.eyeIcon} />
-                        </div>
+                        </div>}
+
                     </form>
 
-                    <div className='flex justify-end items-center'>
+                    {isMember ? <div className='flex justify-end items-center'>
                         <Link className={styles.liLoginLink} href="/reset-password">Forgot Password ?</Link>
-                    </div>
+                    </div> : null}
                 </div>
 
 
@@ -48,7 +56,7 @@ const Auth = () => {
 
 
                 <div className='flex tems-start justify-center mt-4 mb-4  '>
-                    <p className={styles.p}>Already  have an account ? <span className={styles.span}>Login</span>  </p>
+                    <p className={styles.p}>Already  have an account ? <span className={styles.span} onClick={handleAuth} >Login</span>  </p>
                 </div>
             </div>
         </div>
