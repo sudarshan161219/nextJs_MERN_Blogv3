@@ -4,6 +4,7 @@ import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
 import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic, Link, Strike, Subscript, Underline, TextAlign } from "@/tiptaptool/tiptap"
+import Placeholder from '@tiptap/extension-placeholder'
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
@@ -33,6 +34,7 @@ const Tiptap = () => {
             Italic,
             Strike,
             Underline,
+            Placeholder,
             TextAlign.configure({
                 types: ['heading', 'paragraph'],
             }),
@@ -78,6 +80,9 @@ const Tiptap = () => {
             }),
             Color.configure({
                 types: ['textStyle'],
+            }),
+            Placeholder.configure({
+                emptyEditorClass: 'is-editor-empty',
             })
         ],
         content: `
@@ -90,7 +95,7 @@ const Tiptap = () => {
 
 
     const handlePost = () => {
-
+        console.log(editorContent);
     }
 
 
@@ -105,9 +110,12 @@ const Tiptap = () => {
 
             <TiptapBtn editor={editor} />
 
-            <EditorContent editor={editor} />
+            <div className="mt-3 mb-3" >
+                <EditorContent editor={editor} />
+            </div>
 
             <button className={styles.post} onClick={handlePost}>post</button>
+            {/* <div dangerouslySetInnerHTML={{ __html: editorContent }} /> */}
         </>
     )
 }

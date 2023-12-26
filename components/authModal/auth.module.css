@@ -7,13 +7,18 @@
   -webkit-backdrop-filter: blur(6.2px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
-  z-index: 10;
+  z-index: -10;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
 }
-
+.show {
+  opacity: 1;
+  z-index: 10;
+}
 .modal {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-.container{
+.container {
   margin: 2rem 0;
 }
 
@@ -26,6 +26,9 @@
 
 .listimg {
   border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .list:nth-child(1) {
@@ -50,6 +53,42 @@
 
 .list:nth-child(6) {
   background-color: rgb(255, 105, 105, 0.3);
+}
+
+.list:nth-child(1):hover {
+  background-color: rgb(236, 238, 129);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+}
+
+.list:nth-child(2):hover {
+  background-color: rgb(3, 201, 135);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+}
+
+.list:nth-child(3):hover {
+  background-color: rgb(255, 174, 0);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+}
+
+.list:nth-child(4):hover {
+  background-color: rgb(255, 239, 179);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+}
+
+.list:nth-child(5):hover {
+  background-color: rgb(149, 0, 255);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+}
+
+.list:nth-child(6):hover {
+  background-color: rgb(255, 105, 105);
+  cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
 }
 
 .listTitle {
@@ -79,7 +118,7 @@
     flex-wrap: unset;
   }
 
-  .list{
+  .list {
     width: 16.6%;
     gap: 10px;
   }

@@ -112,6 +112,9 @@ const TiptapBtn = ({ editor }) => {
         }
     }, [editor])
 
+
+    
+
     return (
         <div className={styles.container}>
 
@@ -285,7 +288,7 @@ const TiptapBtn = ({ editor }) => {
 
             </button>
 
-            <div className={styles.colorContainer}>
+            <div className={`${styles.colorContainer} flex items-center gap-2`}>
                 <input
                     className={styles.input}
                     type="color"

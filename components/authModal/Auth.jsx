@@ -5,9 +5,12 @@ import styles from "./auth.module.css"
 import { MdClose } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import Link from 'next/link'
-
+import { useAppContext } from '@/context/Context';
 const inter = Inter({ subsets: ["latin"] });
+
+
 const Auth = () => {
+    const { toggleAuthModal, authToggle } = useAppContext()
     const [isMember, setIsMember] = useState(false)
 
 
@@ -17,15 +20,15 @@ const Auth = () => {
 
 
     return (
-        <div className={`${styles.container} ${inter.className}`}>
+        <div className={`${authToggle ? `${styles.container} ${styles.show} ${inter.className}` : `${styles.container} ${inter.className}`}`}>
             <div className={styles.modal}>
                 <div className='flex items-start justify-end' >
-                    <MdClose className={styles.closeIcon} />
+                    <MdClose onClick={toggleAuthModal} className={styles.closeIcon} />
                 </div>
 
                 <div className={`${styles.headingContainer}grid gap-5`} >
-                    <h1 className={styles.heading}>Lets Register Account</h1>
-                    <p className={styles.para}>Your journey is filled with wonderful experiences!</p>
+                    <h1 className={styles.heading}> {isMember ? "Lets Sign you in" : "Lets Register Account"}</h1>
+                    <p className={styles.para}>{isMember ? "It's great to have you back! Your presence was missed." : "Your journey is filled with wonderful experiences!"}</p>
                 </div>
 
 
@@ -53,10 +56,8 @@ const Auth = () => {
 
 
                 <button className={styles.btn}>Create Account</button>
-
-
                 <div className='flex tems-start justify-center mt-4 mb-4  '>
-                    <p className={styles.p}>Already  have an account ? <span className={styles.span} onClick={handleAuth} >Login</span>  </p>
+                    <p className={styles.p}> {isMember ? "Don’t have an account" : "Already  have an account"} ? <span className={styles.span} onClick={handleAuth} >  {isMember ? "Register Now" : "Login"} </span>  </p>
                 </div>
             </div>
         </div>

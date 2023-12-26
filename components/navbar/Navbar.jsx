@@ -15,7 +15,7 @@ import { FaRegUser } from "react-icons/fa6";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
-  const { toggleMobileMenu, toggleMenu, toggleTheme } = useAppContext()
+  const { toggleMobileMenu, toggleMenu, toggleTheme, toggleAuthModal } = useAppContext()
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathname = usePathname()
 
@@ -60,7 +60,7 @@ const Navbar = () => {
 
         <li className={styles.link}><ThemeChanger /></li>
 
-        <li ><FaRegUser className={styles.userIcon} /></li>
+        <li onClick={toggleAuthModal} ><FaRegUser className={styles.userIcon} /></li>
 
         {navLinks.map((item, idx) => (
           <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
