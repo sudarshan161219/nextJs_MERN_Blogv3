@@ -34,7 +34,7 @@ const AllPostsCards = ({ post }) => {
                 </div>
                 <div className={styles.postInfo} >
                     <span className={styles.date} >{post.date}</span>
-                    <Link href="/" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
+                    <Link href="/blog/blog-post" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
                     <p className={styles.postDesc}>{post.content.substring(0, 100)}{"..."}</p>
 
                     <ul className={styles.tags}>
@@ -49,7 +49,6 @@ const AllPostsCards = ({ post }) => {
                                 {post.tags[idx]}
                             </li>
                         ))}
-
                     </ul>
                 </div>
             </div>

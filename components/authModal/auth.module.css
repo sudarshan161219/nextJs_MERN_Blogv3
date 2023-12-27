@@ -1,6 +1,6 @@
 .container {
   position: fixed;
-  height: 100svh;
+  height: 100vh;
   background: rgb(97 97 97 / 28%);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20.2px);
@@ -28,8 +28,7 @@
   background-color: var(--bg);
   box-shadow: var(--inputBoxShadow1) 0px 1px 3px 0px,
     var(--inputBoxShadow2) 0px 0px 0px 1px;
-  height: 100svh;
-  /* overflow: hidden; */
+  height: 100vh;
   overflow-y: scroll;
 }
 

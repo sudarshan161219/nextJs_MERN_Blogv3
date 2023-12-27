@@ -8,7 +8,7 @@ const Allposts = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>All Blog Posts</h1>
-            <div className={styles.cards}>
+            <div  className={styles.cards}>
                 {data.map((item, idx) => (
                     <AllPostsCards key={idx} post={item} />
                 ))}

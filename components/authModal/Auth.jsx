@@ -1,9 +1,9 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Inter } from "next/font/google";
 import styles from "./auth.module.css"
 import { MdClose } from "react-icons/md";
-import { FaRegEye } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Link from 'next/link'
 import { useAppContext } from '@/context/Context';
 const inter = Inter({ subsets: ["latin"] });
@@ -11,13 +11,35 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Auth = () => {
     const { toggleAuthModal, authToggle } = useAppContext()
+    const [showpwd, setShowpwd] = useState(false)
+    const [showConfirmPwd, setShowConfirmPwd] = useState(false)
     const [isMember, setIsMember] = useState(false)
 
+    useEffect(() => {
+        if (authToggle) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [authToggle]);
 
     const handleAuth = () => {
         setIsMember(!isMember)
     }
 
+    const handleForm = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData);
+    }
+
+    const handlePwd = () => {
+        setShowpwd(!showpwd)
+    }
+
+    const handleConfirmPwd = () => {
+        setShowConfirmPwd(!showConfirmPwd)
+    }
 
     return (
         <div className={`${authToggle ? `${styles.container} ${styles.show} ${inter.className}` : `${styles.container} ${inter.className}`}`}>
@@ -34,28 +56,39 @@ const Auth = () => {
 
                 <div className='flex flex-col gap-4 '>
 
-                    <form className={`${styles.form} grid gap-5 `}>
+                    <form onSubmit={handleForm} className={`${styles.form} grid gap-5 `}>
                         {isMember ? null : <input className={styles.input} placeholder='Name' type="text" name='name' />}
                         <input className={styles.input} placeholder='Email' type='email' name='email' />
                         <div className='flex items-center relative w-full'>
-                            <input className={styles.input} placeholder='Password' type="password" name='password' />
-                            < FaRegEye className={styles.eyeIcon} />
+                            <input className={styles.input} placeholder='Password' type={showpwd ? 'text' : 'password'} name='password' />
+                            {showpwd ?
+
+                                <FaRegEyeSlash onClick={handlePwd} className={styles.eyeIcon} />
+                                :
+                                < FaRegEye onClick={handlePwd} className={styles.eyeIcon} />
+                            }
                         </div>
 
                         {isMember ? null : <div className='flex items-center relative w-full'>
-                            <input className={styles.input} placeholder='Confirm Password' type="password" />
-                            < FaRegEye className={styles.eyeIcon} />
+                            <input className={styles.input} placeholder='Confirm Password' type={showConfirmPwd ? 'text' : 'password'} />
+                            {showConfirmPwd ?
+                                <FaRegEyeSlash onClick={handleConfirmPwd} className={styles.eyeIcon} />
+                                :
+                                < FaRegEye onClick={handleConfirmPwd} className={styles.eyeIcon} />
+                            }
                         </div>}
 
+                        {isMember ? <div className='flex justify-end items-center'>
+                            <Link className={styles.liLoginLink} href="/reset-password">Forgot Password ?</Link>
+                        </div> : null}
+
+                        <button className={styles.btn}>Create Account</button>
                     </form>
 
-                    {isMember ? <div className='flex justify-end items-center'>
-                        <Link className={styles.liLoginLink} href="/reset-password">Forgot Password ?</Link>
-                    </div> : null}
+
                 </div>
 
 
-                <button className={styles.btn}>Create Account</button>
                 <div className='flex tems-start justify-center mt-4 mb-4  '>
                     <p className={styles.p}> {isMember ? "Don’t have an account" : "Already  have an account"} ? <span className={styles.span} onClick={handleAuth} >  {isMember ? "Register Now" : "Login"} </span>  </p>
                 </div>

@@ -57,7 +57,7 @@
 }
 
 
-@media screen and (min-width: 760px) {
+/* @media screen and (min-width: 760px) {
 .container:first-child{
   grid-column: 3 / 1;
 }
@@ -68,4 +68,4 @@
   .tag:hover{
     cursor: pointer;
   }
-}
+} */
