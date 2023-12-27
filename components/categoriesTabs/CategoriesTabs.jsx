@@ -44,16 +44,16 @@ const CategoriesTabs = () => {
         <div className={styles.container}>
             <h1 className={styles.title}>Popular Categories</h1>
 
-            <ul className={styles.categorylist}>
+            <div className={styles.categorylist}>
                 {
                     blogCategories.map((item, idx) => (
-                        <li key={idx} className={styles.list}>
-                            <Link className={styles.listTitle} href={item.herf}>{item.name}</Link>
+                        <Link key={idx} href={item.herf} className={styles.list}>
+                            <strong className={styles.listTitle} >{item.name}</strong>
                             <Image className={styles.listimg} src={item.img} alt={item.name} width={40} height={40} />
-                        </li>
+                        </Link>
                     ))
                 }
-            </ul>
+            </div>
         </div>
     )
 }

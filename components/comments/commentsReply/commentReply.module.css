@@ -63,6 +63,20 @@
   margin-top: 1rem;
 }
 
+.imgContainer {
+  position: relative;
+  width: 95px;
+  height: 35px;
+  overflow: hidden;
+  outline: 1px solid var(--textColor);
+  border-radius: 100%;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .input {
   border: none;
   outline: 1px solid var(--softTextColor);

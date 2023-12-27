@@ -10,12 +10,11 @@
   border-top: 1px solid var(--softTextColor);
   overflow: scroll;
   transform: translateY(1000px);
-  transition: ease-in-out 0.8s;
+  transition: ease-in-out 0.3s;
 }
 
 .show {
   transform: translateY(0);
-  transition: ease-in-out 0.8s;
 }
 
 .container::-webkit-scrollbar {

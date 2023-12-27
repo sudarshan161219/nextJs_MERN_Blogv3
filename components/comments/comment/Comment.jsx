@@ -27,7 +27,9 @@ const Comment = ({ Ucomment }) => {
     return (
         <div className={styles.container}>
             <div className={styles.imgTextContainer} >
-                <Image className={styles.img} src={img} width={40} height={40} alt={name} />
+                <div className={styles.imgContainer} >
+                    <Image className={styles.img} src={img} fill alt={name} />
+                </div>
                 {showReply && <span className={styles.line} ></span>}
 
                 <div className={styles.textContainer}>
@@ -57,24 +59,24 @@ const Comment = ({ Ucomment }) => {
             </div>
 
 
-                <div className={styles.replyContainer}>
-                    {reply &&
-                        <div className={styles.inputContainer} >
-                            <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
-                            <div className={styles.btnContainer} >
-                                <button className={styles.button}>reply</button>
-                            </div>
-                        </div>}
-                    {
-                        showReply && <div>
-                            {replies && replies.length > 1 && replies.map((item) => (
-                                <div className={styles.replies} key={item.id}>
-                                    <CommentReply replies={item} />
-                                </div>
-                            ))}
+            <div className={styles.replyContainer}>
+                {reply &&
+                    <div className={styles.inputContainer} >
+                        <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
+                        <div className={styles.btnContainer} >
+                            <button className={styles.button}>reply</button>
                         </div>
-                    }
-                </div>
+                    </div>}
+                {
+                    showReply && <div>
+                        {replies && replies.length > 1 && replies.map((item) => (
+                            <div className={styles.replies} key={item.id}>
+                                <CommentReply replies={item} />
+                            </div>
+                        ))}
+                    </div>
+                }
+            </div>
 
             {replies.length > 1 && <div onClick={handleReplies} className={styles.tagrepliesContainer}>
                 {showReply ? <span className={styles.span}>{`${replies.length > 1 ? "hide replies" : "hide reply"} `}</span> : <span className={styles.span}>{`show ${replies.length > 1 ? "replies" : "reply"} (${replies.length})  `}</span>}

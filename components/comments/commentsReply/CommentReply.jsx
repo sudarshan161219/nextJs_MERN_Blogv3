@@ -26,7 +26,9 @@ const CommentReply = ({ replies }) => {
     return (
         <div className={styles.container} >
             <div className={styles.imgTextContainer} >
-                <Image className={styles.img} src={img} width={40} height={40} alt={name} />
+                <div className={styles.imgContainer} >
+                    <Image className={styles.img} src={img} fill alt={name} />
+                </div>
                 <div className={styles.textContainer}>
                     <div className={styles.dateNameContainer}>
                         <span className={styles.name}>{name}</span>
@@ -46,7 +48,7 @@ const CommentReply = ({ replies }) => {
                             <span className={styles.Count}>25k</span>
                         </div>
 
-                        <div onClick={handleClick}  className={styles.ldContainer}>
+                        <div onClick={handleClick} className={styles.ldContainer}>
                             <BsReply className={styles.LdIcon} />
                             <span className={styles.Count}>reply</span>
                         </div>
@@ -57,13 +59,13 @@ const CommentReply = ({ replies }) => {
             </div>
 
             {reply &&
-            <div className={styles.inputContainer} >
-                <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
-                <div className={styles.btnContainer} >
-                    <button className={styles.button}>reply</button>
+                <div className={styles.inputContainer} >
+                    <textarea className={styles.input} onChange={handleinput} value={text} placeholder='reply'></textarea>
+                    <div className={styles.btnContainer} >
+                        <button className={styles.button}>reply</button>
+                    </div>
                 </div>
-            </div>
-                    }
+            }
         </div>
     )
 }

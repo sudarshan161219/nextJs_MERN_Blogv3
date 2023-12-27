@@ -9,8 +9,17 @@
   position: relative;
 }
 
-.img {
+.imgContainer {
+  position: relative;
+  width: 105px;
+  height: 45px;
+  overflow: hidden;
+  outline: 1px solid var(--textColor);
   border-radius: 100%;
+}
+
+.img {
+  width: 100%;
   object-fit: cover;
 }
 
@@ -129,8 +138,7 @@
   color: var(--commentShowReplyText);
 }
 
-.tagrepliesContainer{
+.tagrepliesContainer {
   margin-top: 0.5rem;
   margin-left: 4.5rem;
 }
-

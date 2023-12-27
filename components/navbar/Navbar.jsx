@@ -28,9 +28,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', to: '/' },
-    { name: 'About', to: 'about' },
-    { name: 'Contact', to: 'contact' },
-    { name: 'Write', to: 'write' },
+    { name: 'About', to: '/about' },
+    { name: 'Contact', to: '/contact' },
+    { name: 'Write', to: '/write' },
   ]
 
   useEffect(() => {
