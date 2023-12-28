@@ -14,6 +14,8 @@ import Comments from "./comments/Comments";
 import Tiptap from "./tiptap/Tiptap";
 import TiptapBtn from "./tiptapBtn/TiptapBtn";
 import Auth from "./authModal/Auth";
+import AuthorInfo  from "./authorInfo/AuthorInfo"
+import AuthorPosts from "./authorPosts/AuthorPosts"
 
 export {
   Navbar,
@@ -32,4 +34,6 @@ export {
   Tiptap,
   TiptapBtn,
   Auth,
+  AuthorInfo ,
+  AuthorPosts
 };
