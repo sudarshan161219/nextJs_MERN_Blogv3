@@ -15,7 +15,7 @@ const page = () => {
                 <span className={`${styles.span} h-px flex-1 mt-3`}></span>
             </span>
             <div className={styles.authorPosts} >
-                <h1 className={styles.heading}>Author's Posts</h1>
+                <h1 className={styles.heading}>{"Author's"} Posts</h1>
                 <AuthorPosts />
             </div>
         </div>
