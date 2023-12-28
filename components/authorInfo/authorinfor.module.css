@@ -32,3 +32,39 @@
   font-size: 1.5rem;
   color: var(--textColor);
 }
+
+
+@media screen and (min-width:800px) {
+  .imgContainer, .ul{
+    display: flex;
+    justify-self: center;
+  }
+
+  .info{
+    justify-content: center;
+  }
+
+  .heading, .para{
+    text-align: center;
+  }
+  .para{
+    width: 550px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .imgContainer, .ul{
+    justify-self: unset;
+  }
+
+  .info{
+    justify-content: unset;
+  }
+
+  .heading, .para{
+    text-align: left;
+  }
+  .para{
+    width: 450px;
+  }
+}

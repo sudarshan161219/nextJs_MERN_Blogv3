@@ -60,7 +60,7 @@ const Navbar = () => {
 
         <li className={styles.link}><ThemeChanger /></li>
 
-        <li onClick={toggleAuthModal} ><FaRegUser className={styles.userIcon} /></li>
+        <li className={styles.link} onClick={toggleAuthModal} ><FaRegUser className={styles.userIcon} /></li>
 
         {navLinks.map((item, idx) => (
           <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
@@ -68,7 +68,7 @@ const Navbar = () => {
         ))}
         
         <li className={`${styles.link} ${styles.linkBtn} ${styles.desLink}`}>
-           <Link className={styles.liLoginLink} href="/register">Login</Link>
+          <button onClick={toggleAuthModal} className={styles.liLoginLink}>Login</button>
            </li>
         <li onClick={toggleMenu} className={styles.link}>
           <span
