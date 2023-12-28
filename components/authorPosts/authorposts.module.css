@@ -1,0 +1,17 @@
+.cards {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  @media screen and (min-width: 650px) {
+    .cards {
+      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fit, minMax(min(100%, 270px), 1fr));
+    }
+  
+    .Headtitle {
+      font-size: 2rem;
+      color: var(--textColor);
+      text-align: center;
+    }
+  }

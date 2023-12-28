@@ -15,6 +15,7 @@ const Page = () => {
                 <h1 className={styles.homeTitle}>Explore <b className={styles.homeTitleBold}>{name}</b> for tailored insights and articles.</h1>
             </div>
 
+            <h3 className={styles.h3}>latest {name} posts</h3>
             <div className={styles.cards}>
                 {data.map((item, idx) => (
                     <AllPostsCards key={idx} post={item} />

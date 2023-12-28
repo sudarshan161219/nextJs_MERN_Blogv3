@@ -7,13 +7,17 @@ import {
 const page = () => {
     return (
         <div className={styles.container} >
-            <AuthorInfo />
+            <div className={styles.authorInfo} >
+                <AuthorInfo />
+            </div>
             <span className="flex items-center">
-                <span className={`${styles.span} h-px flex-1`}></span>
-                <span className="shrink-0 px-6">Lorem, ipsum dolor</span>
-                <span className={`${styles.span} h-px flex-1`}></span>
+                <span className={`${styles.span} h-px flex-1 mt-3`}></span>
+                <span className={`${styles.span} h-px flex-1 mt-3`}></span>
             </span>
-            <AuthorPosts />
+            <div className={styles.authorPosts} >
+                <h1 className={styles.heading}>Author's Posts</h1>
+                <AuthorPosts />
+            </div>
         </div>
     )
 }

@@ -28,6 +28,12 @@
   text-decoration: underline;
 }
 
+.h3{
+  color: var(--softTextColor);
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
 @media screen and (min-width: 700px) {
   .homeTitle {
     font-size: 46px;
