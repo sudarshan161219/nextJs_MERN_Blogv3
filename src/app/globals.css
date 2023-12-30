@@ -373,6 +373,55 @@ blockquote {
   pointer-events: none;
 }
 
+.ant-pagination-item-ellipsis {
+  color: var(--softTextColor) !important;
+}
+
+.ant-pagination-options {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
+.ant-select
+  .ant-pagination-options-size-changer
+  .css-dev-only-do-not-override-fqrqg8
+  .ant-select-single
+  .ant-select-show-arrow
+  .ant-select-show-search {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
+.ant-select-selector {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+.ant-select-selection-item {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
+.ant-select-dropdown,
+.ant-select-item .ant-select-item-option,
+.ant-select-item-option-content,
+.rc-virtual-list-holder-inner {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
+.ant-select-item
+  .ant-select-item-option
+  .ant-select-item-option-active
+  .ant-select-item-option-selected {
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
+#rc_select_1_list_0{
+  background-color: var(--softBg) !important;
+  color: var(--softTextColor) !important;
+}
+
 @media screen and (min-width: 700px) {
   .tiptap.ProseMirror img {
     width: 500px;

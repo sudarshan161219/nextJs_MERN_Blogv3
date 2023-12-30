@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from "./pagination.module.css"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
+
+
 const Pagination = () => {
   return (
     <div className={styles.container}>

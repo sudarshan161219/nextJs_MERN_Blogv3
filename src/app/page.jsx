@@ -10,7 +10,7 @@ const App = () => {
       <RecentPosts />
       <CategoriesTabs />
       <Allposts />
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   )
 }
