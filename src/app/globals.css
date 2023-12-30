@@ -196,6 +196,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
@@ -417,9 +418,19 @@ blockquote {
   color: var(--softTextColor) !important;
 }
 
-#rc_select_1_list_0{
+#rc_select_1_list_0 {
   background-color: var(--softBg) !important;
   color: var(--softTextColor) !important;
+}
+
+.slick-track {
+  display: flex !important;
+  gap: 15px;
+}
+
+.slick-list {
+  display: flex !important;
+  justify-content: center !important;
 }
 
 @media screen and (min-width: 700px) {
