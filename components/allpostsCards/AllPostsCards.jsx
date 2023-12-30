@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LuExternalLink } from "react-icons/lu"
 import { useAppContext } from '@/context/Context'
-
+import bgColor from "../../src/app/data/bgColor.json"
 
 const AllPostsCards = ({ post }) => {
     const { isServer } = useAppContext()
@@ -29,6 +29,8 @@ const AllPostsCards = ({ post }) => {
         '255, 0, 96'
     ]
 
+
+
     let shuffledBg = bgcolorsArr
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
@@ -36,6 +38,7 @@ const AllPostsCards = ({ post }) => {
 
     shuffledBg.length = post.tags.length
 
+    console.log(shuffledBg);
 
     return (
         <div className={styles.container}>
