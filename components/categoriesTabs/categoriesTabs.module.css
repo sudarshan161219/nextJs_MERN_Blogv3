@@ -126,6 +126,10 @@
   object-fit: cover;
 }
 
+.iconBtn1, .iconBtn2{
+  display: none;
+}
+
 @media screen and (min-width: 500px) {
   .categorylist {
     grid-template-columns: 2fr 2fr;

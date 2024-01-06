@@ -53,7 +53,6 @@ const CategoriesTabs = () => {
 
     const settings = {
         infinite: true,
-        arrows: false,
         speed: 500,
         slidesToShow: wsize,
         slidesToScroll: 1

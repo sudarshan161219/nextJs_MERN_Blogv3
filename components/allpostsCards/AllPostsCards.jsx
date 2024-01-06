@@ -38,7 +38,7 @@ const AllPostsCards = ({ post }) => {
 
     shuffledBg.length = post.tags.length
 
-    console.log(shuffledBg);
+
 
     return (
         <div className={styles.container}>
