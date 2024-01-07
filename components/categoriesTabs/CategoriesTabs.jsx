@@ -11,9 +11,12 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import catagories from "../../src/app/data/catagories.json"
+import { useAppContext } from '@/context/Context'
+import bgColor from "../../src/app/data/bgColor.json"
 
 
 const CategoriesTabs = () => {
+    const { isServer } = useAppContext()
     const [wsize, setWsize] = useState(1);
     const [windowSize, setWindowSize] = useState({ innerWidth: 0, innerHeight: 0 });
 
@@ -65,6 +68,15 @@ const CategoriesTabs = () => {
     const goToPrev = () => {
         sliderRef.current.slickPrev();
     };
+
+
+    let shuffledBg = bgColor
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+
+
+    shuffledBg.length = catagories.length
 
     return (
         <div className={styles.container}>
