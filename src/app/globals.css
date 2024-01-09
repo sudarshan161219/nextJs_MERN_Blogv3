@@ -433,6 +433,14 @@ blockquote {
   justify-content: center !important;
 }
 
+
+.slick-arrow .slick-prev{
+  display: none !important;
+}
+.slick-arrow .slick-next{
+  display: none !important;
+}
+
 @media screen and (min-width: 700px) {
   .tiptap.ProseMirror img {
     width: 500px;

@@ -89,7 +89,11 @@ const CategoriesTabs = () => {
                     {
                         catagories.map((item, idx) => (
                             <Link key={idx} href={item.herf} className={styles.list}>
-                                <motion.div className={styles.item}>
+                                <div style={{
+                                backgroundColor:
+                                    `${!isServer && `rgb(${item.bg}, 0.1)`}`
+                                , color: `${!isServer && `rgb(${item.bg})`}`
+                            }} className={styles.item}>
                                     <strong className={styles.listTitle}>{item.name}</strong>
                                     <div className={styles.imgContainer} >
                                         <Image
@@ -102,7 +106,7 @@ const CategoriesTabs = () => {
                                             sizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1023px) 33.3vw, 25vw"
                                         />
                                     </div>
-                                </motion.div>
+                                </div>
                             </Link>
                         ))
                     }
