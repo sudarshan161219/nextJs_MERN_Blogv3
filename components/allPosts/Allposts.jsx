@@ -31,7 +31,7 @@ const Allposts = () => {
                         },
                     }}
                 >
-                    <Pagination className={styles.page} defaultCurrent={6} total={500} />
+                    <Pagination className={styles.page} defaultCurrent={1} total={500} />
                 </ConfigProvider>
             </div>
         </div>

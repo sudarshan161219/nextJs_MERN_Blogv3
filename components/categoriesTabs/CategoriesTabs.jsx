@@ -51,14 +51,16 @@ const CategoriesTabs = () => {
         return () => {
             window.removeEventListener('resize', handleWindowResize);
         };
-    }, [windowSize]);
+    }, [resizefn, windowSize]);
 
 
     const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: wsize,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        nextArrow: "",
+        prevArrow: ""
     };
 
     const goToNext = () => {
@@ -90,10 +92,10 @@ const CategoriesTabs = () => {
                         catagories.map((item, idx) => (
                             <Link key={idx} href={item.herf} className={styles.list}>
                                 <div style={{
-                                backgroundColor:
-                                    `${!isServer && `rgb(${item.bg}, 0.1)`}`
-                                , color: `${!isServer && `rgb(${item.bg})`}`
-                            }} className={styles.item}>
+                                    backgroundColor:
+                                        `${!isServer && `rgb(${item.bg}, 0.1)`}`
+                                    , color: `${!isServer && `rgb(${item.bg})`}`
+                                }} className={styles.item}>
                                     <strong className={styles.listTitle}>{item.name}</strong>
                                     <div className={styles.imgContainer} >
                                         <Image

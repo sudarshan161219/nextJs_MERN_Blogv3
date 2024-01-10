@@ -27,9 +27,8 @@ const Comment = ({ Ucomment }) => {
     return (
         <div className={styles.container}>
             <div className={styles.imgTextContainer} >
-                <div className={styles.imgContainer} >
-                    <Image className={styles.img} src={img} fill alt={name} />
-                </div>
+                    <Image className={styles.img} src={img} width={45} height={45} alt={name} />
+
                 {showReply && <span className={styles.line} ></span>}
 
                 <div className={styles.textContainer}>
