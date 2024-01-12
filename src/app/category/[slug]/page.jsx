@@ -1,8 +1,7 @@
 "use client"
 import styles from "./Page.module.css"
-import { AllPostsCards } from '@/components/export'
+import Cards from "@/components/cards/Cards"
 import data from "../../data/allPostData.json"
-import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation'
 
 const Page = () => {
@@ -18,7 +17,7 @@ const Page = () => {
             <h3 className={styles.h3}>latest {name} posts</h3>
             <div className={styles.cards}>
                 {data.map((item, idx) => (
-                    <AllPostsCards key={idx} post={item} />
+                    <Cards key={idx} post={item} />
                 ))}
             </div>
         </div>

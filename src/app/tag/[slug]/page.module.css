@@ -1,0 +1,50 @@
+.container {
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.hcontainer {
+  padding: 1rem 0;
+  margin: 2rem 0;
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+}
+
+.homeTitle {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 120%;
+  color: var(--textColor);
+  border-bottom: 1px solid var(--textColor);
+}
+
+.span {
+  color: var(--softTextColor);
+  font-size: 14px;
+  text-align: center;
+}
+
+.homeTitleBold {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.h3 {
+  color: var(--softTextColor);
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 650px) {
+  .cards {
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fit, minMax(min(100%, 270px), 1fr));
+  }
+
+}
