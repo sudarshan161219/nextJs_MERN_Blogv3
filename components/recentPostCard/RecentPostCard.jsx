@@ -38,9 +38,10 @@ const RecentPostCard = ({ post }) => {
                     <Link href="/blog/blog-post" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
                     <p className={styles.postDesc}>{post.content.substring(0, 100)}{"..."}</p>
 
-                    <ul className={styles.tags}>
+                    <div className={styles.tags}>
                         {shuffledBg.map((bg, idx) => (
-                            <li
+                            <Link
+                                href={`/tag/${post.tags[idx]}`}
                                 style={{
                                     backgroundColor:
                                         `${!isServer && `rgb(${bg}, 0.1)`}`
@@ -48,10 +49,10 @@ const RecentPostCard = ({ post }) => {
                                 }}
                                 className={styles.tag} key={idx}>
                                 {post.tags[idx]}
-                            </li>
+                            </Link>
                         ))}
 
-                    </ul>
+                    </div>
                 </div>
             </div>
 

@@ -1,14 +1,13 @@
 "use client"
 import React from 'react'
-import styles from './recommendArticlesCards.module.css'
+import styles from "./cards.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
 import { LuExternalLink } from "react-icons/lu"
 import { useAppContext } from '@/context/Context'
+import bgColor from "../../src/app/data/bgColor.json"
 
-
-const RecommendArticlesCards = ({ post }) => {
-
+const Cards = ({ post }) => {
     const { isServer } = useAppContext()
     const bgcolorsArr = [
         '1, 106, 112',
@@ -16,7 +15,18 @@ const RecommendArticlesCards = ({ post }) => {
         '214, 123, 255',
         '101, 40, 247',
         '252, 41, 71',
-        '13, 18, 130'
+        '13, 18, 130',
+        '82, 120, 83',
+        '238, 114, 20',
+        '112, 113, 232',
+        '22, 64, 214',
+        '255, 108, 34',
+        '144, 12, 63',
+        '199, 0, 57',
+        '0, 121, 255',
+        '0, 223, 162',
+        '246, 250, 112',
+        '255, 0, 96'
     ]
 
     let shuffledBg = bgcolorsArr
@@ -34,7 +44,7 @@ const RecommendArticlesCards = ({ post }) => {
                 </div>
                 <div className={styles.postInfo} >
                     <span className={styles.date} >{post.date}</span>
-                    <Link href="/" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
+                    <Link href="/blog/blog-post" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
                     <p className={styles.postDesc}>{post.content.substring(0, 100)}{"..."}</p>
 
                     <ul className={styles.tags}>
@@ -50,7 +60,6 @@ const RecommendArticlesCards = ({ post }) => {
                                 {post.tags[idx]}
                             </Link>
                         ))}
-
                     </ul>
                 </div>
             </div>
@@ -58,4 +67,4 @@ const RecommendArticlesCards = ({ post }) => {
     )
 }
 
-export default RecommendArticlesCards
+export default Cards

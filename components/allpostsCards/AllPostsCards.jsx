@@ -53,7 +53,8 @@ const AllPostsCards = ({ post }) => {
 
                     <ul className={styles.tags}>
                         {shuffledBg.map((bg, idx) => (
-                            <li
+                            <Link
+                                href={`/tag/${post.tags[idx]}`}
                                 style={{
                                     backgroundColor:
                                         `${!isServer && `rgb(${bg}, 0.1)`}`
@@ -61,7 +62,7 @@ const AllPostsCards = ({ post }) => {
                                 }}
                                 className={styles.tag} key={idx}>
                                 {post.tags[idx]}
-                            </li>
+                            </Link>
                         ))}
                     </ul>
                 </div>

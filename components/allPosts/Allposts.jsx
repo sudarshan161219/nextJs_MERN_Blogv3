@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from "./allPosts.module.css"
-import AllPostsCards from '../allpostsCards/AllPostsCards'
+import Cards from "@/components/cards/Cards"
 import data from "../../src/app/data/allPostData.json"
 import { ConfigProvider, Pagination } from 'antd';
+
 
 const Allposts = () => {
     return (
@@ -10,7 +11,7 @@ const Allposts = () => {
             <h1 className={styles.title}>All Blog Posts</h1>
             <div className={styles.cards}>
                 {data.map((item, idx) => (
-                    <AllPostsCards key={idx} post={item} />
+                    <Cards key={idx} post={item} />
                 ))}
             </div>
             <div className='flex justify-center items-center' >
