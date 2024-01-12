@@ -2,15 +2,14 @@
 import styles from "./navbar.module.css"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
 import ThemeChanger from '@/components/themeChanger/ThemeChanger'
 import { useAppContext } from "@/context/Context"
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
-import Image from "next/image"
+import Image from 'next/image'
 import { FaRegUser } from "react-icons/fa6";
-
+import logo from "@/public/shbloglogo_light.png"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -56,6 +55,9 @@ const Navbar = () => {
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
       <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
+      {/* <Link href={"/"} className={styles.textLogo}>
+        <Image src={logo} width={100} height={100} className={styles.logo} alt="SH || BLOG"  />
+      </Link> */}
       <ul className={styles.links}>
 
         <li className={styles.link}><ThemeChanger /></li>
@@ -66,11 +68,13 @@ const Navbar = () => {
           <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
 
         ))}
-        
+
         <li className={`${styles.link} ${styles.linkBtn} ${styles.desLink}`}>
           <button onClick={toggleAuthModal} className={styles.liLoginLink}>Login</button>
-           </li>
-        <li onClick={toggleMenu} className={styles.link}>
+        </li>
+
+
+        <li onClick={toggleMenu} className={`${styles.link} ${styles.hamenu}`}>
           <span
             className={toggleMobileMenu ? styles.xline : styles.line}></span>
           <span

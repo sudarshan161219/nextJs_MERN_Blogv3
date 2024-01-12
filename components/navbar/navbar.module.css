@@ -5,6 +5,10 @@
   justify-content: space-between;
 }
 
+.logo{
+  width: 100px;
+}
+
 .textLogo {
   font-size: large;
   font-weight: 500;
@@ -29,7 +33,7 @@
   font-weight: 400;
 }
 
-.link:nth-child(8) {
+.hamenu {
   display:  grid;
   gap: 4px;
   cursor: pointer;

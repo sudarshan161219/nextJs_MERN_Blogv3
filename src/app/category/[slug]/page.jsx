@@ -8,13 +8,13 @@ import { usePathname } from 'next/navigation'
 const Page = () => {
     const pathname = usePathname()
     const name = pathname.substring(10)
+    const decodedString = decodeURIComponent(name);
 
     return (
         <div className={styles.container}>
             <div className={styles.hcontainer}>
-                <h1 className={styles.homeTitle}>Explore <b className={styles.homeTitleBold}>{name}</b> for tailored insights and articles.</h1>
+                <h1 className={styles.homeTitle}>Explore <b className={styles.homeTitleBold}>{decodedString}</b> for tailored insights and articles.</h1>
             </div>
-
             <h3 className={styles.h3}>latest {name} posts</h3>
             <div className={styles.cards}>
                 {data.map((item, idx) => (
