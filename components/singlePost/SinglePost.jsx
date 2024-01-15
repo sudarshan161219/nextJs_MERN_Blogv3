@@ -84,10 +84,11 @@ const SinglePost = () => {
                     <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptas harum aperiam, reiciendis magni maiores sunt esse unde impedit? Ullam porro nesciunt impedit quod sint repellat architecto nulla deleniti dolore, delectus doloribus, dignissimos nemo velit. Amet ex ducimus officiis! Blanditiis, necessitatibus ipsum libero ullam tenetur natus eligendi! Est dolores quidem nihil, consequatur quod eius animi? Itaque eveniet sed repellendus dignissimos earum a possimus reiciendis recusandae! Neque dolorem libero nam quae id laborum culpa. Eveniet saepe consequatur totam eos architecto autem harum ducimus delectus sunt tempore laboriosam atque iste quam corrupti incidunt, modi libero cum beatae nam itaque consectetur vero culpa! Velit, sequi, sed quos quidem temporibus adipisci omnis cum pariatur at voluptatibus enim autem eligendi odit numquam assumenda, ex ipsa nihil. Quae alias minima eligendi hic laboriosam. Dolorum ab labore ad hic ut atque quia et delectus quis repudiandae! Cupiditate nostrum facilis, ex doloremque expedita maxime quam iste repellat eveniet vero doloribus voluptate fuga hic alias eos tenetur perspiciatis sit. Molestias molestiae quibusdam voluptas fugiat quidem quo! Placeat natus quisquam odit nam, consequuntur quibusdam delectus porro autem perferendis nisi inventore, harum numquam quia debitis impedit doloremque necessitatibus rem ut aliquid at nostrum commodi facilis quasi quam. Corporis, iure aut! Aut libero atque fugit quaerat accusamus dolor, possimus magnam. Enim aliquam id reprehenderit inventore quod consequuntur similique maiores rerum excepturi unde culpa fuga, hic ratione? Excepturi, odit aspernatur totam minima fugit enim doloremque, nesciunt voluptatibus nostrum ex ducimus sunt culpa? Fugiat tempore quia tenetur earum vero blanditiis impedit nam, optio labore.</p>
 
 
-                    <ul className={styles.tagsContainer}>
+                    <div className={styles.tagsContainer}>
 
                         {shuffledBg.map((bg, idx) => (
-                            <li
+                            <Link
+                                href={`/tag/sunflower`}
                                 style={{
                                     backgroundColor:
                                         `${`rgb(${bg}, 0.1)`}`
@@ -95,10 +96,10 @@ const SinglePost = () => {
                                 }}
                                 className={styles.tag} key={idx}>
                                 Tags
-                            </li>
+                            </Link>
                         ))}
 
-                    </ul>
+                    </div>
 
 
                 </div>

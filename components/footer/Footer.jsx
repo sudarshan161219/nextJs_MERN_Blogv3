@@ -8,9 +8,9 @@ const Footer = () => {
   const pathname = usePathname()
   const currentYear = new Date().getFullYear();
   const pathRegister = pathname === "/register"
+  const pathforgot_password = pathname === "/forgot_password"
 
-
-  if (pathRegister) {
+  if (pathRegister || pathforgot_password) {
     return null
   }
 

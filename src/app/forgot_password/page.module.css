@@ -1,0 +1,15 @@
+.img {
+  object-fit: cover;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  padding: 16px 20px;
+  align-items: center;
+  gap: 12px;
+  outline: 1px solid  var(--softTextColor);
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}

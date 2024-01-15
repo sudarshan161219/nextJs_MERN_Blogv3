@@ -7,10 +7,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "shwebdev || blog",
+  title: "shwebdev || blog - Discover the World of Ideas.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, isForgotPasswordPage }) {
   return (
     <html lang="en">
       <body>

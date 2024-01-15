@@ -79,7 +79,7 @@ const Auth = () => {
                         </div>}
 
                         {isMember ? <div className='flex justify-end items-center'>
-                            <Link className={styles.liLoginLink} href="/reset-password">Forgot Password ?</Link>
+                            <Link  onClick={toggleAuthModal}  className={styles.liLoginLink} href="/forgot_password">Forgot Password ?</Link>
                         </div> : null}
 
                         <button className={styles.btn}>Create Account</button>

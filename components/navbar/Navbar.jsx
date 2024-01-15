@@ -7,10 +7,8 @@ import { useAppContext } from "@/context/Context"
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
-import Image from 'next/image'
 import { FaRegUser } from "react-icons/fa6";
-import logo from "@/public/shbloglogo_light.png"
-
+import { IoIosSearch } from "react-icons/io";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
@@ -19,6 +17,7 @@ const Navbar = () => {
   const pathname = usePathname()
 
   const pathRegister = pathname === "/register"
+  const pathforgot_password = pathname === "/forgot_password"
 
   const handleScroll = () => {
     const position = window.scrollY
@@ -45,7 +44,7 @@ const Navbar = () => {
   }, [toggleMobileMenu]);
 
 
-  if (pathRegister) {
+  if (pathRegister || pathforgot_password) {
     return null
   }
 
@@ -55,34 +54,45 @@ const Navbar = () => {
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
       <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
-      {/* <Link href={"/"} className={styles.textLogo}>
-        <Image src={logo} width={100} height={100} className={styles.logo} alt="SH || BLOG"  />
-      </Link> */}
-      <ul className={styles.links}>
-
-        <li className={styles.link}><ThemeChanger /></li>
-
-        <li className={styles.link} onClick={toggleAuthModal} ><FaRegUser className={styles.userIcon} /></li>
-
-        {navLinks.map((item, idx) => (
-          <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
-
-        ))}
-
-        <li className={`${styles.link} ${styles.linkBtn} ${styles.desLink}`}>
-          <button onClick={toggleAuthModal} className={styles.liLoginLink}>Login</button>
-        </li>
 
 
-        <li onClick={toggleMenu} className={`${styles.link} ${styles.hamenu}`}>
-          <span
-            className={toggleMobileMenu ? styles.xline : styles.line}></span>
-          <span
-            className={toggleMobileMenu ? styles.xline : styles.line}></span>
-          <span
-            className={toggleMobileMenu ? styles.xline : styles.line}></span>
-        </li>
-      </ul>
+      <div>
+        <ul className="flex items-center gap-3">
+          <li className={styles.link}><ThemeChanger /></li>
+          <li onClick={toggleAuthModal}  className={`${styles.link} ${styles.getStarted}`}>get started</li>
+        </ul>
+      </div>
+
+      {/* <div className="flex items-center gap-3" >
+        <ul className={styles.links}>
+
+          <li className={styles.link}><ThemeChanger /></li>
+          <li> <Link href={"/search"}><IoIosSearch className={styles.searchicon} /></Link> </li>
+          <li className={styles.link} onClick={toggleAuthModal} ><FaRegUser className={styles.userIcon} /></li>
+
+          {navLinks.map((item, idx) => (
+            <li key={idx} className={`${styles.link} ${styles.desLink}`}> <Link className={styles.liLink} href={item.to}>{item.name}</Link>  </li>
+
+          ))}
+
+          <li className={`${styles.link} ${styles.linkBtn} ${styles.desLink}`}>
+            <button onClick={toggleAuthModal} className={styles.liLoginLink}>Login</button>
+          </li>
+        </ul>
+
+        <ul className={styles.ham}>
+          <li onClick={toggleMenu} className={`${styles.link} ${styles.hamenu}`}>
+            <span
+              className={toggleMobileMenu ? styles.xline : styles.line}></span>
+            <span
+              className={toggleMobileMenu ? styles.xline : styles.line}></span>
+            <span
+              className={toggleMobileMenu ? styles.xline : styles.line}></span>
+          </li>
+        </ul>
+      </div> */}
+
+
       <MobileNav />
     </nav>
   )

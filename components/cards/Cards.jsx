@@ -47,7 +47,7 @@ const Cards = ({ post }) => {
                     <Link href="/blog/blog-post" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
                     <p className={styles.postDesc}>{post.content.substring(0, 100)}{"..."}</p>
 
-                    <ul className={styles.tags}>
+                    <div className={styles.tags}>
                         {shuffledBg.map((bg, idx) => (
                             <Link
                                 href={`/tag/${post.tags[idx]}`}
@@ -60,7 +60,7 @@ const Cards = ({ post }) => {
                                 {post.tags[idx]}
                             </Link>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
