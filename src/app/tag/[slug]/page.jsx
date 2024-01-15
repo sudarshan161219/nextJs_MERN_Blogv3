@@ -30,9 +30,9 @@ const Page = () => {
 
       <div className="mt-10 mb-10" >
       <span className="flex items-center">
-        <span className="h-px flex-1 bg-black"></span>
-        <span className="shrink-0 px-6">All {decodedString} Related Posts</span>
-        <span className="h-px flex-1 bg-black"></span>
+        <span className={`h-px flex-1 ${styles.spanb}`}></span>
+        <span className={`shrink-0 px-6 ${styles.spanT}`}>All {decodedString} Related Posts</span>
+        <span className={`h-px flex-1 ${styles.spanb}`}></span>
       </span>
       </div>
 

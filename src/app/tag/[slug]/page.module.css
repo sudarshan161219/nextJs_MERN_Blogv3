@@ -41,6 +41,14 @@
   gap: 2rem;
 }
 
+.spanT{
+  color: var(--softTextColor);
+
+}
+
+.spanB{
+  background-color: var(--softTextColor);
+}
 @media screen and (min-width: 650px) {
   .cards {
     gap: 0.9rem;
