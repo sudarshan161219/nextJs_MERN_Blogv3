@@ -8,7 +8,10 @@ import { Inter } from "next/font/google";
 import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
 import { FaRegUser } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
+import { CiUser } from "react-icons/ci";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
@@ -57,9 +60,12 @@ const Navbar = () => {
 
 
       <div>
-        <ul className="flex items-center gap-3">
+        <ul className="flex items-center gap-4">
           <li className={styles.link}><ThemeChanger /></li>
-          <li onClick={toggleAuthModal}  className={`${styles.link} ${styles.getStarted}`}>get started</li>
+          <li className={styles.link}>
+            <Link href={"/search"}><IoIosSearch className={styles.searchicon} /></Link>
+          </li>
+          <li className={styles.link} onClick={toggleAuthModal} ><CiUser className={styles.userIcon} /></li>
         </ul>
       </div>
 
