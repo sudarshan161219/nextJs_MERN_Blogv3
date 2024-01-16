@@ -21,6 +21,7 @@ const Navbar = () => {
 
   const pathRegister = pathname === "/register"
   const pathforgot_password = pathname === "/forgot_password"
+  const pathwrite = pathname === "/write"
 
   const handleScroll = () => {
     const position = window.scrollY
@@ -47,7 +48,7 @@ const Navbar = () => {
   }, [toggleMobileMenu]);
 
 
-  if (pathRegister || pathforgot_password) {
+  if (pathRegister || pathforgot_password || pathwrite) {
     return null
   }
 

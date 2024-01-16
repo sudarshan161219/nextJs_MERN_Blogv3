@@ -15,6 +15,7 @@ import {
     BsSubscript,
     BsTypeUnderline
 } from "react-icons/bs"
+import { MdFormatColorReset } from "react-icons/md";
 import { BiHeading, BiLink, BiUnlink } from 'react-icons/bi'
 import {
     AiOutlineHighlight, AiOutlineFontColors, AiOutlineRedo, AiOutlineUndo, AiOutlineAlignCenter, AiOutlineAlignLeft,
@@ -304,8 +305,10 @@ const TiptapBtn = ({ editor }) => {
                 <button
                     onClick={() => editor.chain().focus().unsetColor().run()}
                     data-testid="unsetColor"
+                    className={styles.btn}
                 >
-                    unsetColor
+                    <MdFormatColorReset className={styles.icons}  />
+                    <span className={styles.tooltipText}>unset color</span>
                 </button>
             </div>
 

@@ -34,7 +34,6 @@ const Tiptap = () => {
             Italic,
             Strike,
             Underline,
-            Placeholder,
             TextAlign.configure({
                 types: ['heading', 'paragraph'],
             }),
