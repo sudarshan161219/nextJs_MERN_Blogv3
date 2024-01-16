@@ -43,7 +43,14 @@ const Cards = ({ post }) => {
                     <Image className={styles.img} src={post.image} alt='image' fill />
                 </div>
                 <div className={styles.postInfo} >
-                    <span className={styles.date} >{post.date}</span>
+                    <div className='flex items-center justify-between '>
+                        <Link  href={`/author/${post.author}`} className='flex items-center gap-3'>
+                            <Image className={styles.pimg} src="https://images.unsplash.com/photo-1659827478619-60e9921dacab?q=80&w=1530&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt='image' width={35} height={35} />
+                            <span className={styles.authorName}>{post.author}</span>
+
+                        </Link>
+                        <span className={styles.date} >{post.date}</span>
+                    </div>
                     <Link href="/blog/blog-post" className={styles.postTitle}>{post.title} <LuExternalLink className={styles.icon} /></Link>
                     <p className={styles.postDesc}>{post.content.substring(0, 100)}{"..."}</p>
 

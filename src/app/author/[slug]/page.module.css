@@ -1,0 +1,23 @@
+.container {
+  padding: 10px;
+  display: grid;
+  gap: 20px;
+}
+
+.span {
+  background-color: var(--softTextColor);
+}
+
+.heading{
+  font-size: 26px;
+  color: var(--softTextColor);
+  font-weight: 500;
+}
+
+
+.authorPosts{
+  display: grid;
+  gap: 20px;
+}
+
+

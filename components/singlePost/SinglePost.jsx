@@ -44,7 +44,7 @@ const SinglePost = () => {
                     <div className={styles.postInfo} >
                         <div className={styles.authorInfo} >
                             <Image src='https://images.unsplash.com/photo-1693967971746-c4f294950f72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' alt="-" width={35} height={35} className={styles.authorImage} />
-                            <Link href="/author" className={styles.author} >
+                            <Link href={`/author/Lorem_Ipsum`} className={styles.author} >
                                 author_21
                             </Link>
                         </div>

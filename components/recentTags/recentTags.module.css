@@ -1,0 +1,19 @@
+.article{
+    background-color: var(--softBg);
+}
+
+.spanDate{
+    color: var(--softTextColor);
+}
+
+.spanLine{
+    background-color: var(--softBg);
+}
+
+.h3{
+    color: var(--textColor);
+}
+
+.para{
+    color: var(--softTextColor);
+}

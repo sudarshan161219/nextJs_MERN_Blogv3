@@ -1,6 +1,8 @@
 .container {
   display: grid;
   gap: 15px;
+  padding: 12px;
+  background-color: var(--softBg);
 }
 
 .imgContainer {
@@ -33,38 +35,42 @@
   color: var(--textColor);
 }
 
+.imgContainer,
+.ul {
+  display: flex;
+  justify-self: center;
+}
 
-@media screen and (min-width:800px) {
-  .imgContainer, .ul{
-    display: flex;
-    justify-self: center;
-  }
+.info {
+  justify-content: center;
+}
 
-  .info{
-    justify-content: center;
-  }
+.heading,
+.para {
+  text-align: center;
+}
 
-  .heading, .para{
-    text-align: center;
-  }
-  .para{
+@media screen and (min-width: 800px) {
+  .para {
     width: 550px;
   }
 }
 
-@media screen and (min-width:1024px) {
-  .imgContainer, .ul{
+/* @media screen and (min-width: 1024px) {
+  .imgContainer,
+  .ul {
     justify-self: unset;
   }
 
-  .info{
+  .info {
     justify-content: unset;
   }
 
-  .heading, .para{
+  .heading,
+  .para {
     text-align: left;
   }
-  .para{
+  .para {
     width: 450px;
   }
-}
+} */

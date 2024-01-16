@@ -17,6 +17,7 @@ import Auth from "./authModal/Auth";
 import AuthorInfo from "./authorInfo/AuthorInfo";
 import AuthorPosts from "./authorPosts/AuthorPosts";
 import RecentTags from "./recentTags/RecentTags";
+import Select  from "./select/Select.jsx"
 
 export {
   Navbar,
@@ -38,4 +39,5 @@ export {
   AuthorInfo,
   AuthorPosts,
   RecentTags,
+  Select
 };

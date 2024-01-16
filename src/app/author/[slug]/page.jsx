@@ -1,7 +1,8 @@
 import styles from "./page.module.css"
 import {
     AuthorInfo,
-    AuthorPosts
+    AuthorPosts,
+    Select
 } from "@/components/export"
 
 const page = () => {
@@ -15,7 +16,12 @@ const page = () => {
                 <span className={`${styles.span} h-px flex-1 mt-3`}></span>
             </span>
             <div className={styles.authorPosts} >
+
+                <div className="flex items-center justify-between" >
                 <h1 className={styles.heading}>{"Author's"} Posts</h1>
+                {/* <Select /> */}
+                </div>
+
                 <AuthorPosts />
             </div>
         </div>
