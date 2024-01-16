@@ -11,21 +11,22 @@
 
 .imgContainer {
   position: relative;
-  width: 45px;
-  height: 45px;
+  /* width: 45px;
+  height: 45px; */
+  flex: 1;
   overflow: hidden;
   outline: 1px solid var(--textColor);
   border-radius: 100%;
 }
 
-.img {
+/* .img {
   border-radius: 100%;
   object-fit: cover;
   width: 150px;
   height: 45px;
   overflow: hidden;
   outline: 1px solid var(--textColor);
-}
+} */
 
 .name,
 .date {
@@ -42,6 +43,7 @@
 .textContainer {
   display: grid;
   gap: 5px;
+  flex: 10;
 }
 
 .Count {
@@ -145,6 +147,15 @@
 .tagrepliesContainer {
   margin-top: 0.5rem;
   margin-left: 4.5rem;
+}
+
+.commentImgContainer{
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  overflow: hidden;
+  outline: 1px solid var(--textColor);
 }
 
 @media screen and (min-width: 500px) {
