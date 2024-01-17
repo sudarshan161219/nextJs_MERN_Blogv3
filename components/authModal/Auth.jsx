@@ -6,6 +6,8 @@ import { MdClose } from "react-icons/md";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Link from 'next/link'
 import { useAppContext } from '@/context/Context';
+import google from "@/public/google.webp"
+import Image from 'next/image';
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -54,8 +56,18 @@ const Auth = () => {
                 </div>
 
 
-                <div className='flex flex-col gap-4 '>
+                <div className={styles.authBtnContainer}>
+                    <button className={styles.authbtn}> <Image src={google} alt='google' width={20} height={20} /> continue with google</button>
+                </div>
 
+                <span className="flex items-center ">
+                    <span className={styles.spanLine}></span>
+                    <span className={`${styles.spanText} shrink-0 px-6`}>OR</span>
+                    <span className={styles.spanLine}></span>
+                </span>
+
+
+                <div className='flex flex-col gap-4 '>
                     <form onSubmit={handleForm} className={`${styles.form} grid gap-5 `}>
                         {isMember ? null : <input className={styles.input} placeholder='Name' type="text" name='name' />}
                         <input className={styles.input} placeholder='Email' type='email' name='email' />
@@ -79,7 +91,7 @@ const Auth = () => {
                         </div>}
 
                         {isMember ? <div className='flex justify-end items-center'>
-                            <Link  onClick={toggleAuthModal}  className={styles.liLoginLink} href="/forgot_password">Forgot Password ?</Link>
+                            <Link onClick={toggleAuthModal} className={styles.liLoginLink} href="/forgot_password">Forgot Password ?</Link>
                         </div> : null}
 
                         <button className={styles.btn}>Create Account</button>
