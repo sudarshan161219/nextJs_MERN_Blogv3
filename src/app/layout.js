@@ -10,7 +10,7 @@ export const metadata = {
   title: "shwebdev || blog - Discover the World of Ideas.",
 };
 
-export default function RootLayout({ children, isForgotPasswordPage }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
