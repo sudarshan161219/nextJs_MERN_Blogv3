@@ -9,15 +9,17 @@ import { useEffect, useState } from "react"
 import { MobileNav } from "../export"
 import { FaRegUser } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch, IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
-
+import { signOut, useSession } from "next-auth/react"
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
   const { toggleMobileMenu, toggleMenu, toggleTheme, toggleAuthModal } = useAppContext()
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathname = usePathname()
+  const { data, status } = useSession()
+
 
   const pathRegister = pathname === "/register"
   const pathforgot_password = pathname === "/forgot_password"
@@ -66,7 +68,7 @@ const Navbar = () => {
           <li className={styles.link}>
             <Link href={"/search"}><IoIosSearch className={styles.searchicon} /></Link>
           </li>
-          <li className={styles.link} onClick={toggleAuthModal} ><CiUser className={styles.userIcon} /></li>
+          {status === 'authenticated' ? <li className={styles.link} onClick={signOut}  ><IoIosLogOut className={styles.userIcon} /></li> : <li className={styles.link} onClick={toggleAuthModal} ><CiUser className={styles.userIcon} /></li>}
         </ul>
       </div>
 
