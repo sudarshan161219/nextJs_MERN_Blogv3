@@ -2,7 +2,7 @@
 import { Inter } from "next/font/google";
 import React, { useReducer, createContext, useContext, useEffect } from "react";
 import reducer from "./reducer";
-
+import { SessionProvider } from "next-auth/react"
 import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER, TOGGLE_COMMENT_SECTION, TOGGLE_AUTH_MODAL } from "./action"
 
 
@@ -99,8 +99,10 @@ const ContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{ ...state, toggleMenu, toggleThemefn, toggleCommentsSectionFn, toggleAuthModal }} >
-            {children}
+        <Context.Provider
+            value={{ ...state, toggleMenu, toggleThemefn, toggleCommentsSectionFn, toggleAuthModal }}
+        >
+            <SessionProvider>{children}</SessionProvider>
         </Context.Provider>
     )
 

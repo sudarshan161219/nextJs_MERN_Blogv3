@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react'
+import { signIn, useSession } from "next-auth/react"
 import { Inter } from "next/font/google";
 import styles from "./auth.module.css"
 import { MdClose } from "react-icons/md";
@@ -16,6 +17,10 @@ const Auth = () => {
     const [showpwd, setShowpwd] = useState(false)
     const [showConfirmPwd, setShowConfirmPwd] = useState(false)
     const [isMember, setIsMember] = useState(false)
+    const { data, status } = useSession()
+
+    console.log(data, status);
+
 
     useEffect(() => {
         if (authToggle) {
@@ -57,7 +62,7 @@ const Auth = () => {
 
 
                 <div className={styles.authBtnContainer}>
-                    <button className={styles.authbtn}> <Image src={google} alt='google' width={20} height={20} /> continue with google</button>
+                    <button onClick={signIn} className={styles.authbtn}> <Image src={google} alt='google' width={20} height={20} /> continue with google</button>
                 </div>
 
                 <span className="flex items-center ">
