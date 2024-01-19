@@ -47,7 +47,6 @@ model User {
   sessions      Session[]
   Post          Post[]
   Comment       Comment[]
-  Comment       Comment[]
 }
 
 model VerificationToken {
@@ -59,16 +58,18 @@ model VerificationToken {
 }
 
 model Category {
-  id    String  @id @default(cuid()) @map("_id")
-  slug  String  @unique
-  title String
-  img   String?
+  id    String @id @default(cuid()) @map("_id")
+  slug  String @unique
+  name  String
+  herf  String
+  img   String
+  bg    String
   Posts Post[]
 }
 
 model Post {
-  id        String   @id @default(cuid()) @map("_id")
-  createdAt DateTime @default(now())
+  id        String    @id @default(cuid()) @map("_id")
+  createdAt DateTime  @default(now())
   slug      String    @unique
   title     String
   desc      String
