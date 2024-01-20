@@ -73,10 +73,11 @@ model Post {
   slug      String    @unique
   title     String
   desc      String
-  img       String?
+  image     String?
   views     Int       @default(0)
   catSlug   String
   cat       Category  @relation(fields: [catSlug], references: [slug])
+  tags String[]
   userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]

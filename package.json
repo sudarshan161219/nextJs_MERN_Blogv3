@@ -45,6 +45,7 @@
     "@tiptap/react": "^2.1.11",
     "@tiptap/starter-kit": "^2.1.11",
     "antd": "^5.12.5",
+    "dotenv": "^16.3.2",
     "eslint": "8.49.0",
     "eslint-config-next": "^14.1.0",
     "framer-motion": "^10.16.16",
