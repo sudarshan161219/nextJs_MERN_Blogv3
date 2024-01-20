@@ -19,9 +19,7 @@ const Auth = () => {
     const [isMember, setIsMember] = useState(false)
     const { data, status } = useSession()
 
-    console.log(data, status);
-
-
+    
     useEffect(() => {
         if (authToggle) {
             document.body.style.overflow = "hidden";

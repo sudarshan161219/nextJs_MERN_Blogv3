@@ -2,9 +2,23 @@ import React from 'react'
 import styles from "./recentPosts.module.css"
 import data from "../../src/app/data/data.json"
 import Cards from "@/components/cards/Cards"
-import RecentPostCard from '../recentPostCard/RecentPostCard'
 
-const RecentPosts = () => {
+
+const getData = async () => {
+    const res = await fetch(`${process.env.URL}/api/recentPosts`, {
+        cache: "no-store"
+    })
+
+    if (!res.ok) {
+        throw new Error("failed to fetch data")
+    }
+    return res.json()
+}
+
+const RecentPosts = async () => {
+
+    const data = await getData()
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Recent Blog Posts</h1>
@@ -12,9 +26,6 @@ const RecentPosts = () => {
                 {data.map((item, idx) => (
                     <Cards key={idx} post={item} />
                 ))}
-                {/* {data.map((item, idx) => (
-                    <RecentPostCard key={idx} post={item} />
-                ))} */}
             </div>
         </div>
     )

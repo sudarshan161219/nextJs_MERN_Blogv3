@@ -1,11 +1,24 @@
-import React from 'react'
 import styles from "./allPosts.module.css"
 import Cards from "@/components/cards/Cards"
 import data from "../../src/app/data/allPostData.json"
-import { ConfigProvider, Pagination } from 'antd';
 
 
-const Allposts = () => {
+const getData = async (page) => {
+    const res = await fetch(`${process.env.URL}/api/allPosts?page=${page}`, {
+        cache: "no-store"
+    })
+
+    if (!res.ok) {
+        throw new Error("failed to fetch data")
+    }
+    return res.json()
+}
+
+
+const Allposts = async ({ page }) => {
+
+    const data = await getData(page)
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>All Blog Posts</h1>
@@ -13,27 +26,6 @@ const Allposts = () => {
                 {data.map((item, idx) => (
                     <Cards key={idx} post={item} />
                 ))}
-            </div>
-            <div className='flex justify-center items-center' >
-                <ConfigProvider
-                    theme={{
-                        token: {
-                            colorText: "var(--textColor)",
-                        },
-                        components: {
-                            Pagination: {
-                                colorPrimaryBorder: "var(--commentShowReplyText)",
-                                itemActiveBg: "var(--softBg)",
-                                itemBg: "var(--softBg)",
-                                itemLinkBg: "var(--textColor)",
-                                itemInputBg: "var(--softBg)",
-                                itemSize: 40,
-                            },
-                        },
-                    }}
-                >
-                    <Pagination className={styles.page} defaultCurrent={1} total={500} />
-                </ConfigProvider>
             </div>
         </div>
     )

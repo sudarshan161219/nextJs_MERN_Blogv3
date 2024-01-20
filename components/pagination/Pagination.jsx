@@ -1,22 +1,30 @@
-import React from 'react'
 import styles from "./pagination.module.css"
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
+import { ConfigProvider, Pagination } from 'antd';
 
-
-const Pagination = () => {
+const Paginationn = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.iconContainer} >
-        <MdKeyboardArrowLeft className={styles.paginationIcons} />
-        <span className={styles.paginationText}>previous</span>
-      </div>
-      <div className={styles.iconContainer} >
-        <span className={styles.paginationText}>next</span>
-        <MdKeyboardArrowRight className={styles.paginationIcons} />
-      </div>
-
-    </div>
+    <div className='flex justify-center items-center' >
+    <ConfigProvider
+        theme={{
+            token: {
+                colorText: "var(--textColor)",
+            },
+            components: {
+                Pagination: {
+                    colorPrimaryBorder: "var(--commentShowReplyText)",
+                    itemActiveBg: "var(--softBg)",
+                    itemBg: "var(--softBg)",
+                    itemLinkBg: "var(--textColor)",
+                    itemInputBg: "var(--softBg)",
+                    itemSize: 40,
+                },
+            },
+        }}
+    >
+        <Pagination className={styles.page} current={1} total={500} />
+    </ConfigProvider>
+</div>
   )
 }
 
-export default Pagination
+export default Paginationn

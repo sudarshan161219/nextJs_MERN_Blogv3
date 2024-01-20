@@ -3,14 +3,17 @@ import styles from "./page.module.css"
 import { HomeTitle, RecentPosts, CategoriesTabs, Allposts, Pagination } from '@/components/export'
 
 
-const App = () => {
+const App = ({ searchParams }) => {
+
+  const page = parseInt(searchParams.page) || 1
+
   return (
     <div className={styles.container}>
       <HomeTitle />
       <RecentPosts />
       <CategoriesTabs />
-      <Allposts />
-      {/* <Pagination /> */}
+      <Allposts page={page} />
+      <Pagination />
     </div>
   )
 }
