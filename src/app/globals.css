@@ -433,12 +433,13 @@ blockquote {
   justify-content: center !important;
 }
 
-
-.slick-arrow .slick-prev{
+.slick-prev {
   display: none !important;
+  opacity: 0 !important;
 }
-.slick-arrow .slick-next{
+.slick-next {
   display: none !important;
+  opacity: 0 !important;
 }
 
 @media screen and (min-width: 700px) {
