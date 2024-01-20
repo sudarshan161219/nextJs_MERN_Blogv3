@@ -4,7 +4,7 @@ import data from "../../src/app/data/allPostData.json"
 
 
 const getData = async (page) => {
-    const res = await fetch(`${process.env.URL}/api/allPosts?page=${page}`, {
+    const res = await fetch(`${process.env.URL}/api/all_Posts?page=${page}`, {
         cache: "no-store"
     })
 
@@ -17,7 +17,9 @@ const getData = async (page) => {
 
 const Allposts = async ({ page }) => {
 
-    const data = await getData(page)
+    const dataa = await getData(page)
+
+    console.log(dataa);
 
     return (
         <div className={styles.container}>
