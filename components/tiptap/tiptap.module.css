@@ -1,8 +1,40 @@
 .container {
 }
 
+.btn {
+  border: none;
+  outline: none;
+}
 
-.btn{
+.titleInput {
     border: none;
     outline: none;
+    margin: 2rem 0;
+    background-color: var(--bg);
+    font-size: 26px;
+    color: var(--textColor);
+}
+
+
+.titleInput::placeholder{
+    color: var(--softTextColor);
+}
+
+.coverimgcontainer {
+  display: grid;
+  gap: 0.7rem;
+}
+
+  .imagelabel {
+    width: 500px;
+  }
+
+.coverimg {
+  outline: 1px solid var(--darkMText2);
+  width: 100%;
+}
+
+
+.fileInput[type="file"] {
+  display: none;
 }

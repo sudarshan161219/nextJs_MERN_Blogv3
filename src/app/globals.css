@@ -442,6 +442,8 @@ blockquote {
   opacity: 0 !important;
 }
 
+
+
 @media screen and (min-width: 700px) {
   .tiptap.ProseMirror img {
     width: 500px;

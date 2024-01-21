@@ -17,7 +17,7 @@ const getData = async () => {
 
 const RecentPosts = async () => {
 
-    const data = await getData()
+    const dataa = await getData()
 
     return (
         <div className={styles.container}>

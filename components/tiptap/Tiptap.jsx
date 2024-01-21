@@ -5,9 +5,13 @@ import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
 import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic, Link, Strike, Subscript, Underline, TextAlign } from "@/tiptaptool/tiptap"
 import Placeholder from '@tiptap/extension-placeholder'
+import { convertToBase64 } from "@/src/utils/convert"
+
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
+    const [file, setFile] = useState();
+
     const editor = useEditor({
         extensions: [
             Document,
@@ -98,15 +102,41 @@ const Tiptap = () => {
     }
 
 
+    const onUpload = async (e) => {
+        try {
+            const base64 = await convertToBase64(e.target.files[0]);
+            setFile(base64);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     if (!editor) {
         return null
     }
 
-
     return (
         <>
+            <form>
+                <input className={styles.titleInput} type="text" placeholder="title" />
 
+                <div className={styles.coverimgcontainer}>
+                    <label className={styles.imagelabel} htmlFor="cover-image">
+                        <img
+                            className={styles.coverimg}
+                            src={file}
+                            alt="loading"
+                        />
+                    </label>
+                    <input
+                        type="file"
+                        id="cover-image"
+                        className={styles.fileInput}
+                        onChange={onUpload}
+                        accept="image/*"
+                    />
+                </div>
+            </form>
             <TiptapBtn editor={editor} />
 
             <div className="mt-3 mb-3" >
