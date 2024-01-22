@@ -7,17 +7,16 @@
 }
 
 .titleInput {
-    border: none;
-    outline: none;
-    margin: 2rem 0;
-    background-color: var(--bg);
-    font-size: 26px;
-    color: var(--textColor);
+  border: none;
+  outline: none;
+  margin: 2rem 0;
+  background-color: var(--bg);
+  font-size: 26px;
+  color: var(--textColor);
 }
 
-
-.titleInput::placeholder{
-    color: var(--softTextColor);
+.titleInput::placeholder {
+  color: var(--softTextColor);
 }
 
 .coverimgcontainer {
@@ -25,16 +24,54 @@
   gap: 0.7rem;
 }
 
-  .imagelabel {
-    width: 500px;
-  }
+.imagelabel {
+  width: 500px;
+}
 
 .coverimg {
   outline: 1px solid var(--darkMText2);
   width: 100%;
 }
 
-
 .fileInput[type="file"] {
   display: none;
+}
+
+.imagelabel {
+  width: 100px;
+  height: 100px;
+}
+
+.plus {
+  color: var(--textColor);
+  font-size: 2.3rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.mediaIcon{
+  color: var(--textColor);
+  font-size: 2.3rem;
+  cursor: pointer;
+}
+
+.mediaContainer {
+  position: relative;
+  display: flex;
+}
+
+.media {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  left: 70px;
+  transform: translate(-100px);
+  opacity: 0;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+}
+
+.showMedia {
+  transform: translate(0);
+  opacity: 1;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
 }

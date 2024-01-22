@@ -3,6 +3,7 @@ import { useState } from "react"
 import styles from "./tiptap.module.css"
 import { TiptapBtn } from "@/components/export"
 import { useEditor, EditorContent } from '@tiptap/react'
+import { CiCirclePlus, CiImageOn, CiLink } from "react-icons/ci";
 import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic, Link, Strike, Subscript, Underline, TextAlign } from "@/tiptaptool/tiptap"
 import Placeholder from '@tiptap/extension-placeholder'
 import { convertToBase64 } from "@/src/utils/convert"
@@ -11,6 +12,7 @@ import { convertToBase64 } from "@/src/utils/convert"
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
     const [file, setFile] = useState();
+    const [onMedia, setOnMedia] = useState(false)
 
     const editor = useEditor({
         extensions: [
@@ -111,6 +113,12 @@ const Tiptap = () => {
         }
     };
 
+
+    const handleMedia = () => {
+        setOnMedia(!onMedia)
+    }
+
+
     if (!editor) {
         return null
     }
@@ -120,13 +128,24 @@ const Tiptap = () => {
             <form>
                 <input className={styles.titleInput} type="text" placeholder="title" />
 
+                <div className={styles.mediaContainer} >
+                    <CiCirclePlus onClick={ handleMedia }  className={styles.plus} />
+
+                    <ul className={`${onMedia ? `${styles.showMedia} ${styles.media}` : `${styles.media}`}`}>
+                        <li><CiImageOn className={styles.mediaIcon} /></li>
+                        <li>< CiLink className={styles.mediaIcon} /></li>
+                    </ul>
+                </div>
+
                 <div className={styles.coverimgcontainer}>
                     <label className={styles.imagelabel} htmlFor="cover-image">
-                        <img
-                            className={styles.coverimg}
-                            src={file}
-                            alt="loading"
-                        />
+                        {
+                            file &&
+                            <img
+                                className={styles.coverimg}
+                                src={file}
+                                alt="loading"
+                            />}
                     </label>
                     <input
                         type="file"
