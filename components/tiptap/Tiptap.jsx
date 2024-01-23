@@ -7,7 +7,7 @@ import { CiCirclePlus, CiImageOn, CiLink } from "react-icons/ci";
 import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListItem, Code, CodeBlock, CodeBlockLowlight, lowlight, Color, TextStyle, Dropcursor, FontFamily, HardBreak, Highlight, History, HorizontalRule, Image, OrderedList, Italic, Link, Strike, Subscript, Underline, TextAlign } from "@/tiptaptool/tiptap"
 import Placeholder from '@tiptap/extension-placeholder'
 import { convertToBase64 } from "@/src/utils/convert"
-
+import { MdDeleteOutline } from "react-icons/md";
 
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
@@ -118,6 +118,10 @@ const Tiptap = () => {
         setOnMedia(!onMedia)
     }
 
+    const handleRemove = () => {
+        setFile();
+    }
+
 
     if (!editor) {
         return null
@@ -128,17 +132,20 @@ const Tiptap = () => {
             <form>
                 <input className={styles.titleInput} type="text" placeholder="title" />
 
-                <div className={styles.mediaContainer} >
+                {/* <div className={styles.mediaContainer} >
                     <CiCirclePlus onClick={ handleMedia }  className={styles.plus} />
 
                     <ul className={`${onMedia ? `${styles.showMedia} ${styles.media}` : `${styles.media}`}`}>
                         <li><CiImageOn className={styles.mediaIcon} /></li>
                         <li>< CiLink className={styles.mediaIcon} /></li>
                     </ul>
-                </div>
+                </div> */}
 
                 <div className={styles.coverimgcontainer}>
+                    {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
                     <label className={styles.imagelabel} htmlFor="cover-image">
+
+                        {!file && <CiImageOn className={styles.mediaIcon} />}
                         {
                             file &&
                             <img
