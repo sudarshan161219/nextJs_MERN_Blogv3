@@ -9,6 +9,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import { convertToBase64 } from "@/src/utils/convert"
 import { MdDeleteOutline } from "react-icons/md";
 
+
 const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
     const [file, setFile] = useState();
@@ -128,50 +129,56 @@ const Tiptap = () => {
     }
 
     return (
-        <>
-            <form>
-                <input className={styles.titleInput} type="text" placeholder="title" />
+        <main>
+            <nav className="p-3 flex items-center justify-between">
+                <a href={"/"} className={styles.textLogo}>SH || BLOG</a>
 
-                {/* <div className={styles.mediaContainer} >
-                    <CiCirclePlus onClick={ handleMedia }  className={styles.plus} />
+                <div className="flex items-center gap-3" >
 
-                    <ul className={`${onMedia ? `${styles.showMedia} ${styles.media}` : `${styles.media}`}`}>
-                        <li><CiImageOn className={styles.mediaIcon} /></li>
-                        <li>< CiLink className={styles.mediaIcon} /></li>
-                    </ul>
-                </div> */}
+                    <button className={styles.button4} role="button">Draft</button>
+                    <button className={styles.button3} role="button">publish</button>
 
-                <div className={styles.coverimgcontainer}>
-                    {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
-                    <label className={styles.imagelabel} htmlFor="cover-image">
-
-                        {!file && <CiImageOn className={styles.mediaIcon} />}
-                        {
-                            file &&
-                            <img
-                                className={styles.coverimg}
-                                src={file}
-                                alt="loading"
-                            />}
-                    </label>
-                    <input
-                        type="file"
-                        id="cover-image"
-                        className={styles.fileInput}
-                        onChange={onUpload}
-                        accept="image/*"
-                    />
                 </div>
-            </form>
-            <TiptapBtn editor={editor} />
+            </nav>
+            <div className={styles.container}>
+                <form className={styles.form}>
+                    <input className={styles.titleInput} type="text" placeholder="title" />
 
-            <div className="mt-3 mb-3" >
-                <EditorContent editor={editor} />
+                    <textarea  className={styles.textarea}  name="" id="" cols="30" placeholder="description" rows="10"></textarea>
+
+                    <div className={styles.coverimgcontainer}>
+                        {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
+                        <label className={styles.imagelabel} htmlFor="cover-image">
+
+                            {!file && <CiImageOn className={styles.mediaIcon} />}
+                            {
+                                file &&
+                                <img
+                                    className={styles.coverimg}
+                                    src={file}
+                                    alt="loading"
+                                />}
+                        </label>
+                        <input
+                            type="file"
+                            id="cover-image"
+                            className={styles.fileInput}
+                            onChange={onUpload}
+                            accept="image/*"
+                        />
+                    </div>
+                </form>
+                <TiptapBtn editor={editor} />
+
+                <div className="mt-3 mb-3" >
+                    <EditorContent editor={editor} />
+                </div>
+
+                <button className={styles.post} onClick={handlePost}>post</button>
+                {/* <div dangerouslySetInnerHTML={{ __html: editorContent }} /> */}
             </div>
+        </main>
 
-            <button className={styles.post} onClick={handlePost}>post</button>
-            {/* <div dangerouslySetInnerHTML={{ __html: editorContent }} /> */}
-        </>
     )
 }
 
