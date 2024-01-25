@@ -11,6 +11,11 @@ import { MdDeleteOutline } from "react-icons/md";
 
 
 const Tiptap = () => {
+    const [formData, setFormData] = useState({
+        title: '',
+        description: '',
+        content: ''
+    });
     const [editorContent, setEditorContent] = useState("");
     const [file, setFile] = useState();
     const [onMedia, setOnMedia] = useState(false)
@@ -100,10 +105,29 @@ const Tiptap = () => {
     })
 
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
     const handlePost = () => {
         console.log(editorContent);
     }
 
+    const handleDraft = () => {
+        const { content } = formData;
+        setFormData((prevData) => ({
+            ...prevData,
+            content: editorContent,
+        }));
+    }
+  console.log(formData);
+    const handlePublish = () => {
+
+    }
 
     const onUpload = async (e) => {
         try {
@@ -135,16 +159,16 @@ const Tiptap = () => {
 
                 <div className="flex items-center gap-3" >
 
-                    <button className={styles.button4} role="button">Draft</button>
-                    <button className={styles.button3} role="button">publish</button>
+                    <button onClick={handleDraft} className={styles.button4} role="button">Draft</button>
+                    <button onClick={handlePublish} className={styles.button3} role="button">publish</button>
 
                 </div>
             </nav>
             <div className={styles.container}>
                 <form className={styles.form}>
-                    <input className={styles.titleInput} type="text" placeholder="title" />
+                    <input className={styles.titleInput} value={formData.title} onChange={handleInputChange} name="title" type="text" placeholder="title" />
 
-                    <textarea  className={styles.textarea}  name="" id="" cols="30" placeholder="description" rows="10"></textarea>
+                    <textarea className={styles.textarea} value={formData.description} onChange={handleInputChange} name="description" placeholder="description" rows="10"></textarea>
 
                     <div className={styles.coverimgcontainer}>
                         {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
@@ -167,6 +191,7 @@ const Tiptap = () => {
                             accept="image/*"
                         />
                     </div>
+                    <button type="submit">save</button>
                 </form>
                 <TiptapBtn editor={editor} />
 
@@ -174,7 +199,7 @@ const Tiptap = () => {
                     <EditorContent editor={editor} />
                 </div>
 
-                <button className={styles.post} onClick={handlePost}>post</button>
+                {/* <button className={styles.post} onClick={handlePost}>post</button> */}
                 {/* <div dangerouslySetInnerHTML={{ __html: editorContent }} /> */}
             </div>
         </main>

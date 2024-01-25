@@ -1,6 +1,6 @@
 .container {
 }
-.textLogo{
+.textLogo {
   color: var(--textColor);
   font-size: 15px;
 }
@@ -8,8 +8,6 @@
   border: none;
   outline: none;
 }
-
-
 
 .titleInput {
   border: none;
@@ -25,7 +23,8 @@
   color: var(--softTextColor);
 }
 
-.textarea{
+.textarea {
+  width: 100%;
   border: none;
   outline: none;
   margin: 2rem 0;
@@ -33,6 +32,8 @@
   font-size: 16px;
   height: 100px;
   color: var(--textColor);
+  resize: none;
+  height: 100px;
 }
 
 .coverimg {
@@ -127,14 +128,15 @@
 .button3 {
   appearance: none;
   background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, .15);
+  border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -159,36 +161,35 @@
 }
 
 .button3:focus {
-  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
   outline: none;
 }
 
 .button3:disabled {
   background-color: #94d3a2;
-  border-color: rgba(27, 31, 35, .1);
-  color: rgba(255, 255, 255, .8);
+  border-color: rgba(27, 31, 35, 0.1);
+  color: rgba(255, 255, 255, 0.8);
   cursor: default;
 }
 
 .button3:active {
   background-color: #298e46;
-  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
 }
-
-
-
 
 .button4 {
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -205,20 +206,20 @@
 }
 
 .button4:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button4:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button4:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -235,12 +236,12 @@
   display: none;
 }
 
-@media screen and (min-width:700px) {
-  .textLogo{
+@media screen and (min-width: 700px) {
+  .textLogo {
     color: var(--textColor);
     font-size: 25px;
   }
-    .coverimgcontainer {
+  .coverimgcontainer {
     width: 500px;
     height: 400px;
     display: flex;
@@ -249,15 +250,20 @@
     align-items: center;
     margin: 0 auto;
   }
-  .form{
+  .form {
+    display: grid;
     margin-bottom: 3rem;
   }
 
+  .titleInput,
+  .textarea {
+    width: 500px;
+    justify-self: center;
+  }
 }
 
 @media screen and (min-width: 900px) {
-
-  .container{
+  .container {
     width: 800px;
     margin: 0 auto;
   }

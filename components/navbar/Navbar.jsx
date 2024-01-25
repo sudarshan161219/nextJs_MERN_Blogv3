@@ -12,6 +12,7 @@ import { FaSearch } from "react-icons/fa";
 import { IoIosSearch, IoIosLogOut } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { signOut, useSession } from "next-auth/react"
+import { GoPencil } from "react-icons/go";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
@@ -68,6 +69,9 @@ const Navbar = () => {
           <li className={styles.link}>
             <Link href={"/search"}><IoIosSearch className={styles.searchicon} /></Link>
           </li>
+          {status === 'authenticated' && <li className={styles.link}>
+            <Link className={`${styles.write} flex items-center gap-1`} href={"/write"}>write <GoPencil className={styles.writeicon} /></Link>
+          </li>}
           {status === 'authenticated' ? <li className={styles.link} onClick={signOut}  ><IoIosLogOut className={styles.userIcon} /></li> : <li className={styles.link} onClick={toggleAuthModal} ><CiUser className={styles.userIcon} /></li>}
         </ul>
       </div>
