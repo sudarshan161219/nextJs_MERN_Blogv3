@@ -22,6 +22,7 @@ const Navbar = () => {
   const { data, status } = useSession()
 
 
+
   const pathRegister = pathname === "/register"
   const pathforgot_password = pathname === "/forgot_password"
   const pathwrite = pathname === "/write"

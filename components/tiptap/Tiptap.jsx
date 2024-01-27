@@ -8,6 +8,9 @@ import { Heading, Blockquote, Document, Paragraph, Text, Bold, BulletList, ListI
 import Placeholder from '@tiptap/extension-placeholder'
 import { convertToBase64 } from "@/src/utils/convert"
 import { MdDeleteOutline } from "react-icons/md";
+import categories from "@/src/app/data/catagories.json"
+import { Select } from 'antd';
+
 
 
 const Tiptap = () => {
@@ -105,6 +108,16 @@ const Tiptap = () => {
     })
 
 
+    const filterOption = (input, option) =>
+    (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+
+    const onChange = (value) => {
+        console.log(`selected ${value}`);
+    };
+    const onSearch = (value) => {
+        console.log('search:', value);
+    };
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -124,7 +137,7 @@ const Tiptap = () => {
             content: editorContent,
         }));
     }
-  console.log(formData);
+   
     const handlePublish = () => {
 
     }
@@ -147,6 +160,11 @@ const Tiptap = () => {
         setFile();
     }
 
+    const mappedOptions = categories.map(option => ({
+        value: option.name,
+        label: option.name.toUpperCase(), 
+    }));
+
 
     if (!editor) {
         return null
@@ -160,7 +178,7 @@ const Tiptap = () => {
                 <div className="flex items-center gap-3" >
 
                     <button onClick={handleDraft} className={styles.button4} role="button">Draft</button>
-                    <button onClick={handlePublish} className={styles.button3} role="button">publish</button>
+                    <button onClick={handlePublish} className={styles.button3} role="button">Publish</button>
 
                 </div>
             </nav>
@@ -169,6 +187,17 @@ const Tiptap = () => {
                     <input className={styles.titleInput} value={formData.title} onChange={handleInputChange} name="title" type="text" placeholder="title" />
 
                     <textarea className={styles.textarea} value={formData.description} onChange={handleInputChange} name="description" placeholder="description" rows="10"></textarea>
+
+
+                    <Select
+                        showSearch
+                        placeholder="Select a category"
+                        optionFilterProp="children"
+                        onChange={onChange}
+                        onSearch={onSearch}
+                        filterOption={filterOption}
+                        options={mappedOptions}
+                    />
 
                     <div className={styles.coverimgcontainer}>
                         {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
