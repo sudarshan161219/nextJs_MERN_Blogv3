@@ -3,17 +3,18 @@ import {
     TOGGLE_THEME,
     IS_SERVER,
     TOGGLE_COMMENT_SECTION,
-    TOGGLE_AUTH_MODAL
+    TOGGLE_AUTH_MODAL,
+    TOGGLE_MENU
 } from "./action"
 
 
 import { initialState } from "./Context";
 const reducer = (state, action) => {
 
-    if (action.type === TOGGLE_MOBILE_MENU) {
+    if (action.type === TOGGLE_MENU) {
         return {
             ...state,
-            toggleMobileMenu: !state.toggleMobileMenu
+            toggleMenu: !state.toggleMenu
         }
     }
 

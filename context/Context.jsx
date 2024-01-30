@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import React, { useReducer, createContext, useContext, useEffect } from "react";
 import reducer from "./reducer";
 import { SessionProvider } from "next-auth/react"
-import { TOGGLE_MOBILE_MENU, TOGGLE_THEME, IS_SERVER, TOGGLE_COMMENT_SECTION, TOGGLE_AUTH_MODAL } from "./action"
+import { TOGGLE_MENU, TOGGLE_THEME, IS_SERVER, TOGGLE_COMMENT_SECTION, TOGGLE_AUTH_MODAL } from "./action"
 
 
 let theme
@@ -20,12 +20,13 @@ if (!ISSERVER) {
 
 
 const initialState = {
-    toggleMobileMenu: false,
+    toggleMenu: false,
     togglecommentsSection: false,
     isServer: true,
     authToggle: false,
     toggleTheme: parsedData ? parsedData : false,
     theme: theme ? theme : "light",
+    user: null,
 };
 
 
@@ -49,8 +50,8 @@ const ContextProvider = ({ children }) => {
     }
 
 
-    const toggleMenu = () => {
-        dispatch({ type: TOGGLE_MOBILE_MENU })
+    const toggleMenuFn = () => {
+        dispatch({ type: TOGGLE_MENU })
     }
 
     const themeFn = () => {
@@ -66,12 +67,10 @@ const ContextProvider = ({ children }) => {
     }
 
 
-
     const toggleThemefn = () => {
         dispatch({ type: TOGGLE_THEME })
         themeFn()
     }
-
 
 
     const isServerFn = () => {
@@ -100,7 +99,7 @@ const ContextProvider = ({ children }) => {
 
     return (
         <Context.Provider
-            value={{ ...state, toggleMenu, toggleThemefn, toggleCommentsSectionFn, toggleAuthModal }}
+            value={{ ...state,toggleMenuFn, toggleThemefn, toggleCommentsSectionFn, toggleAuthModal }}
         >
             <SessionProvider>{children}</SessionProvider>
         </Context.Provider>
