@@ -7,33 +7,14 @@ import { useAppContext } from "@/context/Context"
 import Link from "next/link"
 import { AiOutlineClose } from "react-icons/ai"
 import { IoIosArrowBack, IoMdClose } from "react-icons/io";
+import { CiHome, CiClock1 } from "react-icons/ci";
 const inter = Inter({ subsets: ["latin"] });
 
 const MobileSidebar = () => {
 
     const { toggleMenu, toggleMenuFn, user } = useAppContext()
-    const [height, setHeight] = useState(0)
-    const [height1, setHeight1] = useState(0)
-
-
-    const handleClick = () => {
-        if (height >= 49 || height === 0) {
-            setHeight(245)
-        }
-        if (height >= 244) {
-            setHeight(50)
-        }
-
-    }
-
-    const handleClick2 = () => {
-        if (height1 >= 49 || height1 === 0) {
-            setHeight1(240)
-        }
-        if (height1 >= 240) {
-            setHeight1(50)
-        }
-    }
+    const [activeSection, setActiveSection] = useState(null);
+    const parentDivRef = useRef(null);
 
 
     useEffect(() => {
@@ -63,9 +44,22 @@ const MobileSidebar = () => {
     };
 
 
+    const handleSectionClick = (index) => {
+        setActiveSection(activeSection === index ? null : index);
+    };
+
+
+
+    const sections = [
+        { title: 'Recent', content: "HEllo" },
+        { title: 'Recent', content: "HEllo" },
+        { title: 'Recent', content: "HEllo" },
+        { title: 'Recent', content: "HEllo" },
+        { title: 'Recent', content: "HEllo" },
+    ];
+
     return (
         <div className={`${styles.container} ${inter.className}`}>
-            {/* <div className={`${toggleMenu ? `${styles.showClose} ${styles.close}` : `${styles.close}`}`} onClick={toggleMenuFn} ><IoIosArrowBack className={styles.arrowBack} /></div> */}
             <div ref={refOne} className={`${toggleMenu ? `${styles.showBg}  ${styles.bg}` : `${styles.bg}`}`}></div>
             <div className={`${toggleMenu ? `${styles.showsidebar}  ${styles.sidebar}` : `${styles.sidebar}`}`}>
 
@@ -82,6 +76,26 @@ const MobileSidebar = () => {
                             <strong className={styles.strong}>Product Manager</strong>
                         </div>
                     </div>
+                </div>
+
+
+                <div className={styles.menuLinks} >
+                    <Link className={`${styles.heading} flex items-center gap-3`} href="/" ><CiHome className={styles.icon} /> Home</Link>
+                    <div className={` ${styles.tabs} grid gap-3`}  >
+
+                        <div className={`${styles.heading} flex items-center gap-3`} >
+                            <CiClock1 className={styles.icon} />
+                            <strong> Recent</strong>
+                        </div>
+
+
+                        {sections.map((item) => (
+                            <Link className={styles.sectionTabs} key={item.title} href={item.content} >{item.content}</Link>
+                        ))}
+                    </div>
+
+
+
                 </div>
 
             </div>
