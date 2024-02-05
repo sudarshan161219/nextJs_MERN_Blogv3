@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { Navbar, Footer, MobileSidebar } from "@/components/export";
+import { Navbar, Footer, MobileSidebar, Navmodal } from "@/components/export";
 import { ContextProvider } from "@/context/Context";
 import { Auth } from "@/components/export";
 import "./globals.css";
@@ -16,7 +16,8 @@ export default function RootLayout({ children }) {
       <body>
         <ContextProvider>
           <Navbar />
-          <MobileSidebar />
+          {/* <MobileSidebar /> */}
+          <Navmodal />
           <Auth />
           <main className={inter.className}>{children}</main>
           <Footer />

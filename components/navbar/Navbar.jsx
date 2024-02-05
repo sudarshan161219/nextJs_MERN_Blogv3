@@ -19,7 +19,7 @@ import { GoPencil } from "react-icons/go";
 const inter = Inter({ subsets: ["latin"] });
 
 const Navbar = () => {
-  const { toggleMenuFn, toggleTheme, toggleAuthModal ,  toggleMenu} = useAppContext()
+  const { toggleMenuFn, toggleTheme, toggleAuthModal, toggleMenu } = useAppContext()
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathname = usePathname()
   const { data, status } = useSession()
@@ -50,7 +50,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [ toggleMenu]);
+  }, [toggleMenu]);
 
 
   if (pathRegister || pathforgot_password || pathwrite) {
@@ -63,12 +63,6 @@ const Navbar = () => {
         `${scrollPosition > 100 ? ` ${styles.stickyNav}  ${inter.className}` : `${styles.container} ${inter.className}`}`
       }>
 
-
-      <div className={styles.moblieSideBar} onClick={toggleMenuFn}>
-        <div className={styles.imageContainer} >
-          <Image src="https://images.unsplash.com/photo-1706115963936-43054590f598?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile-picture" fill />
-        </div>
-      </div>
       <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
       <div>
         <ul className="flex items-center gap-4">
@@ -90,6 +84,12 @@ const Navbar = () => {
               <CiUser className={styles.userIcon} />
             </li>
           }
+
+          <div className={styles.moblieSideBar} onClick={toggleMenuFn}>
+            <div className={styles.imageContainer} >
+              <Image src="https://images.unsplash.com/photo-1706115963936-43054590f598?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile-picture" fill />
+            </div>
+          </div>
         </ul>
       </div>
 

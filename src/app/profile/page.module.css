@@ -2,17 +2,15 @@
   padding: 10px;
 } */
 
-.profileContainer{
-    position: relative;
+.profileContainer {
+  position: relative;
 }
 
 .bgContainer {
   background-color: aqua;
   width: 100%;
-  height: 150px;
+  height: 130px;
 }
-
-
 
 .imgContainer {
   position: relative;
@@ -22,11 +20,28 @@
   overflow: hidden;
 }
 
-
 .imgMainContainer {
-    position: absolute;
-    width: 100%;
-    top: 100px;
-    display: flex;
-    justify-content: center;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.h1 {
+  color: var(--textColor);
+  font-size: 25px;
+}
+
+.p {
+  color: var(--softTextColor);
+  line-height: 140%;
+}
+
+.authorInfo {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem;
 }

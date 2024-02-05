@@ -19,6 +19,7 @@ import AuthorPosts from "./authorPosts/AuthorPosts";
 import RecentTags from "./recentTags/RecentTags";
 import Select from "./select/Select.jsx";
 import MobileSidebar from "./mobileSidebar/MobileSidebar";
+import Navmodal from "./navModal/Navmodal"
 
 export {
   Navbar,
@@ -42,4 +43,5 @@ export {
   RecentTags,
   Select,
   MobileSidebar,
+  Navmodal
 };
