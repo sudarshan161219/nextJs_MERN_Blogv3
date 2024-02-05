@@ -1,15 +1,17 @@
 .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   position: fixed;
   left: 0;
-  top: 50px;
+  top: 0px;
   background-color: var(--bg);
   height: 100vh;
   width: 100%;
   z-index: 10;
   transition: ease-in-out 0.3s;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-top: var(--textColor) 1px solid;
   transform: translateY(700px);
   opacity: 0;
@@ -32,8 +34,18 @@
   color: var(--textColor);
 }
 
-@media screen and (min-width:1000px) {
-  .container{
+.header {
+  width: 100%;
+}
+
+.closeIcon {
+  color: var(--textColor);
+  font-size: 35px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
     display: none;
   }
 }

@@ -64,9 +64,9 @@ const Navbar = () => {
       }>
 
       <Link href={"/"} className={styles.textLogo}>SH || BLOG</Link>
-      <div>
-        <ul className="flex items-center gap-4">
-          {/* <li className={styles.link}><ThemeChanger /></li> */}
+      <div className="flex gap-5" >
+        <ul className="flex items-center gap-3">
+          <li className={styles.link}><ThemeChanger /></li>
           <li className={styles.link}>
             <Link href={"/search"}><IoIosSearch className={styles.searchicon} /></Link>
           </li>
@@ -75,7 +75,7 @@ const Navbar = () => {
               <GoPencil className={styles.writeicon} />
             </Link>
           </li>} */}
-          {status === 'authenticated' ?
+          {/* {status === 'authenticated' ?
             <li className={styles.link} onClick={signOut}  >
               <IoIosLogOut className={styles.userIcon} />
             </li>
@@ -83,18 +83,28 @@ const Navbar = () => {
             <li className={styles.link} onClick={toggleAuthModal} >
               <CiUser className={styles.userIcon} />
             </li>
-          }
+          } */}
 
-          <div className={styles.moblieSideBar} onClick={toggleMenuFn}>
-            <div className={styles.imageContainer} >
-              <Image src="https://images.unsplash.com/photo-1706115963936-43054590f598?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile-picture" fill />
-            </div>
-          </div>
+
         </ul>
+
+        {
+          status === 'authenticated' ?
+            <div className={styles.moblieSideBar} onClick={toggleMenuFn}>
+              <div className={styles.imageContainer} >
+                <Image src="https://images.unsplash.com/photo-1706115963936-43054590f598?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile-picture" fill />
+              </div>
+            </div>
+
+            :
+
+            <CiUser onClick={toggleAuthModal} className={styles.userIcon} />
+        }
+
       </div>
 
 
-      <MobileNav />
+      {/* <MobileNav /> */}
     </nav>
   )
 }

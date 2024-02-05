@@ -2,11 +2,15 @@
 import Link from 'next/link'
 import styles from "./mobile.module.css"
 import { useAppContext } from "@/context/Context"
+import { signOut, useSession } from "next-auth/react"
+import { Inter } from "next/font/google";
+import { IoClose } from "react-icons/io5";
 
 
+const inter = Inter({ subsets: ["latin"] });
 const MobileNav = () => {
     const { toggleMenu, toggleMobileMenu } = useAppContext()
-
+    const { data, status } = useSession()
 
     const navLinks = [
         { name: 'Home', to: '/' },
@@ -16,12 +20,15 @@ const MobileNav = () => {
     ]
 
     return (
-        <div className={toggleMobileMenu ? `${styles.show} ${styles.container}` : `${styles.container}`}>
+        <div className={toggleMenu ? `${styles.show} ${styles.container} ${inter.className}` : `${styles.container} ${inter.className}`}>
+            <header className={`flex justify-end items-center w-full  ${styles.header}`} >
+                <IoClose className={styles.closeIcon} />
+            </header>
             <ul className={styles.links}>
                 {navLinks.map((item, idx) => (
                     <li key={idx} onClick={toggleMenu}> <Link className={styles.link} href={item.to}>{item.name}</Link>  </li>
                 ))}
-                <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> Login</Link> </li>
+                {status === 'authenticated' ? <li className={styles.link}> Logout </li> : <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> Login</Link> </li>}
             </ul>
         </div>
     )
