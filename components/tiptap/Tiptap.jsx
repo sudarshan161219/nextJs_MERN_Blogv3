@@ -9,7 +9,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import { convertToBase64 } from "@/src/utils/convert"
 import { MdDeleteOutline } from "react-icons/md";
 import categories from "@/src/app/data/catagories.json"
-import { Select } from 'antd';
+import { ConfigProvider, Select } from 'antd';
 
 
 
@@ -109,7 +109,7 @@ const Tiptap = () => {
 
 
     const filterOption = (input, option) =>
-    (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+        (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
     const onChange = (value) => {
         console.log(`selected ${value}`);
@@ -137,7 +137,7 @@ const Tiptap = () => {
             content: editorContent,
         }));
     }
-   
+
     const handlePublish = () => {
 
     }
@@ -162,7 +162,7 @@ const Tiptap = () => {
 
     const mappedOptions = categories.map(option => ({
         value: option.name,
-        label: option.name.toUpperCase(), 
+        label: option.name.toUpperCase(),
     }));
 
 
@@ -189,15 +189,16 @@ const Tiptap = () => {
                     <textarea className={styles.textarea} value={formData.description} onChange={handleInputChange} name="description" placeholder="description" rows="10"></textarea>
 
 
-                    <Select
-                        showSearch
-                        placeholder="Select a category"
-                        optionFilterProp="children"
-                        onChange={onChange}
-                        onSearch={onSearch}
-                        filterOption={filterOption}
-                        options={mappedOptions}
-                    />
+                        <Select
+                            showSearch
+                            placeholder="Select a category"
+                            optionFilterProp="children"
+                            onChange={onChange}
+                            onSearch={onSearch}
+                            filterOption={filterOption}
+                            options={mappedOptions}
+                        />
+
 
                     <div className={styles.coverimgcontainer}>
                         {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}

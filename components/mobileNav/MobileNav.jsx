@@ -9,7 +9,7 @@ import { IoClose } from "react-icons/io5";
 
 const inter = Inter({ subsets: ["latin"] });
 const MobileNav = () => {
-    const { toggleMenu, toggleMobileMenu } = useAppContext()
+    const { toggleMenu, toggleMobileMenu , toggleMenuFn} = useAppContext()
     const { data, status } = useSession()
 
     const navLinks = [
@@ -22,13 +22,13 @@ const MobileNav = () => {
     return (
         <div className={toggleMenu ? `${styles.show} ${styles.container} ${inter.className}` : `${styles.container} ${inter.className}`}>
             <header className={`flex justify-end items-center w-full  ${styles.header}`} >
-                <IoClose className={styles.closeIcon} />
+                <IoClose onClick={toggleMenuFn}className={styles.closeIcon} />
             </header>
             <ul className={styles.links}>
                 {navLinks.map((item, idx) => (
-                    <li key={idx} onClick={toggleMenu}> <Link className={styles.link} href={item.to}>{item.name}</Link>  </li>
+                    <li key={idx} onClick={toggleMenuFn}> <Link className={styles.link} href={item.to}>{item.name}</Link>  </li>
                 ))}
-                {status === 'authenticated' ? <li className={styles.link}> Logout </li> : <li onClick={toggleMenu}> <Link className={styles.link} href="/register"> Login</Link> </li>}
+                {status === 'authenticated' ? <li className={styles.link}> Logout </li> : <li onClick={toggleMenuFn}> <Link className={styles.link} href="/register"> Login</Link> </li>}
             </ul>
         </div>
     )

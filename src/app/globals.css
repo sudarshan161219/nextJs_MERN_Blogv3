@@ -442,7 +442,9 @@ blockquote {
   opacity: 0 !important;
 }
 
-
+.ant-select-selection-placeholder{
+color: var(--textColor) !important;
+}
 
 @media screen and (min-width: 700px) {
   .tiptap.ProseMirror img {
