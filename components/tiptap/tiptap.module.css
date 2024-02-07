@@ -236,6 +236,13 @@
   display: none;
 }
 
+.form {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 15px;
+}
+
 @media screen and (min-width: 700px) {
   .textLogo {
     color: var(--textColor);
@@ -253,6 +260,7 @@
   .form {
     display: grid;
     margin-bottom: 3rem;
+    gap: 10px;
   }
 
   .titleInput,

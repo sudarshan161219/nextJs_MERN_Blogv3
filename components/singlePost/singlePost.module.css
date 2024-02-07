@@ -142,6 +142,10 @@
   border-bottom: var(--softTextColor) 1px solid;
 } */
 
+.desktop_topic {
+  display: none;
+}
+
 @media screen and (min-width: 700px) {
   .imgContainer {
     height: 350px;
@@ -149,6 +153,16 @@
 }
 
 @media screen and (min-width: 900px) {
+  /* .post_comment_container {
+    display: flex;
+  }
+
+  .desktop_topic {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(auto-fit, minMax(min(100%, 255px), 2fr));
+  } */
+
   .imgContainer {
     height: 550px;
   }
@@ -162,7 +176,8 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .Postcontainer, .commentsContainer {
+  .Postcontainer,
+  .commentsContainer {
     width: 900px;
     margin: auto;
   }
