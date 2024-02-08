@@ -116,6 +116,10 @@
     border-top-right-radius: none;
     border-top-left-radius: none;
   }
+
+  .icon{
+    display: none;
+  }
 }
 
 

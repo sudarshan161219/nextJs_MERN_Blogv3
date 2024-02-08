@@ -142,6 +142,10 @@
   border-bottom: var(--softTextColor) 1px solid;
 } */
 
+.descommentContainer{
+  display: none;
+}
+
 .desktop_topic {
   display: none;
 }
@@ -149,6 +153,18 @@
 @media screen and (min-width: 700px) {
   .imgContainer {
     height: 350px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .commentContainer{
+    display: none;
+  }
+
+  .descommentContainer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
   }
 }
 
