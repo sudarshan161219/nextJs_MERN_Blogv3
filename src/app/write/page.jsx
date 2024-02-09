@@ -5,7 +5,6 @@ import Link from "next/link"
 const page = () => {
     return (
         <div className={styles.container}>
-        
             <Tiptap />
         </div>
     )

@@ -17,10 +17,14 @@ const Tiptap = () => {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        content: ''
+        content: '',
+        category: '',
+        coverImg: '',
+        tags: []
     });
     const [editorContent, setEditorContent] = useState("");
     const [file, setFile] = useState();
+    const [tags, setTags] = useState([])
     const [onMedia, setOnMedia] = useState(false)
 
     const editor = useEditor({
@@ -104,6 +108,10 @@ const Tiptap = () => {
         `,
         onUpdate({ editor }) {
             setEditorContent(editor.getHTML());
+            setFormData((prevData) => ({
+                ...prevData,
+                content: editor.getHTML(),
+            }));
         },
     })
 
@@ -112,8 +120,13 @@ const Tiptap = () => {
         (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
     const onChange = (value) => {
-        console.log(`selected ${value}`);
+        ;
+        setFormData((prevData) => ({
+            ...prevData,
+            category: value,
+        }));
     };
+
     const onSearch = (value) => {
         console.log('search:', value);
     };
@@ -128,6 +141,7 @@ const Tiptap = () => {
 
     const handlePost = () => {
         console.log(editorContent);
+
     }
 
     const handleDraft = () => {
@@ -139,13 +153,17 @@ const Tiptap = () => {
     }
 
     const handlePublish = () => {
-
+        console.log(formData);
     }
 
     const onUpload = async (e) => {
         try {
             const base64 = await convertToBase64(e.target.files[0]);
             setFile(base64);
+            setFormData((prevData) => ({
+                ...prevData,
+                coverImg: base64,
+            }));
         } catch (error) {
             console.log(error);
         }
@@ -189,16 +207,20 @@ const Tiptap = () => {
                     <textarea className={styles.textarea} value={formData.description} onChange={handleInputChange} name="description" placeholder="description" rows="10"></textarea>
 
 
-                        <Select
-                            showSearch
-                            placeholder="Select a category"
-                            optionFilterProp="children"
-                            onChange={onChange}
-                            onSearch={onSearch}
-                            filterOption={filterOption}
-                            options={mappedOptions}
-                        />
+                    <Select
+                        showSearch
+                        placeholder="Select a category"
+                        optionFilterProp="children"
+                        onChange={onChange}
+                        onSearch={onSearch}
+                        filterOption={filterOption}
+                        options={mappedOptions}
+                    />
 
+                    <div className={styles.input_btn_container}>
+                        <input type="text" className={styles.tagInput} placeholder="enter tags" />
+                        <button type="button" className={styles.addtagBtn}>add tag</button>
+                    </div>
 
                     <div className={styles.coverimgcontainer}>
                         {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
