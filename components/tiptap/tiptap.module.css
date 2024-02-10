@@ -265,6 +265,17 @@
   border: none;
   outline: none;
   color: var(--softTextColor);
+  background-color: var(--softBg);
+}
+
+.tagsContainer{
+  padding: 10px;
+  background-color: var(--softBg);
+  border-radius: 10px;
+}
+
+.litag{
+  color: var(--textColor);
 }
 
 @media screen and (min-width: 700px) {

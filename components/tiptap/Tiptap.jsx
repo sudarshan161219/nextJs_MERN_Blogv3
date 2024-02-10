@@ -25,6 +25,7 @@ const Tiptap = () => {
     const [editorContent, setEditorContent] = useState("");
     const [file, setFile] = useState();
     const [tags, setTags] = useState([])
+    const [tag, setTag] = useState('')
     const [onMedia, setOnMedia] = useState(false)
 
     const editor = useEditor({
@@ -120,7 +121,6 @@ const Tiptap = () => {
         (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
     const onChange = (value) => {
-        ;
         setFormData((prevData) => ({
             ...prevData,
             category: value,
@@ -174,6 +174,30 @@ const Tiptap = () => {
         setOnMedia(!onMedia)
     }
 
+    const handletagInput = (e) => {
+        setTag(e.target.value)
+        e.target.value = ''
+        // if (e.key === 'Enter') {
+        // handlePushTag(e.target.value);
+        //    ; // Clear input after adding tag
+        //   }
+    }
+
+    const handlePushTag = (e) => {
+        if (tags.includes(tag)) {
+            return
+        }
+        setTags([...tags, tag])
+        setTag("");
+    }
+
+    function handleKeyDown(event) {
+        if (event.key === 'Enter') {
+            setTags([...tags, tag])
+            setTag("");
+        }
+    }
+
     const handleRemove = () => {
         setFile();
     }
@@ -183,6 +207,10 @@ const Tiptap = () => {
         label: option.name.toUpperCase(),
     }));
 
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
 
     if (!editor) {
         return null
@@ -201,7 +229,7 @@ const Tiptap = () => {
                 </div>
             </nav>
             <div className={styles.container}>
-                <form className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <input className={styles.titleInput} value={formData.title} onChange={handleInputChange} name="title" type="text" placeholder="title" />
 
                     <textarea className={styles.textarea} value={formData.description} onChange={handleInputChange} name="description" placeholder="description" rows="10"></textarea>
@@ -218,9 +246,18 @@ const Tiptap = () => {
                     />
 
                     <div className={styles.input_btn_container}>
-                        <input type="text" className={styles.tagInput} placeholder="enter tags" />
-                        <button type="button" className={styles.addtagBtn}>add tag</button>
+                        <input type="text" value={tag} onKeyDown={handleKeyDown} onChange={handletagInput} className={styles.tagInput} placeholder="enter tags" />
+                        <button onClick={handlePushTag} type="button" className={styles.addtagBtn}>add tag</button>
                     </div>
+
+                    {tags.length > 1 && <div className={styles.tagsContainer} >
+                        <ul className="flex gap-3">
+                            {tags.map((item) => (
+                                <li className={styles.litag} key={item}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    }
 
                     <div className={styles.coverimgcontainer}>
                         {file && <div onClick={handleRemove} className={styles.deleteContainer}><MdDeleteOutline className={styles.deleteIcon} /></div>}
@@ -250,6 +287,9 @@ const Tiptap = () => {
                 <div className="mt-3 mb-3" >
                     <EditorContent editor={editor} />
                 </div>
+
+
+
 
                 {/* <button className={styles.post} onClick={handlePost}>post</button> */}
                 {/* <div dangerouslySetInnerHTML={{ __html: editorContent }} /> */}
