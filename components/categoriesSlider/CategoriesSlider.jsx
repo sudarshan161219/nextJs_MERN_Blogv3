@@ -37,41 +37,40 @@ const CategoriesSlider = ({ catagories }) => {
 
   const sliderRef = useRef(null);
 
-  function getWindowSize() {
-    const { innerWidth, innerHeight } = window;
-    return { innerWidth, innerHeight };
-  }
+  // function getWindowSize() {
+  //   const { innerWidth, innerHeight } = window;
+  //   return { innerWidth, innerHeight };
+  // }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function resizefn() {
-    const { innerWidth } = windowSize;
-
-    if (innerWidth <= 500) {
-      setWsize(1);
-    } else if (innerWidth >= 500 && innerWidth < 700) {
-      setWsize(2);
-    } else if (innerWidth >= 700 && innerWidth < 1020) {
-      setWsize(4);
-    } else if (innerWidth >= 1020 && innerWidth < 1280) {
-      setWsize(4);
-    } else if (innerWidth >= 1280) {
-      setWsize(5);
-    }
-  }
-
+  
   useEffect(() => {
     const handleWindowResize = debounce(() => {
-      setWindowSize(getWindowSize());
+      const innerWidth = window.innerWidth;
+  
+      if (innerWidth <= 500) {
+        setWsize(1);
+      } else if (innerWidth < 700) {
+        setWsize(2);
+      } else if (innerWidth < 1020) {
+        setWsize(3);
+      } else if (innerWidth < 1280) {
+        setWsize(4);
+      } else {
+        setWsize(5);
+      }
     }, 200);
-
-    resizefn();
+  
+    handleWindowResize();
 
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [resizefn]);
+  }, []);
+  
+
+  console.log(wsize, innerWidth);
 
   const settings = {
     infinite: true,
@@ -91,7 +90,6 @@ const CategoriesSlider = ({ catagories }) => {
 
   let shuffledBg = shuffleArray([...bgColor]);
   shuffledBg.length = catagories.length;
-
 
   return (
     <div className='relative '>
